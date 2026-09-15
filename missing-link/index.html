@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A discreet matchmaking community for matured singles who are ready for companionship, love and a lasting partnership.">
+<meta name="robots" content="noindex">
+<title>The Missing Link — Matchmaking for matured singles</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20rx%3D%225%22%20fill%3D%22%230E7A55%22/%3E%3Csvg%20viewBox%3D%220%200%2024%2024%22%20transform%3D%22scale%28.8%29%20translate%283%203%29%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%3E%3Ccircle%20cx%3D%229.2%22%20cy%3D%2212%22%20r%3D%225.1%22/%3E%3Ccircle%20cx%3D%2214.8%22%20cy%3D%2212%22%20r%3D%225.1%22/%3E%3C/svg%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#FBF8F1; --bg-glass:rgba(251,248,241,.93); --hero-bg:#FDFBF6;
+  --sand:#F2EDE2; --tint:#E6F1EA; --white:#fff;
+  --line:#E4DCCB; --line-s:#D8CFBC;
+  --ink:#16302A; --ink-2:#41564E; --muted:#6B7C74;
+  --primary:#0E7A55; --primary-d:#0A5E41; --on-primary:#fff;
+  --accent:#D9962A; --accent-d:#A8710E; --on-accent:#3B2900;
+  --focus:#EFD9A6;
+  --red:#B03A2E; --red-bg:#FAEDEB; --red-line:#E9CCC7;
+  --ok:#0A5E41; --ok-bg:#DCEFE5;
+  --warn:#8A6A10; --warn-bg:#FBF1D8; --warn-line:#EBDCA9;
+  --scrim:rgba(16,48,42,.55);
+  --side-txt:#D5E5DD; --side-mut:#7FA391; --foot-link:#B9DCC9;
+  --display:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --dw:600; --dls:-.015em;
+  --card-r:16px; --btn-r:999px; --in-r:10px; --mark-r:50%;
+  --sh:0 1px 2px rgba(16,48,42,.06),0 8px 22px rgba(16,48,42,.06);
+  --sh-lg:0 2px 6px rgba(16,48,42,.06),0 18px 44px rgba(16,48,42,.09);
+  --btn-sh:0 2px 8px rgba(14,122,85,.18);
+  --rule:linear-gradient(90deg,#0E7A55 0 34%,#D9962A 34% 66%,#0E7A55 66%);
+  --tex:radial-gradient(#CFE3D7 1.1px,transparent 1.2px),radial-gradient(#CFE3D7 1.1px,transparent 1.2px);
+  --tex-size:26px 26px; --tex-pos:0 0,13px 13px; --tex-op:.5;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--display);font-weight:var(--dw);line-height:1.15;margin:0 0 .5em;letter-spacing:var(--dls)}
+h1{font-size:clamp(2.1rem,5vw,3.5rem)}
+h2{font-size:clamp(1.5rem,3vw,2.15rem)}
+h3{font-size:1.14rem}
+p{margin:0 0 1em}
+a{color:var(--primary-d)}
+img{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.narrow{max-width:720px;margin:0 auto;padding:0 24px}
+.eyebrow{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-d);font-weight:800;margin-bottom:14px}
+
+/* decorative backdrop */
+.tex{background-image:var(--tex);background-size:var(--tex-size);background-position:var(--tex-pos)}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:50;background:var(--bg-glass);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.rule{height:4px;background:var(--rule)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 24px;max-width:1120px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:11px;cursor:pointer;text-decoration:none;color:var(--ink)}
+.brand .mark{width:36px;height:36px;border-radius:var(--mark-r);background:var(--primary);display:grid;place-items:center;flex:none}
+.brand .mark svg{width:20px;height:20px;display:block}
+.brand b{font-family:var(--display);font-size:19px;font-weight:var(--dw);letter-spacing:var(--dls);display:block;line-height:1.15}
+.brand small{display:block;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-family:var(--sans);font-weight:600}
+.nav-links{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-size:14.5px;font-weight:700;padding:11px 20px;border-radius:var(--btn-r);border:1.5px solid transparent;cursor:pointer;text-decoration:none;transition:.15s;white-space:nowrap;line-height:1.2}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--primary);color:var(--on-primary);box-shadow:var(--btn-sh)}
+.btn-primary:hover{background:var(--primary-d)}
+.btn-accent{background:var(--accent);color:var(--on-accent);box-shadow:var(--btn-sh)}
+.btn-accent:hover{background:var(--accent-d)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-s)}
+.btn-ghost:hover{background:var(--sand);border-color:var(--primary)}
+.btn-quiet{background:transparent;color:var(--muted);border-color:transparent;padding:9px 12px;font-weight:600}
+.btn-quiet:hover{color:var(--ink);background:var(--sand)}
+.btn-danger{background:transparent;color:var(--red);border-color:var(--red-line)}
+.btn-danger:hover{background:var(--red-bg)}
+.btn-sm{font-size:13px;padding:8px 14px}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn-block{width:100%}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:var(--hero-bg)}
+.hero .tex{position:absolute;inset:0;opacity:var(--tex-op)}
+.hero-in{position:relative;padding:82px 0 74px;display:grid;grid-template-columns:1.12fr .88fr;gap:54px;align-items:center}
+.hero p.lede{font-size:18.5px;color:var(--ink-2);max-width:52ch}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.trust{margin-top:28px;font-size:13.5px;color:var(--muted);display:flex;gap:18px;flex-wrap:wrap}
+.trust span{display:flex;align-items:center;gap:7px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+.hero-card{background:var(--white);border:1px solid var(--line);border-radius:var(--card-r);box-shadow:var(--sh-lg);padding:22px}
+.hero-card h4{font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:800}
+.mini{display:flex;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--sand)}
+.mini:last-child{border-bottom:0}
+.av{width:40px;height:40px;border-radius:50%;background:var(--tint);display:grid;place-items:center;font-family:var(--display);color:var(--primary-d);font-size:15px;font-weight:700;flex:none;overflow:hidden}
+.av img{width:100%;height:100%;object-fit:cover}
+.mini b{font-size:14.5px;display:block}
+.mini small{color:var(--muted);font-size:12.5px}
+
+/* sections */
+section{padding:74px 0}
+.section-alt{background:var(--sand)}
+.section-tint{background:var(--tint)}
+.center{text-align:center;max-width:660px;margin:0 auto}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:36px}
+.grid5{display:grid;grid-template-columns:repeat(auto-fit,minmax(186px,1fr));gap:18px;margin-top:36px}
+.grid5 .card{padding:22px 20px}
+.grid5 h3{font-size:1.08rem}
+.grid5 p{font-size:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--card-r);padding:24px;box-shadow:var(--sh)}
+.card-flat{box-shadow:none}
+.step-n{width:34px;height:34px;border-radius:var(--mark-r);background:var(--primary);color:var(--on-primary);display:grid;place-items:center;font-family:var(--display);font-size:16px;font-weight:700;margin-bottom:15px}
+.card p{font-size:14.6px;color:var(--ink-2);margin:0}
+.pull{font-family:var(--display);font-size:clamp(1.25rem,2.6vw,1.7rem);line-height:1.35;color:var(--primary-d);max-width:24ch}
+
+/* forms */
+.field{margin-bottom:20px}
+label.lb{display:block;font-size:13.5px;font-weight:700;margin-bottom:6px}
+.hint{font-size:12.8px;color:var(--muted);margin:-2px 0 8px;line-height:1.5}
+input[type=text],input[type=email],input[type=tel],input[type=number],input[type=date],select,textarea{
+  width:100%;font:inherit;font-size:15px;padding:11px 13px;border:1.5px solid var(--line-s);border-radius:var(--in-r);background:var(--white);color:var(--ink)}
+textarea{min-height:96px;resize:vertical;line-height:1.55}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--focus);outline-offset:1px;border-color:var(--primary)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line-s);background:var(--white);border-radius:999px;padding:8px 15px;font-size:13.6px;font-weight:600;cursor:pointer;user-select:none;transition:.12s}
+.chip:hover{border-color:var(--primary)}
+.chip.on{background:var(--primary);color:var(--on-primary);border-color:var(--primary)}
+.chip.on.accent{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.chip.dim{opacity:.45}
+.err{color:var(--red);font-size:13px;margin-top:8px;font-weight:600}
+.counter{font-size:12.5px;color:var(--muted);margin-top:8px}
+.counter b{color:var(--accent-d)}
+
+/* progress */
+.prog{display:flex;gap:6px;margin-bottom:9px}
+.prog i{height:5px;flex:1;background:var(--line);border-radius:3px;transition:.2s}
+.prog i.on{background:var(--accent)}
+.stepmeta{font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;font-weight:700}
+
+/* badges */
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:999px;background:var(--sand);color:var(--muted);white-space:nowrap}
+.b-pending{background:var(--warn-bg);color:var(--warn)}
+.b-approved,.b-accepted{background:var(--ok-bg);color:var(--ok)}
+.b-declined{background:var(--red-bg);color:var(--red)}
+.b-paused{background:var(--sand);color:var(--muted)}
+.b-proposed{background:var(--tint);color:var(--primary-d)}
+.b-talking{background:var(--tint);color:var(--primary-d)}
+.b-married{background:var(--warn-bg);color:var(--warn)}
+
+/* tables + admin */
+.admin-shell{display:grid;grid-template-columns:216px 1fr;min-height:calc(100vh - 62px)}
+.side{background:var(--ink);padding:22px 14px;color:var(--side-txt)}
+.side h5{font-family:var(--sans);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--side-mut);margin:18px 10px 8px;font-weight:800}
+.side a{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 11px;border-radius:9px;color:var(--side-txt);text-decoration:none;font-size:14.2px;cursor:pointer;margin-bottom:2px;font-weight:600}
+.side a:hover{background:rgba(255,255,255,.08)}
+.side a.on{background:var(--accent);color:var(--on-accent)}
+.side .cnt{background:rgba(255,255,255,.16);border-radius:999px;font-size:11.5px;padding:1px 8px;font-weight:700}
+.side a.on .cnt{background:rgba(0,0,0,.16)}
+.main{padding:28px 30px 80px;min-width:0}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+.toolbar select,.toolbar input{width:auto;min-width:150px;font-size:14px;padding:8px 11px}
+table{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:14.2px}
+th{text-align:left;background:var(--sand);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:11px 14px;white-space:nowrap;font-weight:800}
+td{padding:12px 14px;border-top:1px solid var(--sand);vertical-align:middle}
+tr:hover td{background:var(--tint)}
+.tname{display:flex;align-items:center;gap:10px}
+.tname b{font-size:14.5px}
+.tname small{display:block;color:var(--muted);font-size:12.2px}
+.empty{text-align:center;padding:52px 20px;color:var(--muted);background:var(--white);border:1.5px dashed var(--line-s);border-radius:14px}
+
+/* profile detail */
+.detail{display:grid;grid-template-columns:1fr 330px;gap:24px;align-items:start}
+.kv{display:grid;grid-template-columns:186px 1fr;gap:8px 16px;font-size:14.3px;margin:0}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;font-weight:600}
+.sect-h{font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:800;margin:26px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--sand)}
+.sect-h:first-child{margin-top:0}
+.quote{background:var(--sand);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 10px 10px 0;margin-bottom:12px;font-size:14.5px}
+.quote b{display:block;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;font-weight:800}
+.note{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:10px;padding:12px 14px;font-size:14px;margin-bottom:10px}
+.note small{color:var(--muted);font-size:12px;display:block;margin-top:6px}
+.note-alert{background:var(--red-bg);border-color:var(--red-line)}
+.conduct{background:var(--tint);border-radius:14px;padding:22px;margin:28px 0}
+.conduct.dp{background:var(--sand)}
+.conduct h4{font-family:var(--sans);font-size:15px;margin-bottom:6px}
+.conduct ul{margin:12px 0 0;padding-left:20px}
+.conduct li{margin-bottom:9px;font-size:14.6px;color:var(--ink-2);line-height:1.5}
+.check{display:flex;gap:11px;align-items:flex-start;margin-top:18px;font-size:14.6px;font-weight:700;cursor:pointer}
+.check input{width:19px;height:19px;flex:none;margin:2px 0 0;accent-color:var(--primary)}
+.flag{display:flex;gap:9px;align-items:flex-start;font-size:14px;padding:8px 0;border-bottom:1px solid var(--sand)}
+.flag:last-child{border-bottom:0}
+.flag i{font-style:normal;font-weight:800;flex:none;width:19px;height:19px;border-radius:50%;display:grid;place-items:center;font-size:11px;margin-top:2px}
+.flag.ok i{background:var(--ok-bg);color:var(--ok)}
+.flag.no i{background:var(--red-bg);color:var(--red)}
+.flag.hm i{background:var(--warn-bg);color:var(--warn)}
+.flag.db{background:var(--red-bg);border-radius:9px;padding:9px 11px;border-bottom:0;margin-bottom:6px}
+.score{font-family:var(--display);font-size:42px;line-height:1;color:var(--primary-d);font-weight:700}
+
+/* deal breakers */
+.db-tag{display:inline-flex;align-items:center;gap:6px;background:var(--red-bg);color:var(--red);border:1px solid var(--red-line);border-radius:999px;padding:4px 11px;font-size:12.5px;font-weight:700;margin:0 6px 6px 0}
+
+/* slate (two options) */
+.slate{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.opt{background:var(--white);border:2px solid var(--line);border-radius:var(--card-r);padding:20px;display:flex;flex-direction:column;transition:.15s}
+.opt:hover{border-color:var(--primary)}
+.opt.chosen{border-color:var(--primary);box-shadow:0 0 0 3px var(--tint)}
+.opt .top{display:flex;gap:13px;align-items:center;margin-bottom:14px}
+.opt .top b{font-family:var(--display);font-size:17.5px;display:block;font-weight:var(--dw)}
+.opt .top small{color:var(--muted);font-size:13px}
+.opt .grow{flex:1}
+.lock{margin-top:14px;padding:11px 13px;background:var(--sand);border-radius:10px;font-size:13.4px;color:var(--muted)}
+.vs{display:grid;place-items:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800}
+
+/* modal + toast */
+.modal-bg{position:fixed;inset:0;background:var(--scrim);display:grid;place-items:center;z-index:100;padding:24px}
+.modal{background:var(--bg);border-radius:18px;max-width:660px;width:100%;max-height:86vh;overflow:auto;padding:28px;box-shadow:0 24px 70px rgba(0,0,0,.32)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-size:14.5px;z-index:200;box-shadow:0 8px 30px rgba(0,0,0,.25);font-weight:600}
+.foot{background:var(--ink);color:var(--side-txt);padding:40px 0;font-size:13.5px}
+.foot a{color:var(--foot-link)}
+.foot b{color:#fff;font-family:var(--display);font-size:17px;font-weight:var(--dw)}
+.foot .tag{margin-top:4px}
+.photo-grid{display:flex;gap:10px;flex-wrap:wrap}
+.photo-grid .ph{width:96px;height:120px;border-radius:10px;object-fit:cover;border:1px solid var(--line);background:var(--sand)}
+.faq{border-top:1px solid var(--line);padding:16px 0}
+.faq summary{cursor:pointer;font-weight:700;font-size:15.5px;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--accent-d);font-weight:800}
+.faq[open] summary::after{content:"\2013"}
+.faq p{margin:10px 0 0;color:var(--ink-2);font-size:14.8px}
+
+@media(max-width:900px){
+  .hero-in{grid-template-columns:1fr;gap:34px;padding:48px 0 52px}
+  .grid3,.grid4,.grid5,.split,.grid2,.slate{grid-template-columns:1fr;gap:20px}
+  .detail{grid-template-columns:1fr}
+  .admin-shell{grid-template-columns:1fr}
+  .side{display:flex;gap:6px;overflow-x:auto;padding:12px}
+  .side h5{display:none}
+  .side a{white-space:nowrap}
+  .row2,.row3{grid-template-columns:1fr}
+  .kv{grid-template-columns:1fr;gap:2px 0}
+  .kv dd{margin-bottom:10px}
+  .main{padding:20px 16px 60px}
+  table{display:block;overflow-x:auto}
+  section{padding:54px 0}
+  .nav-in{padding:11px 16px}
+  .brand small{display:none}
+  .vs{display:none}
+}
+@media(max-width:520px){
+  .nav-links .btn-quiet{display:none}
+}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+window.BRAND = {"key": "missing-link", "name": "The Missing Link", "tagline": "Matchmaking for matured singles", "footer": "Discreet matchmaking for Matured Singles", "audience": "matured singles", "sister": "Curious Space", "ageMin": 40, "ageMax": 99, "dfMin": 42, "dfMax": 62, "adminCode": "matchmaker", "mark": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\"><circle cx=\"9.2\" cy=\"12\" r=\"5.1\"/><circle cx=\"14.8\" cy=\"12\" r=\"5.1\"/></svg>", "hero": {"eyebrow": "By introduction only", "h1": "Sometimes the only thing missing is the&nbsp;link.", "lede": "You are not looking harder — you are looking for the right connection. The Missing Link brings together matured singles who are ready for companionship, love and a partnership that lasts.", "trust": ["Every member personally vetted", "Photos stay private until you both say yes", "No public browsing. Ever."]}, "how": {"h2": "Five steps. No shopping around.", "steps": [{"t": "You apply", "p": "A real questionnaire — your values, your faith and how you actually practise it, family expectations, and the two things you will not compromise on."}, {"t": "We get to know you", "p": "We don't rely on forms alone. Every participant is personally contacted, key information is verified, and we take time to understand the individual behind the application before moving them forward."}, {"t": "We introduce", "p": "When we identify a strong match, you'll receive <em>two</em> private introductions, shown together with a straightforward explanation of why each was chosen. You can select one or pass on both."}, {"t": "You meet", "p": "Photos and contact information become visible only after you <em>both</em> agree. Once that happens, the conversation is yours to take from there."}, {"t": "You review it", "p": "Afterwards you tell us privately how it went and whether you were treated well. It shapes what we send you next, and it is how this stays a place where people are looked after."}]}, "why": {"eyebrow": "Why The Missing Link", "h2": "Built with you in mind.", "body": ["Meaningful matchmaking starts with asking the right questions. Ours are not generic, recycled, or retrofitted to fit a dating profile. They are designed to uncover the values, priorities, expectations, personality and relationship goals that actually decide whether two people are compatible.", "We go beyond &ldquo;who do you like?&rdquo; We want to understand who you are, what matters to you, and who might truly complement you. Because finding the right person is more than making a connection — it is finding the missing link that makes the connection work."], "cta": "Put your name forward", "list": ["How you practise your faith, not just what you call it", "The two things you will not compromise on", "Where you have lived, and how far you would move", "How involved you would like your family to be", "Whether you would consider someone in another country", "Who should never be shown your profile"]}, "faq": [{"q": "Who is this for?", "a": "Matured singles, 40 and above, who are open to meeting someone significant. Divorced, widowed and never-married applicants are equally welcome. If you are under 40, our sister community <b>Curious Space</b> is built for young adults."}, {"q": "What does it cost?", "a": "Fees are discussed on your vetting call, once we understand what you are looking for and are confident we can genuinely help you. Nobody is asked to pay to apply."}, {"q": "Can people browse my profile?", "a": "No. There is no directory and no search. Your profile is seen by your matchmaker, and by one person at a time who you have both agreed to meet."}, {"q": "How many introductions will I receive?", "a": "Two at a time, chosen deliberately, with the reasoning written out for each. You pick one or pass on both. Volume is not the point."}, {"q": "Can I pause?", "a": "Yes — from your portal, at any time, without explaining yourself."}], "close": {"h2": "Ready when you are.", "p": "Applications are reviewed personally. Expect a call within a week."}, "timeline": ["Ready to marry now", "Marriage in 1–2 years", "Committed partnership, marriage optional", "Companionship first, open to more", "An open relationship"], "noMarriage": ["Committed partnership, marriage optional", "Companionship first, open to more", "An open relationship"], "prompts": [{"k": "p1", "q": "Provide a clear, honest snapshot of who you are, and include a few fun facts.", "ph": "Just straightforward details that help us understand you better — not a résumé."}, {"k": "p2", "q": "What does a good partnership look like to you at this stage of your life?", "ph": "Be specific. This is the answer we use most."}, {"k": "p3", "q": "Beyond your two deal breakers, what else is non-negotiable?", "ph": "Say the real thing, not the polite version."}, {"k": "p4", "q": "What has changed about what you want since you were younger?", "ph": "Optional — but it is the answer people respond to most."}], "seed": [{"first": "Grace", "lastName": "Mensah", "gender": "Woman", "seeking": "Men", "dob": "1979-04-12", "city": "Atlanta", "state": "Georgia", "country": "United States", "marital": "Divorced", "journey": "Moved abroad as an adult", "originCountry": "Ghana", "languages": ["English", "Twi"], "faith": "Christian", "denom": "Methodist", "observance": "Practising — weekly, matters a lot", "faithReq": "Must share my faith", "education": "Master's / MBA", "profession": "Hospital administrator", "kidsHas": "Yes, grown and independent", "kidsWants": "No", "familyInv": "Involved — introductions once it's serious", "drink": "Socially", "smoke": "Never", "timeline": "Ready to marry now", "pace": "Steady and intentional", "values": ["Faith", "Family", "Honesty", "Loyalty"], "dealBreakers": ["smoke", "nomarriage"], "ageMin": 45, "ageMax": 60, "relocate": "Yes, for a good reason", "abroad": "Only if they're ready to relocate", "status": "approved", "note": "Warm and very organised. Grown children, both away at university. Said twice that she will not live with a smoker."}, {"first": "Daniel", "lastName": "Okafor", "gender": "Man", "seeking": "Women", "dob": "1976-09-02", "city": "Atlanta", "state": "Georgia", "country": "United States", "marital": "Divorced", "journey": "Moved abroad as a child", "originCountry": "Nigeria", "languages": ["English"], "faith": "Christian", "denom": "Non-denominational", "observance": "Practising — weekly, matters a lot", "faithReq": "Same faith preferred, flexible", "education": "Bachelor's", "profession": "Civil engineer", "kidsHas": "Yes, not living with me", "kidsWants": "No", "familyInv": "Involved — introductions once it's serious", "drink": "Socially", "smoke": "Never", "timeline": "Ready to marry now", "pace": "Steady and intentional", "values": ["Faith", "Family", "Loyalty", "Growth"], "dealBreakers": ["drink", "nomarriage"], "ageMin": 44, "ageMax": 56, "relocate": "Yes, for a good reason", "abroad": "Yes, happy to consider", "status": "approved", "note": "Straightforward, easy to talk to, no games. One teenage son who lives with his mother — he is upfront about it."}, {"first": "Yvette", "lastName": "Laurent", "gender": "Woman", "seeking": "Men", "dob": "1981-02-20", "city": "Montreal", "state": "Quebec", "country": "Canada", "marital": "Never married", "journey": "Born and raised in country of origin", "originCountry": "Canada", "languages": ["English", "French"], "faith": "Spiritual, not religious", "denom": "N/A", "observance": "Cultural — I identify, less practice", "faithReq": "Faith isn't a factor", "education": "Doctorate / MD / JD", "profession": "Dentist", "kidsHas": "No children", "kidsWants": "Not sure yet", "familyInv": "I make this decision on my own", "drink": "Socially", "smoke": "Never", "timeline": "Committed partnership, marriage optional", "pace": "Take it slow", "values": ["Independence", "Honesty", "Adventure", "Health & fitness"], "dealBreakers": ["smoke", "haskids"], "ageMin": 42, "ageMax": 55, "relocate": "Yes, within my region", "abroad": "No, my country only", "status": "approved", "note": "Independent, busy practice, does not need managing. Very clear she does not want to help raise anyone's children."}, {"first": "Marcus", "lastName": "Bell", "gender": "Man", "seeking": "Women", "dob": "1978-06-30", "city": "Atlanta", "state": "Georgia", "country": "United States", "marital": "Widowed", "journey": "Born and raised in country of origin", "originCountry": "United States", "languages": ["English"], "faith": "Christian", "denom": "Baptist", "observance": "Very devout — faith leads my life", "faithReq": "Must share my faith", "education": "Bachelor's", "profession": "Financial adviser", "kidsHas": "Yes, grown and independent", "kidsWants": "No", "familyInv": "Very involved — my family should meet them early", "drink": "Never", "smoke": "Never", "timeline": "Ready to marry now", "pace": "Steady and intentional", "values": ["Faith", "Family", "Kindness", "Community"], "dealBreakers": ["drink", "faith"], "ageMin": 42, "ageMax": 55, "relocate": "Yes, for a good reason", "abroad": "No, my country only", "status": "approved", "note": "Widowed four years ago, ready in his own time. Gentle, church-centred. Faith is genuinely non-negotiable — do not test it."}, {"first": "Priya", "lastName": "Raman", "gender": "Woman", "seeking": "Men", "dob": "1980-11-08", "city": "London", "state": "England", "country": "United Kingdom", "marital": "Divorced", "journey": "Moved abroad as a child", "originCountry": "India", "languages": ["English", "Hindi"], "faith": "Hindu", "denom": "Other", "observance": "Practising — weekly, matters a lot", "faithReq": "Same faith preferred, flexible", "education": "Master's / MBA", "profession": "Programme director", "kidsHas": "Yes, living with me", "kidsWants": "No", "familyInv": "Involved — introductions once it's serious", "drink": "Socially", "smoke": "Never", "timeline": "Marriage in 1–2 years", "pace": "Steady and intentional", "values": ["Family", "Ambition", "Honesty", "Humour"], "dealBreakers": ["smoke", "norelocate"], "ageMin": 43, "ageMax": 56, "relocate": "Yes, within my region", "abroad": "Yes, happy to consider", "status": "approved", "note": "Two children at home, 12 and 9. Needs someone genuinely comfortable with a full house, not someone tolerating it."}, {"first": "Tunde", "lastName": "Balogun", "gender": "Man", "seeking": "Women", "dob": "1979-01-15", "city": "Montreal", "state": "Quebec", "country": "Canada", "marital": "Never married", "journey": "Moved abroad as an adult", "originCountry": "Nigeria", "languages": ["English", "Yoruba", "French"], "faith": "Spiritual, not religious", "denom": "N/A", "observance": "Cultural — I identify, less practice", "faithReq": "Faith isn't a factor", "education": "Master's / MBA", "profession": "Architect", "kidsHas": "No children", "kidsWants": "Not sure yet", "familyInv": "Somewhat involved", "drink": "Socially", "smoke": "Never", "timeline": "Committed partnership, marriage optional", "pace": "Take it slow", "values": ["Independence", "Adventure", "Honesty", "Growth"], "dealBreakers": ["smoke", "haskids"], "ageMin": 40, "ageMax": 52, "relocate": "Yes, within my region", "abroad": "Yes, happy to consider", "status": "approved", "note": "Thoughtful, dry sense of humour, no hurry at all. Reads well against Yvette on paper and did in person too."}, {"first": "Sandra", "lastName": "Mwangi", "gender": "Woman", "seeking": "Men", "dob": "1983-07-19", "city": "Nairobi", "state": "Nairobi County", "country": "Kenya", "marital": "Divorced", "journey": "Live in country of origin", "originCountry": "Kenya", "languages": ["English", "Swahili"], "faith": "Christian", "denom": "Anglican", "observance": "Practising — weekly, matters a lot", "faithReq": "Must share my faith", "education": "Bachelor's", "profession": "Head of school", "kidsHas": "Yes, not living with me", "kidsWants": "No", "familyInv": "Involved — introductions once it's serious", "drink": "Never", "smoke": "Never", "timeline": "Marriage in 1–2 years", "pace": "Steady and intentional", "values": ["Faith", "Family", "Education", "Kindness"], "dealBreakers": ["drink", "smoke"], "ageMin": 42, "ageMax": 58, "relocate": "Yes, anywhere in the world", "abroad": "Yes, happy to consider", "status": "pending", "note": ""}, {"first": "Robert", "lastName": "Kim", "gender": "Man", "seeking": "Women", "dob": "1975-03-25", "city": "Seattle", "state": "Washington", "country": "United States", "marital": "Divorced", "journey": "Moved abroad as a child", "originCountry": "South Korea", "languages": ["English", "Other"], "faith": "Christian", "denom": "Non-denominational", "observance": "Cultural — I identify, less practice", "faithReq": "Faith isn't a factor", "education": "Doctorate / MD / JD", "profession": "Radiologist", "kidsHas": "Yes, grown and independent", "kidsWants": "No", "familyInv": "I make this decision on my own", "drink": "Socially", "smoke": "Never", "timeline": "Companionship first, open to more", "pace": "Take it slow", "values": ["Independence", "Humour", "Health & fitness", "Growth"], "dealBreakers": ["smoke", "agegap"], "ageMin": 45, "ageMax": 58, "relocate": "Yes, for a good reason", "abroad": "No, my country only", "status": "approved", "note": "Long hours, honest about it. Wants companionship first and says so plainly rather than pretending otherwise."}, {"first": "Helen", "lastName": "Osei", "gender": "Woman", "seeking": "Men", "dob": "1977-12-03", "city": "London", "state": "England", "country": "United Kingdom", "marital": "Widowed", "journey": "Moved abroad as an adult", "originCountry": "Ghana", "languages": ["English", "Twi"], "faith": "Christian", "denom": "Pentecostal", "observance": "Very devout — faith leads my life", "faithReq": "Must share my faith and level", "education": "Bachelor's", "profession": "Nurse practitioner", "kidsHas": "Yes, grown and independent", "kidsWants": "No", "familyInv": "Very involved — my family should meet them early", "drink": "Never", "smoke": "Never", "timeline": "Ready to marry now", "pace": "Steady and intentional", "values": ["Faith", "Family", "Community", "Loyalty"], "dealBreakers": ["faith", "drink"], "ageMin": 46, "ageMax": 60, "relocate": "Yes, for a good reason", "abroad": "Yes, happy to consider", "status": "pending", "note": ""}, {"first": "Anthony", "lastName": "Rossi", "gender": "Man", "seeking": "Women", "dob": "1978-05-11", "city": "London", "state": "England", "country": "United Kingdom", "marital": "Never married", "journey": "Moved abroad as an adult", "originCountry": "Italy", "languages": ["English", "Other"], "faith": "Christian", "denom": "Catholic", "observance": "Practising — weekly, matters a lot", "faithReq": "Same faith preferred, flexible", "education": "Master's / MBA", "profession": "Restaurateur", "kidsHas": "No children", "kidsWants": "Yes, open to it", "familyInv": "Very involved — my family should meet them early", "drink": "Socially", "smoke": "Never", "timeline": "Marriage in 1–2 years", "pace": "Steady and intentional", "values": ["Family", "Humour", "Tradition", "Ambition"], "dealBreakers": ["smoke", "nomarriage"], "ageMin": 40, "ageMax": 52, "relocate": "Yes, within my region", "abroad": "Yes, happy to consider", "status": "approved", "note": "Engaged to Priya as of last month. Left in the system for the record — do not propose him to anyone."}], "seedSlates": [{"stage": "sent", "picked": null, "theirRes": "pending", "note": "", "opts": [{"id": "m2", "note": "On paper — you're both in Atlanta, both Christian, both ready now. But that's not why I'm putting him in front of you: he was honest about his son inside the first five minutes of our call, and you told me honesty is the thing you're short of."}, {"id": "m4", "note": "Marcus is the quietest man in my book and the steadiest. Widowed, grown children, faith at the centre of everything. He does not drink at all, which I know matters less to you than the smoking, but it tells you the kind of life he keeps."}], "for": "m1"}, {"stage": "talking", "picked": "m6", "theirRes": "accepted", "fb": {"m3": {"days": 4, "met": "We've met in person", "went": "Good — I'd like to keep going", "respect": "Yes, completely", "again": "Not just yet", "note": "Three dinners so far. He listens, which I had stopped expecting."}, "m6": {"days": 3, "met": "We've met in person", "went": "Good — I'd like to keep going", "respect": "Yes, completely", "again": "Not just yet", "note": "She is exactly as you described her. No notes."}}, "note": "Neither of you is in a hurry, both of you have built a life you like, and neither of you wants to inherit a family. That is a rarer overlap than it sounds.", "opts": [{"id": "m6", "note": "Neither of you is in a hurry, both of you have built a life you like, and neither of you wants to inherit a family. That is a rarer overlap than it sounds."}, {"id": "m8", "note": "Robert is further away and works brutal hours, but he is the only other person in my book who described what he wants in almost the same words you used."}], "for": "m3"}, {"stage": "engaged", "picked": "m10", "theirRes": "accepted", "fb": {"m5": {"days": 30, "met": "We've met in person", "went": "Much better than I expected", "respect": "Yes, completely", "again": "Not just yet", "note": "He met the children in the third week and asked me first. That was the moment."}, "m10": {"days": 28, "met": "We've met in person", "went": "Much better than I expected", "respect": "Yes, completely", "again": "Not just yet", "note": ""}}, "note": "He asked about your children before he asked about you. That told me everything.", "opts": [{"id": "m10", "note": "He asked about your children before he asked about you. That told me everything."}, {"id": "m2", "note": "Daniel is in Atlanta, which is the obvious problem, but he is open to moving and he has a child of his own — he would not need any of this explained to him."}], "for": "m5"}]};
+/* ============================================================
+   SOLA MATCHMAKING — shared engine
+   Brand config is injected above this file as window.BRAND.
+   All data lives in this browser (localStorage). No server yet.
+   ============================================================ */
+
+const ADMIN_CODE = BRAND.adminCode || "matchmaker";
+const KEY = "sola." + BRAND.key + ".v1";
+
+/* ---------- option lists (edit these to retune the questionnaire) ---------- */
+const OPT = {
+  gender: ["Woman", "Man"],
+  seeking: ["Women", "Men"],
+  journey: [
+    "Moved abroad as a child",
+    "Moved abroad as an adult",
+    "Live in country of origin",
+    "Born and raised in country of origin"
+  ],
+  relocate: [
+    "Yes, anywhere in the world",
+    "Yes, within my region",
+    "Yes, for a good reason",
+    "No, I will not"
+  ],
+  abroad: ["Yes, happy to consider", "Only if they're ready to relocate", "No, my country only"],
+  languages: ["English", "French", "Spanish", "Portuguese", "Arabic", "Mandarin", "Hindi", "Swahili", "Yoruba", "Igbo", "Hausa", "Twi", "Amharic", "Tagalog", "Other"],
+  faith: ["Christian", "Muslim", "Jewish", "Hindu", "Buddhist", "Spiritual, not religious", "None / Atheist", "Other", "Prefer not to say"],
+  denom: ["Catholic", "Anglican", "Methodist", "Baptist", "Pentecostal", "Orthodox", "Non-denominational", "Sunni", "Shia", "Other", "N/A"],
+  observance: [
+    "Very devout — faith leads my life",
+    "Practising — weekly, matters a lot",
+    "Cultural — I identify, less practice",
+    "Not observant"
+  ],
+  faithReq: [
+    "Must share my faith and level",
+    "Must share my faith",
+    "Same faith preferred, flexible",
+    "Faith isn't a factor"
+  ],
+  education: ["High school", "Some college", "Bachelor's", "Master's / MBA", "Doctorate / MD / JD", "Trade or professional certificate"],
+  kidsHas: ["No children", "Yes, living with me", "Yes, not living with me", "Yes, grown and independent"],
+  kidsWants: ["Yes, definitely", "Yes, open to it", "Not sure yet", "No"],
+  family: [
+    "Very involved — my family should meet them early",
+    "Involved — introductions once it's serious",
+    "Somewhat involved",
+    "I make this decision on my own"
+  ],
+  drink: ["Never", "Socially", "Regularly"],
+  smoke: ["Never", "Socially", "Regularly"],
+  marital: ["Single", "Never married", "Divorced", "Widowed", "Separated", "It's complicated"],
+  contactPref: ["Phone call", "Text / WhatsApp", "Email"],
+  values: ["Faith", "Family", "Honesty", "Integrity", "Ambition", "Loyalty", "Kindness", "Independence", "Adventure", "Financial discipline", "Health & fitness", "Community", "Culture", "Humour", "Education", "Tradition", "Growth"],
+  pace: ["Take it slow", "Steady and intentional", "Move quickly if it's right"]
+};
+
+/* ---------- deal breakers ----------
+   Applicants pick their TOP 2. Any candidate that trips one is capped
+   and flagged in red on the matchmaker's desk.
+   manual:true  = matchmaker judgement, shown but not auto-scored.
+------------------------------------- */
+const DEALBREAKERS = [
+  { id: "smoke", label: "Smoking", test: (me, t) => t.smoke && t.smoke !== "Never" },
+  { id: "drink", label: "Heavy drinking", test: (me, t) => t.drink === "Regularly" },
+  { id: "nokids", label: "Doesn't want children", test: (me, t) => t.kidsWants === "No" },
+  { id: "haskids", label: "Already has children", test: (me, t) => t.kidsHas && t.kidsHas !== "No children" },
+  { id: "faith", label: "Different faith", test: (me, t) => me.faith && t.faith && me.faith !== t.faith },
+  { id: "practice", label: "Different level of faith practice", test: (me, t) => me.observance && t.observance && me.observance !== t.observance },
+  { id: "distance", label: "Long distance", test: (me, t) => !sameArea(me, t) },
+  { id: "norelocate", label: "Unwilling to relocate", test: (me, t) => t.relocate === "No, I will not" },
+  { id: "married", label: "Previously married", test: (me, t) => ["Divorced", "Widowed", "Separated"].includes(t.marital) },
+  { id: "agegap", label: "Age gap of 10 years or more", test: (me, t) => Math.abs(age(me.dob) - age(t.dob)) >= 10 },
+  { id: "nomarriage", label: "Not looking for marriage", test: (me, t) => (BRAND.noMarriage || []).includes(t.timeline) },
+  { id: "values", label: "Doesn't share my core values", test: (me, t) => overlap(me.values, t.values).length === 0 },
+  { id: "money", label: "Financially unsettled", manual: true },
+  { id: "ambition", label: "No ambition or direction", manual: true },
+  { id: "comms", label: "Poor communicator", manual: true },
+  { id: "family", label: "Family too involved", manual: true }
+];
+const DB_BY_ID = {};
+DEALBREAKERS.forEach(d => { DB_BY_ID[d.id] = d; });
+
+/* ---------- post-introduction feedback ---------- */
+const FBQ = {
+  met: ["We've met in person", "We've spoken, not met yet", "Not yet", "We're not continuing"],
+  went: ["Much better than I expected", "Good — I'd like to keep going", "Fine, but not for me", "Not a fit"],
+  respect: ["Yes, completely", "Mostly", "No — I'd like to talk to you about it"],
+  again: ["Yes, when you're ready", "Not just yet"]
+};
+
+/* ---------- what we ask of every member ---------- */
+const CONDUCT = [
+  "Answer an introduction within a week, even when the answer is no. Waiting is the unkindest part.",
+  "If you pass, pass quietly. We pass on the fact and never the reason.",
+  "Don't disappear. If it isn't working, tell us and we'll handle the rest.",
+  "Keep what you learn about someone to yourself. Discretion runs in both directions.",
+  "Meet somewhere public the first time, and tell someone where you're going.",
+  "Tell us the truth on this form. Everything here rests on it."
+];
+
+const PROMPTS = BRAND.prompts;
+const TIMELINE = BRAND.timeline;
+const SLATE_STAGES = ["sent", "chosen", "introduced", "talking", "dating", "engaged", "married", "closed"];
+const STAGE_LABEL = {
+  sent: "Awaiting their choice", chosen: "Awaiting the other side", introduced: "Introduced",
+  talking: "Talking", dating: "Dating", engaged: "Engaged", married: "Married", closed: "Closed"
+};
+
+/* ---------- store ---------- */
+let DB = { members: [], slates: [], seeded: false };
+function save() { try { localStorage.setItem(KEY, JSON.stringify(DB)); } catch (e) { toast("Storage full — try fewer photos."); } }
+function loadDB() { try { const r = localStorage.getItem(KEY); if (r) DB = JSON.parse(r); } catch (e) { } }
+function uid() { return Math.random().toString(36).slice(2, 10); }
+function member(id) { return DB.members.find(m => m.id === id); }
+function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
+function age(dob) { if (!dob) return ""; const d = new Date(dob), n = new Date(); let a = n.getFullYear() - d.getFullYear(); const m = n.getMonth() - d.getMonth(); if (m < 0 || (m === 0 && n.getDate() < d.getDate())) a--; return a; }
+function initials(m) { return ((m.first || "?")[0] + (m.lastInitial || "")).toUpperCase(); }
+function publicName(m) { return (m.first || "") + " " + (m.lastInitial ? m.lastInitial.toUpperCase() + "." : ""); }
+function fullName(m) { return ((m.first || "") + " " + (m.lastName || "")).trim(); }
+function arr(v) { return Array.isArray(v) ? v : (v ? [v] : []); }
+function overlap(a, b) { a = arr(a); b = arr(b); return a.filter(x => b.includes(x)); }
+function place(m) { return [m.city, m.state, m.country].filter(Boolean).join(", "); }
+function sameArea(a, b) {
+  if (a.country && b.country && a.country.trim().toLowerCase() !== b.country.trim().toLowerCase()) return false;
+  const s = x => (x.state || x.city || "").trim().toLowerCase();
+  return s(a) === s(b);
+}
+function dbLabels(m) { return arr(m.dealBreakers).map(id => (DB_BY_ID[id] || {}).label).filter(Boolean); }
+
+/* ---------- seed data ---------- */
+function seed() {
+  if (DB.seeded) return;
+  DB.members = BRAND.seed.map((r, i) => Object.assign({
+    id: "m" + (i + 1),
+    created: Date.now() - (30 - i) * 86400000,
+    lastInitial: (r.lastName || "?")[0],
+    email: (r.first + "." + r.lastName).toLowerCase() + "@example.com",
+    phone: "(555) 0" + (100 + i) + "-" + (2000 + i * 7),
+    photos: [], hideList: "", contactPref: "Text / WhatsApp", conduct: true, dataConsent: true,
+    refName: "", refPhone: "", refEmail: "",
+    p1: "", p2: "", p3: "", p4: "",
+    notes: r.note ? [{ id: uid(), t: Date.now() - i * 86400000, text: r.note }] : []
+  }, r));
+  DB.members.forEach(m => { delete m.note; });
+  DB.slates = (BRAND.seedSlates || []).map(s => {
+    const o = Object.assign({ id: uid(), created: Date.now() - 6 * 86400000, log: [{ t: Date.now() - 6 * 86400000, text: "Two options sent" }] }, s);
+    if (o.fb) { const fb = {}; Object.keys(o.fb).forEach(k => { const v = Object.assign({}, o.fb[k]); v.t = Date.now() - (v.days || 2) * 86400000; delete v.days; fb[k] = v; }); o.fb = fb; }
+    return o;
+  });
+  DB.seeded = true; save();
+}
+
+/* ============================================================
+   COMPATIBILITY ENGINE
+   ============================================================ */
+function compat(a, b) {
+  const f = []; let score = 0, max = 0;
+  const add = (w, ok, txt) => {
+    max += w;
+    if (ok === true) { score += w; f.push({ k: "ok", t: txt }); }
+    else if (ok === "soft") { score += w * 0.5; f.push({ k: "hm", t: txt }); }
+    else { f.push({ k: "no", t: txt }); }
+  };
+  const A = age(a.dob), B = age(b.dob);
+
+  /* age */
+  const aOk = B >= (a.ageMin || 18) && B <= (a.ageMax || 99);
+  const bOk = A >= (b.ageMin || 18) && A <= (b.ageMax || 99);
+  add(16, aOk && bOk ? true : (aOk || bOk ? "soft" : false),
+    `Ages ${A} & ${B}. ` + (aOk && bOk ? "Inside both stated ranges."
+      : aOk ? `Outside ${b.first}'s stated range (${b.ageMin}–${b.ageMax}).`
+        : bOk ? `Outside ${a.first}'s stated range (${a.ageMin}–${a.ageMax}).`
+          : "Outside both stated ranges."));
+
+  /* faith */
+  const sameFaith = a.faith === b.faith, sameObs = a.observance === b.observance, sameDen = a.denom === b.denom;
+  const verdict = m => {
+    if (m.faithReq === "Faith isn't a factor") return true;
+    if (m.faithReq === "Must share my faith and level") return sameFaith && sameObs;
+    if (m.faithReq === "Must share my faith") return sameFaith;
+    return sameFaith ? true : "soft";
+  };
+  const fa = verdict(a), fb = verdict(b);
+  const fRes = (fa === true && fb === true) ? true : (fa === false || fb === false) ? false : "soft";
+  add(20, fRes, sameFaith
+    ? `Both ${a.faith}${sameDen && a.denom && a.denom !== "N/A" ? " · " + a.denom : ""}. ${sameObs ? "Same level of practice." : `Practice differs: "${a.observance}" vs "${b.observance}".`}`
+    : `Different faiths: ${a.faith} / ${b.faith}.${fRes === false ? " At least one of them said this is a hard requirement." : ""}`);
+
+  /* timeline */
+  const gap = Math.abs(TIMELINE.indexOf(a.timeline) - TIMELINE.indexOf(b.timeline));
+  add(14, gap === 0 ? true : gap === 1 ? "soft" : false, `Intentions: "${a.timeline}" vs "${b.timeline}".`);
+
+  /* children */
+  const kOk = (a.kidsWants === "No") === (b.kidsWants === "No");
+  const hasKids = [a, b].filter(m => m.kidsHas && m.kidsHas !== "No children").map(m => m.first);
+  add(14, kOk ? (a.kidsWants === b.kidsWants ? true : "soft") : false,
+    `Children: ${a.first} — ${a.kidsWants}; ${b.first} — ${b.kidsWants}.` + (hasKids.length ? ` ${hasKids.join(" and ")} already ${hasKids.length > 1 ? "have" : "has"} children.` : ""));
+
+  /* location */
+  const near = sameArea(a, b);
+  const willMove = m => m.relocate && m.relocate.indexOf("Yes") === 0;
+  add(12, near ? true : (willMove(a) || willMove(b)) ? "soft" : false,
+    near ? `Both in ${place(a)}.` : `${place(a)} / ${place(b)}. ` + (willMove(a) || willMove(b) ? "At least one is open to relocating." : "Neither is eager to move."));
+
+  /* family involvement */
+  const fam = OPT.family.slice().reverse();
+  const fgap = Math.abs(fam.indexOf(a.familyInv) - fam.indexOf(b.familyInv));
+  add(8, fgap <= 1 ? true : fgap === 2 ? "soft" : false, `Family involvement: "${a.familyInv}" vs "${b.familyInv}".`);
+
+  /* lifestyle */
+  const lvl = { "Never": 0, "Socially": 1, "Regularly": 2 };
+  const lg = Math.abs((lvl[a.drink] || 0) - (lvl[b.drink] || 0)) + Math.abs((lvl[a.smoke] || 0) - (lvl[b.smoke] || 0));
+  add(8, lg === 0 ? true : lg === 1 ? "soft" : false, `Lifestyle: drinks ${a.drink}/${b.drink}, smokes ${a.smoke}/${b.smoke}.`);
+
+  /* values */
+  const ov = overlap(a.values, b.values);
+  add(8, ov.length >= 3 ? true : ov.length >= 1 ? "soft" : false,
+    ov.length ? `Shared values: ${ov.join(", ")}.` : "No stated values in common.");
+
+  /* --- deal breakers (the selection criteria) --- */
+  const breaks = [];
+  const checkSide = (me, them) => arr(me.dealBreakers).forEach(id => {
+    const d = DB_BY_ID[id]; if (!d || d.manual || !d.test) return;
+    if (d.test(me, them)) breaks.push({ who: me.first, label: d.label });
+  });
+  checkSide(a, b); checkSide(b, a);
+
+  const manual = [];
+  [[a, b], [b, a]].forEach(([me]) => arr(me.dealBreakers).forEach(id => {
+    const d = DB_BY_ID[id]; if (d && d.manual) manual.push({ who: me.first, label: d.label });
+  }));
+
+  /* do-not-show list */
+  const hl = (m, o) => (m.hideList || "").toLowerCase().split(/[\n,]/).map(s => s.trim()).filter(Boolean)
+    .some(s => fullName(o).toLowerCase().includes(s) || (o.profession || "").toLowerCase().includes(s) || (o.phone || "").includes(s));
+  const blocked = hl(a, b) || hl(b, a);
+
+  const hard = f.filter(x => x.k === "no").length > 0;
+  let out = Math.round(score / max * 100);
+  if (hard) out = Math.min(out, 40);
+  if (breaks.length) out = Math.min(out, 25);
+  if (blocked) out = 0;
+  return { score: out, flags: f, breaks, manual, blocked, hard };
+}
+
+/* ---------- tiny helpers ---------- */
+function toast(msg) { const el = document.createElement("div"); el.className = "toast"; el.textContent = msg; document.body.appendChild(el); setTimeout(() => el.remove(), 2600); }
+function sel(name, list, val, extra) { return `<select name="${name}" ${extra || ""}><option value="">Select…</option>` + list.map(o => `<option ${o === val ? "selected" : ""}>${esc(o)}</option>`).join("") + `</select>`; }
+function chipset(name, list, vals, multi, accent, maxN) {
+  vals = arr(vals);
+  return `<div class="chips" data-chips="${name}" data-multi="${multi ? 1 : 0}" data-max="${maxN || 0}">` +
+    list.map(o => {
+      const v = typeof o === "string" ? o : o.v, l = typeof o === "string" ? o : o.l;
+      return `<span class="chip ${vals.includes(v) ? "on" : ""} ${accent ? "accent" : ""}" data-v="${esc(v)}">${esc(l)}</span>`;
+    }).join("") + `</div>`;
+}
+function bindChips(root) {
+  root.querySelectorAll("[data-chips]").forEach(box => {
+    if (box.dataset.bound) return; box.dataset.bound = "1";
+    box.addEventListener("click", e => {
+      const c = e.target.closest(".chip"); if (!c) return;
+      const maxN = +box.dataset.max || 0;
+      if (box.dataset.multi === "1") {
+        if (!c.classList.contains("on") && maxN && box.querySelectorAll(".chip.on").length >= maxN) {
+          toast("Pick your top " + maxN + " — deselect one first."); return;
+        }
+        c.classList.toggle("on");
+      } else {
+        box.querySelectorAll(".chip").forEach(x => x.classList.remove("on"));
+        c.classList.add("on");
+      }
+      if (maxN) paintMax(box, maxN);
+      const cnt = box.parentElement.querySelector("[data-count]");
+      if (cnt) cnt.innerHTML = `<b>${box.querySelectorAll(".chip.on").length}</b> of ${maxN} selected`;
+    });
+    if (+box.dataset.max) paintMax(box, +box.dataset.max);
+  });
+}
+function paintMax(box, maxN) {
+  const full = box.querySelectorAll(".chip.on").length >= maxN;
+  box.querySelectorAll(".chip").forEach(c => c.classList.toggle("dim", full && !c.classList.contains("on")));
+}
+function chipVal(root, name, multi) {
+  const box = root.querySelector(`[data-chips="${name}"]`); if (!box) return multi ? [] : "";
+  const on = [...box.querySelectorAll(".chip.on")].map(c => c.dataset.v);
+  return multi ? on : (on[0] || "");
+}
+
+/* ============================================================
+   ROUTER + SHELL
+   ============================================================ */
+let VIEW = { name: "landing", p: {} };
+let SESSION = { memberId: null, admin: false };
+let DRAFT = null, STEP = 0;
+
+function go(name, p) { VIEW = { name, p: p || {} }; window.scrollTo(0, 0); render(); }
+
+function navBar() {
+  const m = SESSION.memberId && member(SESSION.memberId);
+  return `<header class="nav"><div class="nav-in">
+    <a class="brand" onclick="go('landing')">
+      <span class="mark">${BRAND.mark}</span>
+      <span><b>${BRAND.name}</b><small>${esc(BRAND.tagline)}</small></span>
+    </a>
+    <nav class="nav-links">
+      ${SESSION.admin ? `<button class="btn btn-quiet" onclick="go('admin')">Matchmaker desk</button>
+        <button class="btn btn-ghost btn-sm" onclick="SESSION.admin=false;go('landing')">Sign out</button>`
+      : m ? `<button class="btn btn-quiet" onclick="go('portal')">My portal</button>
+        <button class="btn btn-ghost btn-sm" onclick="startEdit('${m.id}')">Edit my details</button>
+        <button class="btn btn-quiet btn-sm" onclick="SESSION.memberId=null;go('landing')">Sign out</button>`
+        : `<button class="btn btn-quiet" onclick="go('signin')">Sign in</button>
+         <button class="btn btn-quiet" onclick="go('adminlogin')">Matchmaker</button>
+         <button class="btn btn-primary btn-sm" onclick="startApply()">Start your application</button>`}
+    </nav>
+  </div><div class="rule"></div></header>`;
+}
+
+function render() {
+  const app = document.getElementById("app");
+  const v = VIEW.name;
+  if (v === "admin") app.innerHTML = navBar() + adminView();
+  else if (v === "landing") app.innerHTML = navBar() + landing();
+  else if (v === "apply") app.innerHTML = navBar() + applyView();
+  else if (v === "signin") app.innerHTML = navBar() + signinView();
+  else if (v === "adminlogin") app.innerHTML = navBar() + adminLoginView();
+  else if (v === "portal") app.innerHTML = navBar() + portalView();
+  else if (v === "submitted") app.innerHTML = navBar() + submittedView();
+  bindChips(app);
+  if (v === "apply") afterApplyRender();
+}
+
+function footer() {
+  return `<div class="foot"><div class="wrap" style="display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap">
+    <div><b>${BRAND.name}</b><div class="tag">${esc(BRAND.footer)}</div></div>
+    <div style="align-self:flex-end">Prototype build ·
+      <a onclick="go('adminlogin')" style="cursor:pointer">Matchmaker sign-in</a> ·
+      <a onclick="resetDemo()" style="cursor:pointer">Reset demo data</a></div>
+  </div></div>`;
+}
+
+/* ============================================================
+   LANDING
+   ============================================================ */
+function landing() {
+  const approved = DB.members.filter(m => m.status === "approved");
+  const happy = DB.slates.filter(s => s.stage === "engaged" || s.stage === "married").length;
+  return `
+  <div class="hero"><div class="tex"></div><div class="wrap hero-in">
+    <div>
+      <div class="eyebrow">${esc(BRAND.hero.eyebrow)}</div>
+      <h1>${BRAND.hero.h1}</h1>
+      <p class="lede">${BRAND.hero.lede}</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" onclick="startApply()">Start your application</button>
+        <button class="btn btn-ghost" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">How it works</button>
+      </div>
+      <div class="trust">
+        ${BRAND.hero.trust.map(t => `<span><i class="dot"></i> ${esc(t)}</span>`).join("")}
+      </div>
+    </div>
+    <div class="hero-card">
+      <h4>On the matchmaker's desk today</h4>
+      ${approved.slice(0, 4).map(m => `<div class="mini"><div class="av">${initials(m)}</div>
+        <div><b>${esc(publicName(m))}, ${age(m.dob)}</b><small>${esc(m.profession)} · ${esc(place(m))}</small></div></div>`).join("")}
+      <div style="margin-top:14px;font-size:12.8px;color:var(--muted);border-top:1px solid var(--sand);padding-top:12px">
+        ${approved.length} vetted members · ${happy} introductions now engaged or married
+      </div>
+    </div>
+  </div></div>
+
+  <section id="how"><div class="wrap">
+    <div class="center">
+      <div class="eyebrow">How it works</div>
+      <h2>${esc(BRAND.how.h2)}</h2>
+    </div>
+    <div class="grid5">
+      ${BRAND.how.steps.map((s, i) => `<div class="card"><div class="step-n">${i + 1}</div><h3>${esc(s.t)}</h3><p>${s.p}</p></div>`).join("")}
+    </div>
+  </div></section>
+
+  <section class="section-alt"><div class="wrap split">
+    <div>
+      <div class="eyebrow">${esc(BRAND.why.eyebrow)}</div>
+      <h2>${esc(BRAND.why.h2)}</h2>
+      ${BRAND.why.body.map(p => `<p style="font-size:16.5px;color:var(--ink-2)">${p}</p>`).join("")}
+      <button class="btn btn-accent" style="margin-top:8px" onclick="startApply()">${esc(BRAND.why.cta)}</button>
+    </div>
+    <div class="card">
+      <h4 class="sect-h">Questions we ask that the apps don't</h4>
+      ${BRAND.why.list.map(q => `<div class="flag ok"><i>✓</i><span>${esc(q)}</span></div>`).join("")}
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="center">
+      <div class="eyebrow">Two, not two hundred</div>
+      <h2>You choose between two people. That's the whole idea.</h2>
+      <p style="color:var(--muted);max-width:56ch;margin:0 auto">No endless feed, no swiping through strangers. When your matchmaker
+      finds a fit, you receive <b>two</b> carefully chosen introductions side by side — with the reasoning behind each — and you decide
+      which one you'd like to meet.</p>
+    </div>
+    <div class="grid3">
+      <div class="card card-flat" style="background:var(--tint);border-color:transparent"><h3>Your top 2 deal breakers</h3><p>Every applicant names the two things they will not compromise on. Nobody who trips them ever reaches you.</p></div>
+      <div class="card card-flat" style="background:var(--tint);border-color:transparent"><h3>Nothing public, ever</h3><p>There is no browsable directory. Your profile cannot be searched, scrolled or stumbled upon.</p></div>
+      <div class="card card-flat" style="background:var(--tint);border-color:transparent"><h3>Photos stay locked</h3><p>Full name, photos and contact details unlock only when you have both said yes.</p></div>
+    </div>
+  </div></section>
+
+  <section class="section-tint"><div class="narrow">
+    <div class="center" style="margin-bottom:26px"><div class="eyebrow">Before you apply</div><h2>Fair questions.</h2></div>
+    ${BRAND.faq.map(f => `<details class="faq"><summary>${esc(f.q)}</summary><p>${f.a}</p></details>`).join("")}
+  </div></section>
+
+  <section><div class="narrow center">
+    <h2>${esc(BRAND.close.h2)}</h2>
+    <p style="color:var(--muted)">${esc(BRAND.close.p)}</p>
+    <button class="btn btn-primary" onclick="startApply()">Start your application</button>
+  </div></section>
+  ${footer()}`;
+}
+
+function resetDemo() {
+  if (confirm("Wipe all data in this browser and reload the sample set?")) {
+    localStorage.removeItem(KEY); DB = { members: [], slates: [], seeded: false }; seed();
+    SESSION = { memberId: null, admin: false }; go("landing"); toast("Demo data reset.");
+  }
+}
+
+/* ============================================================
+   APPLICATION
+   ============================================================ */
+const STEPS = ["About you", "Your journey", "Faith & values", "Life & family", "What you're looking for", "In your words"];
+
+let EDIT_ID = null;
+
+function startApply() {
+  EDIT_ID = null;
+  DRAFT = DRAFT || { photos: [], languages: [], values: [], dealBreakers: [], ageMin: BRAND.dfMin, ageMax: BRAND.dfMax };
+  STEP = 0; go("apply");
+}
+
+function startEdit(id) {
+  const m = member(id); if (!m) return;
+  DRAFT = Object.assign({}, m);
+  DRAFT.photos = (m.photos || []).slice();
+  DRAFT.languages = arr(m.languages).slice();
+  DRAFT.values = arr(m.values).slice();
+  DRAFT.dealBreakers = arr(m.dealBreakers).slice();
+  EDIT_ID = id; STEP = 0; go("apply");
+}
+
+function cancelEdit() { DRAFT = null; const id = EDIT_ID; EDIT_ID = null; go(id ? "portal" : "landing"); }
+
+function applyView() {
+  return `<div class="narrow" style="padding-top:44px;padding-bottom:80px;max-width:780px">
+    ${EDIT_ID ? `<div class="card" style="border-left:4px solid var(--accent);margin-bottom:24px">
+      <b>You're editing your details.</b>
+      <p style="margin:6px 0 0;font-size:14.4px;color:var(--ink-2)">Change anything you like and continue to the end to save it.
+      Your place in the pool and any live introductions are unaffected.</p></div>` : ""}
+    <div class="prog">${STEPS.map((s, i) => `<i class="${i <= STEP ? "on" : ""}"></i>`).join("")}</div>
+    <div class="stepmeta">Step ${STEP + 1} of ${STEPS.length} · ${STEPS[STEP]}</div>
+    <div id="stepbody">${stepBody(STEP)}</div>
+    <div style="display:flex;justify-content:space-between;gap:12px;margin-top:30px;border-top:1px solid var(--line);padding-top:22px">
+      <button class="btn btn-ghost" onclick="stepBack()">${STEP === 0 ? "Cancel" : "Back"}</button>
+      <button class="btn btn-primary" onclick="stepNext()">${STEP === STEPS.length - 1 ? (EDIT_ID ? "Save my changes" : "Submit application") : "Continue"}</button>
+    </div>
+    <div id="stepErr"></div>
+  </div>`;
+}
+
+function stepBody(i) {
+  const d = DRAFT;
+  if (i === 0) return `
+    <h2>Let's start with the basics.</h2>
+    <p class="hint" style="margin-bottom:24px">Your full name and contact details are visible only to the matchmaker. Other members
+    see your first name and last initial until you have both accepted an introduction.</p>
+    <div class="row2">
+      <div class="field"><label class="lb">First name</label><input type="text" name="first" value="${esc(d.first || "")}"></div>
+      <div class="field"><label class="lb">Last name</label><input type="text" name="lastName" value="${esc(d.lastName || "")}"></div>
+    </div>
+    <div class="row2">
+      <div class="field"><label class="lb">Email</label><input type="email" name="email" value="${esc(d.email || "")}"></div>
+      <div class="field"><label class="lb">Phone / WhatsApp</label><input type="tel" name="phone" value="${esc(d.phone || "")}"></div>
+    </div>
+    <div class="row2">
+      <div class="field"><label class="lb">I am a…</label>${chipset("gender", OPT.gender, d.gender, false)}</div>
+      <div class="field"><label class="lb">I'd like to meet…</label>${chipset("seeking", OPT.seeking, d.seeking, false)}</div>
+    </div>
+    <div class="field"><label class="lb">Date of birth</label>
+      <p class="hint">${BRAND.name} is for ${esc(BRAND.audience)} — ages ${BRAND.ageMin}${BRAND.ageMax >= 99 ? "+" : "–" + BRAND.ageMax}.</p>
+      <input type="date" name="dob" value="${esc(d.dob || "")}" style="max-width:260px"></div>
+    <h4 class="sect-h">Where you live</h4>
+    <div class="row3">
+      <div class="field"><label class="lb">City</label><input type="text" name="city" value="${esc(d.city || "")}"></div>
+      <div class="field"><label class="lb">State / Province</label><input type="text" name="state" value="${esc(d.state || "")}"></div>
+      <div class="field"><label class="lb">Country</label><input type="text" name="country" value="${esc(d.country || "")}"></div>
+    </div>
+    <div class="field" style="max-width:330px"><label class="lb">Marital status</label>${sel("marital", OPT.marital, d.marital)}</div>`;
+
+  if (i === 1) return `
+    <h2>Your journey.</h2>
+    <p class="hint" style="margin-bottom:24px">Where you have lived shapes what you are looking for — and how far you would go for it.</p>
+    <div class="field"><label class="lb">Which describes you?</label>${chipset("journey", OPT.journey, d.journey, false)}</div>
+    <div class="row2">
+      <div class="field"><label class="lb">Country of origin</label>
+        <p class="hint">Where you or your family are originally from.</p>
+        <input type="text" name="originCountry" value="${esc(d.originCountry || "")}"></div>
+      <div class="field"><label class="lb">Would you relocate?</label>${sel("relocate", OPT.relocate, d.relocate)}</div>
+    </div>
+    <div class="field"><label class="lb">Would you consider someone living in another country?</label>${sel("abroad", OPT.abroad, d.abroad)}</div>
+    <div class="field"><label class="lb">Languages you speak</label><p class="hint">Select all that apply.</p>
+      ${chipset("languages", OPT.languages, d.languages, true, true)}</div>`;
+
+  if (i === 2) return `
+    <h2>Faith &amp; values.</h2>
+    <p class="hint" style="margin-bottom:24px">We ask what you believe and how you practise it separately — because the same label can mean very different lives.</p>
+    <div class="field"><label class="lb">Faith</label>${chipset("faith", OPT.faith, d.faith, false)}</div>
+    <div class="row2">
+      <div class="field"><label class="lb">Denomination or tradition</label>${sel("denom", OPT.denom, d.denom)}</div>
+      <div class="field"><label class="lb">How you'd describe your practice</label>${sel("observance", OPT.observance, d.observance)}</div>
+    </div>
+    <div class="field"><label class="lb">How much must a partner share it?</label>${chipset("faithReq", OPT.faithReq, d.faithReq, false)}</div>
+    <div class="field"><label class="lb">The values you actually live by</label>
+      <p class="hint">Choose up to five. These carry real weight in how you are matched.</p>
+      ${chipset("values", OPT.values, d.values, true, true, 5)}
+      <div class="counter" data-count><b>${arr(d.values).length}</b> of 5 selected</div></div>`;
+
+  if (i === 3) return `
+    <h2>Life &amp; family.</h2>
+    <div class="row2">
+      <div class="field"><label class="lb">Highest education</label>${sel("education", OPT.education, d.education)}</div>
+      <div class="field"><label class="lb">What you do</label><input type="text" name="profession" value="${esc(d.profession || "")}"></div>
+    </div>
+    <div class="row2">
+      <div class="field"><label class="lb">Do you have children?</label>${sel("kidsHas", OPT.kidsHas, d.kidsHas)}</div>
+      <div class="field"><label class="lb">Do you want children?</label>${sel("kidsWants", OPT.kidsWants, d.kidsWants)}</div>
+    </div>
+    <div class="field"><label class="lb">How involved would you like your family to be in this process?</label>${chipset("familyInv", OPT.family, d.familyInv, false)}</div>
+    <div class="row2">
+      <div class="field"><label class="lb">Drinking</label>${sel("drink", OPT.drink, d.drink)}</div>
+      <div class="field"><label class="lb">Smoking</label>${sel("smoke", OPT.smoke, d.smoke)}</div>
+    </div>`;
+
+  if (i === 4) return `
+    <h2>What you're looking for.</h2>
+    <div class="field"><label class="lb">What are your immediate intentions with a prospect?</label>${chipset("timeline", TIMELINE, d.timeline, false)}</div>
+    <div class="field"><label class="lb">How fast would you want things to move?</label>${sel("pace", OPT.pace, d.pace)}</div>
+    <div class="row2">
+      <div class="field"><label class="lb">Youngest age you'd consider</label><input type="number" name="ageMin" min="18" max="99" value="${esc(d.ageMin || BRAND.dfMin)}"></div>
+      <div class="field"><label class="lb">Oldest age you'd consider</label><input type="number" name="ageMax" min="18" max="110" value="${esc(d.ageMax || BRAND.dfMax)}"></div>
+    </div>
+
+    <div class="field" style="background:var(--tint);padding:20px;border-radius:14px;margin:26px 0">
+      <label class="lb" style="font-size:15px">Your two deal breakers</label>
+      <p class="hint">Pick the <b>two</b> things you will not compromise on. These are applied as hard filters — anyone who trips
+      one of them will never be put in front of you, no matter how well they score elsewhere. Choose carefully.</p>
+      ${chipset("dealBreakers", DEALBREAKERS.map(d2 => ({ v: d2.id, l: d2.label })), d.dealBreakers, true, false, 2)}
+      <div class="counter" data-count><b>${arr(d.dealBreakers).length}</b> of 2 selected</div>
+    </div>
+
+    <div class="field"><label class="lb">Anyone we should never show you to?</label>
+      <p class="hint">Names, phone numbers or workplaces. We'll make sure you're never proposed to them, and they'll never see you.</p>
+      <textarea name="hideList" placeholder="e.g. a former partner, my cousin's husband's brother, (555) 123-4567, anyone at my firm">${esc(d.hideList || "")}</textarea></div>
+    <div class="field" style="max-width:330px"><label class="lb">Best way to reach you</label>${sel("contactPref", OPT.contactPref, d.contactPref)}</div>
+
+    <h4 class="sect-h">Who referred you?</h4>
+    <p class="hint" style="margin-top:-4px">Optional, but referred applications are reviewed first.</p>
+    <div class="row3">
+      <div class="field"><label class="lb">Their name</label><input type="text" name="refName" value="${esc(d.refName || "")}"></div>
+      <div class="field"><label class="lb">Their phone</label><input type="tel" name="refPhone" value="${esc(d.refPhone || "")}"></div>
+      <div class="field"><label class="lb">Their email</label><input type="email" name="refEmail" value="${esc(d.refEmail || "")}"></div>
+    </div>`;
+
+  return `
+    <h2>In your words.</h2>
+    <p class="hint" style="margin-bottom:24px">These answers do more work than anything else on this form. Write like you're talking, not applying for a job.</p>
+    ${PROMPTS.map(p => `<div class="field"><label class="lb">${esc(p.q)}</label>
+      <textarea name="${p.k}" placeholder="${esc(p.ph)}">${esc(d[p.k] || "")}</textarea></div>`).join("")}
+    <div class="field"><label class="lb">Photos</label>
+      <p class="hint">Two or three. Nobody sees these except the matchmaker until you and a match have both accepted an introduction.</p>
+      <input type="file" accept="image/*" multiple id="photoInput" style="font-size:14px;border:0;padding:0">
+      <div class="photo-grid" id="photoPrev" style="margin-top:12px">${(d.photos || []).map(p => `<img class="ph" src="${p}">`).join("")}</div>
+    </div>
+    <div class="conduct">
+      <h4>What we ask of you</h4>
+      <p class="hint" style="margin:0">Six lines. They are the whole difference between a community and a mailing list, and every
+      member agrees to them before they join.</p>
+      <ul>${CONDUCT.map(l => `<li>${esc(l)}</li>`).join("")}</ul>
+      <label class="check"><input type="checkbox" name="conduct" ${d.conduct ? "checked" : ""}>
+        <span>I have read these and I will hold to them.</span></label>
+    </div>
+    <div class="conduct dp">
+      <h4>Data protection</h4>
+      <ul>
+        <li>${esc(BRAND.name)} holds what you write here for one purpose: to match you. We do not sell it, advertise against it,
+          or share it with anyone outside the matchmaking team.</li>
+        <li>Your full name, contact details, date of birth, photographs and do-not-show list are never shown to another member.
+          The rest of your profile is shown to one person only after you have both accepted an introduction.</li>
+        <li>The feedback you give after an introduction is read by your matchmaker alone and is never shown to the other person.</li>
+        <li>You can ask to see everything we hold about you, correct it, or have it deleted — at any time, and we will act within 30 days.</li>
+      </ul>
+      <label class="check"><input type="checkbox" name="dataConsent" ${d.dataConsent ? "checked" : ""}>
+        <span>I consent to ${esc(BRAND.name)} holding and processing my information for the purpose of matching me.</span></label>
+    </div>`;
+}
+
+function afterApplyRender() {
+  const inp = document.getElementById("photoInput");
+  if (inp) inp.addEventListener("change", e => {
+    [...e.target.files].slice(0, 3).forEach(f => {
+      const r = new FileReader();
+      r.onload = () => shrink(r.result, dataUrl => {
+        DRAFT.photos.push(dataUrl);
+        const prev = document.getElementById("photoPrev");
+        if (prev) prev.insertAdjacentHTML("beforeend", `<img class="ph" src="${dataUrl}">`);
+      });
+      r.readAsDataURL(f);
+    });
+  });
+}
+function shrink(src, cb) {
+  const img = new Image();
+  img.onload = () => {
+    const max = 420, s = Math.min(1, max / Math.max(img.width, img.height));
+    const c = document.createElement("canvas"); c.width = img.width * s; c.height = img.height * s;
+    c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+    cb(c.toDataURL("image/jpeg", .72));
+  };
+  img.src = src;
+}
+
+function harvest() {
+  const root = document.getElementById("stepbody"); if (!root) return;
+  root.querySelectorAll("[name]").forEach(el => {
+    if (el.type === "file") return;
+    DRAFT[el.name] = el.type === "checkbox" ? el.checked : el.value;
+  });
+  root.querySelectorAll("[data-chips]").forEach(box => {
+    const n = box.dataset.chips;
+    DRAFT[n] = box.dataset.multi === "1" ? chipVal(root, n, true) : chipVal(root, n, false);
+  });
+}
+function stepBack() { harvest(); if (STEP === 0) { cancelEdit(); return; } STEP--; render(); }
+
+const LABELS = {
+  first: "first name", lastName: "last name", email: "email", gender: "who you are",
+  seeking: "who you'd like to meet", dob: "date of birth", city: "city", country: "country",
+  journey: "your journey", relocate: "whether you'd relocate", faith: "faith",
+  observance: "your level of practice", faithReq: "what you need from a partner's faith",
+  values: "your values", education: "education", profession: "what you do",
+  kidsWants: "whether you want children", familyInv: "family involvement",
+  timeline: "your intentions", dealBreakers: "your two deal breakers"
+};
+
+function stepNext() {
+  harvest();
+  const need = [
+    ["first", "lastName", "email", "gender", "seeking", "dob", "city", "country"],
+    ["journey", "relocate"],
+    ["faith", "observance", "faithReq", "values"],
+    ["education", "profession", "kidsWants", "familyInv"],
+    ["timeline", "dealBreakers"],
+    []
+  ][STEP];
+  const missing = need.filter(k => !DRAFT[k] || (Array.isArray(DRAFT[k]) && !DRAFT[k].length));
+  const errBox = document.getElementById("stepErr");
+  if (missing.length) {
+    errBox.innerHTML = `<div class="err">Please fill in: ${missing.map(k => LABELS[k] || k).join(", ")}.</div>`;
+    return;
+  }
+  if (STEP === 4 && arr(DRAFT.dealBreakers).length !== 2) {
+    errBox.innerHTML = `<div class="err">Please choose exactly two deal breakers — no more, no fewer.</div>`; return;
+  }
+  if (STEP === 0) {
+    const a = age(DRAFT.dob);
+    if (!a || a < BRAND.ageMin || a > BRAND.ageMax) {
+      errBox.innerHTML = `<div class="err">${esc(BRAND.name)} is for ages ${BRAND.ageMin}${BRAND.ageMax >= 99 ? " and above" : "–" + BRAND.ageMax}. ${BRAND.sister ? "You may be a better fit for " + esc(BRAND.sister) + "." : ""}</div>`;
+      return;
+    }
+  }
+  if (STEP === STEPS.length - 1 && !DRAFT.conduct) {
+    errBox.innerHTML = `<div class="err">Please read what we ask of members and tick the box to agree.</div>`; return;
+  }
+  if (STEP === STEPS.length - 1 && !DRAFT.dataConsent) {
+    errBox.innerHTML = `<div class="err">Please give your consent for us to hold and process your information.</div>`; return;
+  }
+  errBox.innerHTML = "";
+  if (STEP < STEPS.length - 1) { STEP++; render(); return; }
+  submitApp();
+}
+
+function submitApp() {
+  const d = DRAFT;
+  if (EDIT_ID) {
+    const ex = member(EDIT_ID);
+    Object.assign(ex, d, {
+      id: ex.id, created: ex.created, status: ex.status, notes: ex.notes,
+      lastInitial: (d.lastName || "?")[0],
+      ageMin: +d.ageMin || BRAND.dfMin, ageMax: +d.ageMax || BRAND.dfMax,
+      updated: Date.now()
+    });
+    save(); EDIT_ID = null; DRAFT = null; go("portal");
+    toast("Your details are updated.");
+    return;
+  }
+  const m = Object.assign({}, d, {
+    id: uid(), created: Date.now(), status: "pending",
+    lastInitial: (d.lastName || "?")[0], notes: [],
+    ageMin: +d.ageMin || BRAND.dfMin, ageMax: +d.ageMax || BRAND.dfMax
+  });
+  DB.members.push(m); save(); SESSION.memberId = m.id; DRAFT = null; go("submitted");
+}
+
+function submittedView() {
+  const m = member(SESSION.memberId);
+  return `<div class="narrow" style="padding:80px 24px;text-align:center;max-width:640px">
+    <div class="step-n" style="margin:0 auto 22px;width:56px;height:56px;font-size:26px">✓</div>
+    <h2>Thank you, ${esc(m.first)}.</h2>
+    <p style="font-size:17px;color:var(--ink-2)">Your application is with the matchmaker. Every one is read personally, and you'll get a
+    call on <b>${esc(m.phone || m.email)}</b> before you enter the pool — usually within a week.</p>
+    <p style="color:var(--muted);font-size:14.5px">Membership options and fees are discussed on that call, once we know we can genuinely
+    help you. Nothing about you is visible to any other member until you're approved, and your photos stay locked until you and a match
+    have both said yes.</p>
+    <button class="btn btn-primary" onclick="go('portal')">Go to my portal</button>
+  </div>${footer()}`;
+}
+
+/* ============================================================
+   SIGN IN
+   ============================================================ */
+function signinView() {
+  const demo = DB.members[0];
+  return `<div class="narrow" style="padding:70px 24px;max-width:460px">
+    <h2>Welcome back.</h2>
+    <p class="hint">Prototype: sign in with the email on your application. Try <code>${esc(demo ? demo.email : "")}</code>.</p>
+    <div class="field"><label class="lb">Email</label><input type="email" id="siEmail" placeholder="you@example.com"></div>
+    <button class="btn btn-primary btn-block" onclick="doSignin()">Sign in</button>
+    <div id="siErr"></div>
+    <p style="margin-top:24px;font-size:14px;color:var(--muted)">No application yet? <a onclick="startApply()" style="cursor:pointer">Start one</a>.</p>
+  </div>`;
+}
+function doSignin() {
+  const e = (document.getElementById("siEmail").value || "").trim().toLowerCase();
+  const m = DB.members.find(x => (x.email || "").toLowerCase() === e);
+  if (!m) { document.getElementById("siErr").innerHTML = `<div class="err">No application found for that email.</div>`; return; }
+  SESSION.memberId = m.id; go("portal");
+}
+function adminLoginView() {
+  return `<div class="narrow" style="padding:70px 24px;max-width:460px">
+    <div class="eyebrow">Matchmaker access</div>
+    <h2>The desk.</h2>
+    <p class="hint">Prototype passcode: <code>${esc(ADMIN_CODE)}</code></p>
+    <div class="field"><label class="lb">Passcode</label><input type="text" id="alCode"></div>
+    <button class="btn btn-primary btn-block" onclick="doAdmin()">Enter</button><div id="alErr"></div>
+  </div>`;
+}
+function doAdmin() {
+  if ((document.getElementById("alCode").value || "").trim().toLowerCase() !== ADMIN_CODE) {
+    document.getElementById("alErr").innerHTML = `<div class="err">Wrong passcode.</div>`; return;
+  }
+  SESSION.admin = true; ADM = { tab: "queue", id: null, f: {}, pick: null, chosen: [] }; go("admin");
+}
+
+/* ============================================================
+   SLATE HELPERS  (a slate = two options sent to one member)
+   ============================================================ */
+function slatesFor(id) { return DB.slates.filter(s => s.for === id && s.stage !== "closed"); }
+function slatesAbout(id) { return DB.slates.filter(s => s.picked === id && s.stage !== "closed"); }
+function optIds(s) { return s.opts.map(o => o.id); }
+function involves(s, id) { return s.for === id || optIds(s).includes(id); }
+function liveCount(id) { return DB.slates.filter(s => s.stage !== "closed" && involves(s, id)).length; }
+function alreadySeen(id) {
+  const set = new Set();
+  DB.slates.forEach(s => { if (s.for === id) optIds(s).forEach(x => set.add(x)); if (optIds(s).includes(id)) set.add(s.for); });
+  return set;
+}
+function unlocked(s) { return ["introduced", "talking", "dating", "engaged", "married"].includes(s.stage); }
+
+/* ============================================================
+   MEMBER PORTAL
+   ============================================================ */
+function portalView() {
+  const m = member(SESSION.memberId);
+  if (!m) return `<div class="narrow" style="padding:70px 24px"><h2>Please sign in.</h2><button class="btn btn-primary" onclick="go('signin')">Sign in</button></div>`;
+  const mine = slatesFor(m.id), about = slatesAbout(m.id);
+  const banner = m.status === "pending"
+    ? `<div class="card" style="border-left:4px solid var(--accent)"><h3>Your application is under review</h3><p>Every application is read personally, and you'll get a call before you enter the pool. Nothing is visible to other members yet.</p></div>`
+    : m.status === "declined" ? `<div class="card" style="border-left:4px solid var(--red)"><h3>Not a fit right now</h3><p>The matchmaker will be in touch personally.</p></div>`
+      : m.status === "paused" ? `<div class="card" style="border-left:4px solid var(--muted)"><h3>You're paused</h3><p>You won't receive introductions until you unpause.</p><button class="btn btn-ghost btn-sm" onclick="setStatus('${m.id}','approved')">Unpause me</button></div>`
+        : `<div class="card" style="border-left:4px solid var(--primary)"><h3>You're in the pool</h3><p>You're vetted and active. When the matchmaker finds a fit, two options appear here — nobody can browse you.</p><button class="btn btn-ghost btn-sm" onclick="setStatus('${m.id}','paused')">Pause my profile</button></div>`;
+
+  return `<div class="wrap" style="padding:38px 24px 80px;max-width:960px">
+    <div class="eyebrow">Your portal</div>
+    <h2 style="margin-bottom:6px">Hello, ${esc(m.first)}.</h2>
+    <p class="hint" style="margin-bottom:22px">${age(m.dob)} · ${esc(place(m))} · ${esc(m.profession || "")}</p>
+    ${banner}
+    <h3 class="sect-h">Your introductions ${mine.length + about.length ? `(${mine.length + about.length})` : ""}</h3>
+    ${mine.map(s => slateCard(s, m)).join("")}
+    ${about.map(s => requestCard(s, m)).join("")}
+    ${!mine.length && !about.length ? `<div class="empty">No introductions yet. When the matchmaker finds a fit, two options will appear here for you to choose between.</div>` : ""}
+    <h3 class="sect-h">Your deal breakers</h3>
+    <div class="card">
+      <p class="hint" style="margin-top:0">Nobody who trips either of these is ever put in front of you.</p>
+      ${dbLabels(m).map(l => `<span class="db-tag">✕ ${esc(l)}</span>`).join("") || `<span class="hint">None recorded.</span>`}
+    </div>
+    <h3 class="sect-h">Your profile</h3>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:18px;
+                  padding-bottom:16px;border-bottom:1px solid var(--sand)">
+        <div><b>Something changed?</b>
+          <div style="font-size:13.6px;color:var(--muted)">Move, change your mind about children, rethink a deal breaker — update it yourself, any time.</div></div>
+        <button class="btn btn-accent btn-sm" onclick="startEdit('${m.id}')">Edit my details</button>
+      </div>
+      ${profileBody(m, { admin: false })}
+    </div>
+  </div>${footer()}`;
+}
+function setStatus(id, s) { const m = member(id); m.status = s; save(); render(); toast("Updated."); }
+
+/* --- the two-option card --- */
+function slateCard(s, me) {
+  if (s.stage === "sent") {
+    return `<div class="card" style="margin-bottom:18px">
+      <div class="eyebrow" style="margin-bottom:6px">Two introductions for you</div>
+      <h3 style="font-size:1.4rem;margin-bottom:4px">Choose the one you'd like to meet.</h3>
+      <p class="hint">Take your time. You can choose one, or pass on both — passing costs you nothing and nobody is told.</p>
+      <div class="slate">
+        ${s.opts.map(o => optionCard(s, o, me)).join("")}
+      </div>
+      <div style="margin-top:18px;text-align:center">
+        <button class="btn btn-danger btn-sm" onclick="passSlate('${s.id}')">Neither is right for me</button>
+      </div>
+    </div>`;
+  }
+  const them = member(s.picked);
+  const open = unlocked(s);
+  return `<div class="card" style="margin-bottom:18px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap">
+      <div style="display:flex;gap:14px;align-items:center">
+        <div class="av" style="width:54px;height:54px;font-size:19px">${open && them.photos && them.photos[0] ? `<img src="${them.photos[0]}">` : initials(them)}</div>
+        <div><b style="font-size:18px;font-family:var(--display)">${esc(open ? fullName(them) : publicName(them))}, ${age(them.dob)}</b>
+          <div style="color:var(--muted);font-size:14px">${esc(them.profession)} · ${esc(place(them))}</div></div>
+      </div>
+      <span class="badge b-${open ? "accepted" : "proposed"}">${open ? STAGE_LABEL[s.stage] : "Waiting on them"}</span>
+    </div>
+    ${open ? contactBlock(them) + feedbackBlock(s, me.id) : `<div class="lock">🔒 You chose them. They're deciding now — you'll hear as soon as they answer.</div>`}
+  </div>`;
+}
+
+function optionCard(s, o, me) {
+  const t = member(o.id);
+  return `<div class="opt">
+    <div class="top">
+      <div class="av" style="width:48px;height:48px;font-size:17px">${initials(t)}</div>
+      <div><b>${esc(publicName(t))}, ${age(t.dob)}</b><small>${esc(t.profession)} · ${esc(place(t))}</small></div>
+    </div>
+    <div class="grow">
+      ${o.note ? `<div class="quote"><b>Why the matchmaker chose them for you</b>${esc(o.note)}</div>` : ""}
+      <dl class="kv" style="grid-template-columns:130px 1fr;font-size:13.8px">
+        <dt>Faith</dt><dd>${esc(t.faith)}${t.denom && t.denom !== "N/A" ? " · " + esc(t.denom) : ""}</dd>
+        <dt>Practice</dt><dd>${esc(t.observance)}</dd>
+        <dt>Children</dt><dd>${esc(t.kidsHas)} · wants: ${esc(t.kidsWants)}</dd>
+        <dt>Their intentions</dt><dd>${esc(t.timeline)}</dd>
+        <dt>Values</dt><dd>${arr(t.values).map(esc).join(", ") || "—"}</dd>
+        <dt>Journey</dt><dd>${esc(t.journey)}</dd>
+      </dl>
+      ${t.p1 ? `<div class="quote" style="margin-top:12px"><b>In their words</b>${esc(t.p1)}</div>` : ""}
+    </div>
+    <div class="lock">🔒 Full name, photos and contact details unlock only if you both say yes.</div>
+    <button class="btn btn-primary btn-block" style="margin-top:14px" onclick="pickOne('${s.id}','${o.id}')">Introduce me to ${esc(t.first)}</button>
+  </div>`;
+}
+
+function contactBlock(them) {
+  return `<div class="card" style="margin-top:16px;background:var(--tint);border-color:transparent">
+    <b>You've both said yes.</b>
+    <dl class="kv" style="margin-top:10px;grid-template-columns:120px 1fr">
+      <dt>Phone</dt><dd>${esc(them.phone)}</dd>
+      <dt>Email</dt><dd>${esc(them.email)}</dd>
+      <dt>Prefers</dt><dd>${esc(them.contactPref)}</dd>
+    </dl>
+    ${them.photos && them.photos.length ? `<div class="photo-grid" style="margin-top:12px">${them.photos.map(p => `<img class="ph" src="${p}">`).join("")}</div>` : ""}
+  </div>`;
+}
+
+/* --- how did it go? (private to the matchmaker) --- */
+let FB_EDIT = null;
+
+function feedbackBlock(s, meId) {
+  const f = (s.fb || {})[meId];
+  if (f && FB_EDIT !== s.id + meId) {
+    return `<div class="card" style="margin-top:16px;background:var(--sand);box-shadow:none">
+      <h4 class="sect-h" style="margin-top:0">What you told us</h4>
+      <dl class="kv" style="grid-template-columns:170px 1fr">
+        <dt>Where you've got to</dt><dd>${esc(f.met)}</dd>
+        <dt>How it felt</dt><dd>${esc(f.went) || "—"}</dd>
+        <dt>Treated well</dt><dd>${esc(f.respect)}</dd>
+        <dt>Another introduction</dt><dd>${esc(f.again) || "—"}</dd>
+      </dl>
+      ${f.note ? `<div class="quote" style="margin-top:12px"><b>In your words</b>${esc(f.note)}</div>` : ""}
+      <button class="btn btn-ghost btn-sm" style="margin-top:12px" onclick="FB_EDIT='${s.id + meId}';render()">Change my answer</button>
+    </div>`;
+  }
+  const p = "fb_" + s.id + "_";
+  return `<div class="card" style="margin-top:16px;background:var(--sand);box-shadow:none">
+    <h4 class="sect-h" style="margin-top:0">How did it go?</h4>
+    <p class="hint" style="margin-top:-6px">Only your matchmaker reads this — never the other person. It shapes what you're sent next,
+    and it is how we keep this a place people are treated well.</p>
+    <div class="row2">
+      <div class="field"><label class="lb">Where you've got to</label>${sel(p + "met", FBQ.met, f && f.met)}</div>
+      <div class="field"><label class="lb">How it felt</label>${sel(p + "went", FBQ.went, f && f.went)}</div>
+    </div>
+    <div class="row2">
+      <div class="field"><label class="lb">Were you treated well?</label>${sel(p + "respect", FBQ.respect, f && f.respect)}</div>
+      <div class="field"><label class="lb">Would you like another introduction?</label>${sel(p + "again", FBQ.again, f && f.again)}</div>
+    </div>
+    <div class="field"><label class="lb">Anything we should know?</label>
+      <textarea name="${p}note" placeholder="Anything at all. It stays between us.">${esc((f && f.note) || "")}</textarea></div>
+    <button class="btn btn-primary btn-sm" onclick="saveFeedback('${s.id}','${meId}')">Send to my matchmaker</button>
+  </div>`;
+}
+
+function saveFeedback(sid, meId) {
+  const s = DB.slates.find(x => x.id === sid);
+  const p = "fb_" + sid + "_";
+  const v = k => { const el = document.querySelector(`[name="${p}${k}"]`); return el ? el.value : ""; };
+  if (!v("met") || !v("respect")) { toast("Tell us where you've got to and whether you were treated well."); return; }
+  s.fb = s.fb || {};
+  s.fb[meId] = { met: v("met"), went: v("went"), respect: v("respect"), again: v("again"), note: v("note"), t: Date.now() };
+  s.log = s.log || [];
+  s.log.push({ t: Date.now(), text: member(meId).first + " sent feedback" + (v("respect").indexOf("No") === 0 ? " — flagged a concern" : "") });
+  FB_EDIT = null; save(); render();
+  toast(v("respect").indexOf("No") === 0 ? "Thank you for telling us. Your matchmaker will call you." : "Thank you — that goes straight to your matchmaker.");
+}
+
+function concernSlates() {
+  return DB.slates.filter(s => Object.values(s.fb || {}).some(f => (f.respect || "").indexOf("No") === 0));
+}
+
+/* --- the other side: someone chose you --- */
+function requestCard(s, me) {
+  const them = member(s.for);
+  const open = unlocked(s);
+  return `<div class="card" style="margin-bottom:18px;border-left:4px solid var(--accent)">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap">
+      <div style="display:flex;gap:14px;align-items:center">
+        <div class="av" style="width:54px;height:54px;font-size:19px">${open && them.photos && them.photos[0] ? `<img src="${them.photos[0]}">` : initials(them)}</div>
+        <div><b style="font-size:18px;font-family:var(--display)">${esc(open ? fullName(them) : publicName(them))}, ${age(them.dob)}</b>
+          <div style="color:var(--muted);font-size:14px">${esc(them.profession)} · ${esc(place(them))}</div></div>
+      </div>
+      <span class="badge b-${open ? "accepted" : "proposed"}">${open ? STAGE_LABEL[s.stage] : s.theirRes === "pending" ? "Awaiting your answer" : "You passed"}</span>
+    </div>
+    ${s.note ? `<div class="quote" style="margin-top:16px"><b>Why the matchmaker put you together</b>${esc(s.note)}</div>` : ""}
+    <dl class="kv" style="margin-top:14px">
+      <dt>Faith</dt><dd>${esc(them.faith)}${them.denom && them.denom !== "N/A" ? " · " + esc(them.denom) : ""} · ${esc(them.observance)}</dd>
+      <dt>Education</dt><dd>${esc(them.education)}</dd>
+      <dt>Children</dt><dd>${esc(them.kidsHas)} · wants: ${esc(them.kidsWants)}</dd>
+      <dt>Their intentions</dt><dd>${esc(them.timeline)}</dd>
+      <dt>Values</dt><dd>${arr(them.values).map(esc).join(", ") || "—"}</dd>
+    </dl>
+    ${them.p1 ? `<div class="quote" style="margin-top:14px"><b>In their words</b>${esc(them.p1)}</div>` : ""}
+    ${open ? contactBlock(them) + feedbackBlock(s, me.id) : `<div class="lock">🔒 Photos, full name and contact details unlock only when you both accept.</div>`}
+    ${s.theirRes === "pending" ? `<div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="answer('${s.id}','accepted')">Yes, introduce us</button>
+        <button class="btn btn-danger" onclick="answer('${s.id}','passed')">Pass</button></div>` : ""}
+  </div>`;
+}
+
+function pickOne(sid, oid) {
+  const s = DB.slates.find(x => x.id === sid);
+  const other = s.opts.find(o => o.id !== oid);
+  s.picked = oid; s.stage = "chosen"; s.theirRes = "pending";
+  s.note = (s.opts.find(o => o.id === oid) || {}).note || "";
+  s.log.push({ t: Date.now(), text: member(s.for).first + " chose " + member(oid).first + (other ? " over " + member(other.id).first : "") });
+  save(); render(); toast("Chosen. They'll be asked now — we'll let you know.");
+}
+function passSlate(sid) {
+  const s = DB.slates.find(x => x.id === sid);
+  s.stage = "closed"; s.closedNote = "Passed on both";
+  s.log.push({ t: Date.now(), text: member(s.for).first + " passed on both options" });
+  save(); render(); toast("Noted — neither will be proposed to you again.");
+}
+function answer(sid, val) {
+  const s = DB.slates.find(x => x.id === sid);
+  s.theirRes = val;
+  s.log.push({ t: Date.now(), text: member(s.picked).first + " " + (val === "accepted" ? "accepted" : "passed") });
+  if (val === "accepted") { s.stage = "introduced"; s.log.push({ t: Date.now(), text: "Both accepted — details exchanged" }); }
+  else { s.stage = "closed"; s.closedNote = "Declined the introduction"; }
+  save(); render(); toast(val === "accepted" ? "The matchmaker will take it from here." : "Noted — you won't be proposed to them again.");
+}
+
+/* ---------- shared profile renderer ---------- */
+function profileBody(m, opt) {
+  opt = opt || {};
+  const p = PROMPTS.filter(x => m[x.k]);
+  return `
+  <h4 class="sect-h">Basics</h4>
+  <dl class="kv">
+    <dt>Name</dt><dd>${esc(opt.admin ? fullName(m) : publicName(m))}</dd>
+    <dt>Age</dt><dd>${age(m.dob)}${opt.admin ? ` (${esc(m.dob)})` : ""}</dd>
+    <dt>Lives in</dt><dd>${esc(place(m))}</dd>
+    <dt>Looking to meet</dt><dd>${esc(m.seeking)}</dd>
+    <dt>Marital status</dt><dd>${esc(m.marital) || "—"}</dd>
+    ${opt.admin ? `<dt>Email</dt><dd>${esc(m.email)}</dd><dt>Phone</dt><dd>${esc(m.phone)}</dd>
+    <dt>Referred by</dt><dd>${[m.refName, m.refPhone, m.refEmail].filter(Boolean).map(esc).join(" · ") || "—"}</dd>
+    <dt>Code of conduct</dt><dd>${m.conduct ? "Agreed" : "Not agreed"}</dd>
+    <dt>Data consent</dt><dd>${m.dataConsent ? "Given" : "Not given"}</dd>
+    <dt>Last updated</dt><dd>${m.updated ? new Date(m.updated).toLocaleDateString() : "—"}</dd>` : ""}
+  </dl>
+  <h4 class="sect-h">Journey</h4>
+  <dl class="kv">
+    <dt>Their journey</dt><dd>${esc(m.journey)}</dd>
+    <dt>Country of origin</dt><dd>${esc(m.originCountry) || "—"}</dd>
+    <dt>Would relocate</dt><dd>${esc(m.relocate)}</dd>
+    <dt>Partner abroad</dt><dd>${esc(m.abroad) || "—"}</dd>
+    <dt>Languages</dt><dd>${arr(m.languages).map(esc).join(", ") || "—"}</dd>
+  </dl>
+  <h4 class="sect-h">Faith &amp; values</h4>
+  <dl class="kv">
+    <dt>Faith</dt><dd>${esc(m.faith)}</dd>
+    <dt>Denomination</dt><dd>${esc(m.denom) || "—"}</dd>
+    <dt>Practice</dt><dd>${esc(m.observance)}</dd>
+    <dt>Requires of a partner</dt><dd>${esc(m.faithReq)}</dd>
+    <dt>Values</dt><dd>${arr(m.values).map(esc).join(", ") || "—"}</dd>
+  </dl>
+  <h4 class="sect-h">Life &amp; family</h4>
+  <dl class="kv">
+    <dt>Education</dt><dd>${esc(m.education)}</dd>
+    <dt>Profession</dt><dd>${esc(m.profession)}</dd>
+    <dt>Has children</dt><dd>${esc(m.kidsHas)}</dd>
+    <dt>Wants children</dt><dd>${esc(m.kidsWants)}</dd>
+    <dt>Family involvement</dt><dd>${esc(m.familyInv)}</dd>
+    <dt>Drinks / smokes</dt><dd>${esc(m.drink)} / ${esc(m.smoke)}</dd>
+  </dl>
+  <h4 class="sect-h">Looking for</h4>
+  <dl class="kv">
+    <dt>Intentions</dt><dd>${esc(m.timeline)}</dd>
+    <dt>Pace</dt><dd>${esc(m.pace) || "—"}</dd>
+    <dt>Age range</dt><dd>${esc(m.ageMin)}–${esc(m.ageMax)}</dd>
+    <dt>Deal breakers</dt><dd>${dbLabels(m).map(esc).join(" · ") || "—"}</dd>
+    ${opt.admin ? `<dt>Do-not-show list</dt><dd>${esc(m.hideList) || "—"}</dd>` : ""}
+  </dl>
+  ${p.length ? `<h4 class="sect-h">In their words</h4>${p.map(x => `<div class="quote"><b>${esc(x.q)}</b>${esc(m[x.k])}</div>`).join("")}` : ""}
+  ${opt.admin && m.photos && m.photos.length ? `<h4 class="sect-h">Photos</h4><div class="photo-grid">${m.photos.map(x => `<img class="ph" src="${x}">`).join("")}</div>` : ""}`;
+}
+
+/* ============================================================
+   MATCHMAKER DESK
+   ============================================================ */
+let ADM = { tab: "queue", id: null, f: {}, pick: null, chosen: [] };
+
+function adminView() {
+  const q = DB.members.filter(m => m.status === "pending").length;
+  const pool = DB.members.filter(m => m.status === "approved").length;
+  const live = DB.slates.filter(s => s.stage !== "closed").length;
+  const tab = (k, label, cnt) => `<a class="${ADM.tab === k ? "on" : ""}" onclick="ADM.tab='${k}';ADM.id=null;render()">${label}${cnt ? `<span class="cnt">${cnt}</span>` : ""}</a>`;
+  let body;
+  if (ADM.id) body = memberDetail(ADM.id);
+  else if (ADM.tab === "queue") body = queueTab();
+  else if (ADM.tab === "pool") body = poolTab();
+  else if (ADM.tab === "make") body = makeTab();
+  else body = pipelineTab();
+  return `<div class="admin-shell">
+    <div class="side">
+      <h5>Members</h5>
+      ${tab("queue", "Vetting queue", q)}
+      ${tab("pool", "The pool", pool)}
+      <h5>Matching</h5>
+      ${tab("make", "Build a pair")}
+      ${tab("pipe", "Introductions", live)}
+    </div>
+    <div class="main">${body}</div>
+  </div>`;
+}
+
+/* ---- vetting queue ---- */
+function queueTab() {
+  const q = DB.members.filter(m => m.status === "pending").sort((a, b) => a.created - b.created);
+  return `<div class="eyebrow">Step one</div><h2>Vetting queue</h2>
+  <p class="hint" style="margin-bottom:20px">Nobody enters the pool until you say so. Call them first — and discuss fees on that call.</p>
+  ${q.length ? `<table><thead><tr><th>Applicant</th><th>Lives in</th><th>Faith</th><th>Deal breakers</th><th>Referred by</th><th></th></tr></thead><tbody>
+    ${q.map(m => `<tr>
+      <td class="tname"><div class="av">${initials(m)}</div><div><b>${esc(fullName(m))}</b><small>${age(m.dob)} · ${esc(m.profession)}</small></div></td>
+      <td>${esc(place(m))}</td>
+      <td>${esc(m.faith)}<br><small style="color:var(--muted)">${esc((m.observance || "").split("—")[0])}</small></td>
+      <td><small>${dbLabels(m).map(esc).join("<br>") || "—"}</small></td>
+      <td><small style="color:var(--muted)">${esc(m.refName) || "—"}</small></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-ghost btn-sm" onclick="ADM.id='${m.id}';render()">Review</button>
+        <button class="btn btn-primary btn-sm" onclick="admStatus('${m.id}','approved')">Approve</button>
+        <button class="btn btn-danger btn-sm" onclick="admStatus('${m.id}','declined')">Decline</button>
+      </td></tr>`).join("")}
+  </tbody></table>` : `<div class="empty">Queue is clear. Nothing waiting on you.</div>`}`;
+}
+function admStatus(id, s) { member(id).status = s; save(); render(); toast(s === "approved" ? "Approved — they're in the pool." : "Declined."); }
+
+/* ---- pool ---- */
+function poolTab() {
+  const f = ADM.f;
+  let list = DB.members.filter(m => m.status === "approved" || m.status === "paused");
+  if (f.g) list = list.filter(m => m.gender === f.g);
+  if (f.fa) list = list.filter(m => m.faith === f.fa);
+  if (f.tl) list = list.filter(m => m.timeline === f.tl);
+  if (f.c) list = list.filter(m => (m.country || "") === f.c);
+  if (f.q) { const s = f.q.toLowerCase(); list = list.filter(m => (fullName(m) + " " + place(m) + " " + m.profession + " " + (m.originCountry || "")).toLowerCase().includes(s)); }
+  window.__setF = (k, v) => { ADM.f[k] = v; render(); };
+  const countries = [...new Set(DB.members.map(m => m.country).filter(Boolean))].sort();
+  return `<div class="eyebrow">Your people</div><h2>The pool <span style="color:var(--muted);font-family:var(--sans);font-size:16px;font-weight:400">${list.length} shown</span></h2>
+  <div class="toolbar">
+    <input type="text" placeholder="Search name, city, profession…" value="${esc(f.q || "")}" oninput="__setF('q',this.value)">
+    ${selF("g", "Any gender", OPT.gender, f.g)}
+    ${selF("fa", "Any faith", OPT.faith, f.fa)}
+    ${selF("tl", "Any intention", TIMELINE, f.tl)}
+    ${selF("c", "Any country", countries, f.c)}
+    <button class="btn btn-quiet btn-sm" onclick="ADM.f={};render()">Clear</button>
+  </div>
+  ${list.length ? `<table><thead><tr><th>Member</th><th>Lives in</th><th>Faith</th><th>Wants</th><th>Deal breakers</th><th>Live</th><th>Status</th><th></th></tr></thead><tbody>
+    ${list.map(m => `<tr>
+      <td class="tname"><div class="av">${m.photos && m.photos[0] ? `<img src="${m.photos[0]}">` : initials(m)}</div>
+        <div><b>${esc(fullName(m))}</b><small>${age(m.dob)} · ${esc(m.profession)}</small></div></td>
+      <td><small>${esc(place(m))}</small></td>
+      <td>${esc(m.faith)}<br><small style="color:var(--muted)">${esc((m.observance || "").split("—")[0])}</small></td>
+      <td><small>${esc(m.timeline)}<br>ages ${m.ageMin}–${m.ageMax}</small></td>
+      <td><small style="color:var(--red)">${dbLabels(m).map(esc).join("<br>") || "—"}</small></td>
+      <td>${liveCount(m.id) || "—"}</td>
+      <td><span class="badge b-${m.status}">${m.status}</span></td>
+      <td style="white-space:nowrap">
+        <button class="btn btn-ghost btn-sm" onclick="ADM.id='${m.id}';render()">Open</button>
+        <button class="btn btn-accent btn-sm" onclick="ADM.tab='make';ADM.pick='${m.id}';ADM.chosen=[];ADM.id=null;render()">Find two</button>
+      </td></tr>`).join("")}
+  </tbody></table>` : `<div class="empty">Nobody matches those filters.</div>`}`;
+}
+function selF(k, label, list, val) {
+  return `<select onchange="__setF('${k}',this.value)"><option value="">${esc(label)}</option>` +
+    list.map(o => `<option ${o === val ? "selected" : ""}>${esc(o)}</option>`).join("") + `</select>`;
+}
+
+/* ---- member detail ---- */
+function memberDetail(id) {
+  const m = member(id);
+  return `<button class="btn btn-quiet btn-sm" onclick="ADM.id=null;render()">← Back</button>
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin:10px 0 22px">
+    <div style="display:flex;gap:16px;align-items:center">
+      <div class="av" style="width:66px;height:66px;font-size:24px">${m.photos && m.photos[0] ? `<img src="${m.photos[0]}">` : initials(m)}</div>
+      <div><h2 style="margin-bottom:2px">${esc(fullName(m))}</h2>
+      <div style="color:var(--muted)">${age(m.dob)} · ${esc(place(m))} · <span class="badge b-${m.status}">${m.status}</span></div></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      ${m.status === "pending" ? `<button class="btn btn-primary btn-sm" onclick="admStatus('${m.id}','approved')">Approve</button>
+        <button class="btn btn-danger btn-sm" onclick="admStatus('${m.id}','declined')">Decline</button>`
+      : `<button class="btn btn-accent btn-sm" onclick="ADM.tab='make';ADM.pick='${m.id}';ADM.chosen=[];ADM.id=null;render()">Find two</button>
+        <button class="btn btn-ghost btn-sm" onclick="admStatus('${m.id}','${m.status === "paused" ? "approved" : "paused"}')">${m.status === "paused" ? "Unpause" : "Pause"}</button>`}
+    </div>
+  </div>
+  <div class="detail">
+    <div class="card">${profileBody(m, { admin: true })}</div>
+    <div>
+      <div class="card">
+        <h4 class="sect-h">Deal breakers</h4>
+        ${dbLabels(m).map(l => `<span class="db-tag">✕ ${esc(l)}</span>`).join("") || `<p class="hint">None recorded.</p>`}
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h4 class="sect-h">Private notes</h4>
+        <p class="hint">Only you ever see these.</p>
+        ${(m.notes || []).slice().reverse().map(n => `<div class="note">${esc(n.text)}<small>${new Date(n.t).toLocaleDateString()}</small></div>`).join("") || `<p class="hint">No notes yet.</p>`}
+        <textarea id="noteBox" placeholder="After the call: impressions, red flags, who vouched, fee agreed…" style="margin-top:10px"></textarea>
+        <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="addNote('${m.id}')">Save note</button>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h4 class="sect-h">Their introductions</h4>
+        ${DB.slates.filter(s => involves(s, m.id)).map(s => `<div class="flag ok"><i>·</i><span>${esc(slateTitle(s))} — <span class="badge b-proposed">${STAGE_LABEL[s.stage]}</span></span></div>`).join("") || `<p class="hint">None yet.</p>`}
+      </div>
+    </div>
+  </div>`;
+}
+function addNote(id) {
+  const t = document.getElementById("noteBox").value.trim(); if (!t) return;
+  const m = member(id); m.notes = m.notes || []; m.notes.push({ id: uid(), t: Date.now(), text: t });
+  save(); render(); toast("Note saved.");
+}
+
+/* ---- build a pair (two options) ---- */
+function makeTab() {
+  const pool = DB.members.filter(m => m.status === "approved");
+  const a = ADM.pick && member(ADM.pick);
+  const opts = `<option value="">Choose a member…</option>` +
+    pool.map(m => `<option value="${m.id}" ${ADM.pick === m.id ? "selected" : ""}>${esc(fullName(m))} — ${age(m.dob)}, ${esc(place(m))}</option>`).join("");
+  window.__pick = v => { ADM.pick = v || null; ADM.chosen = []; render(); };
+  window.__toggle = id => {
+    const i = ADM.chosen.indexOf(id);
+    if (i >= 0) ADM.chosen.splice(i, 1);
+    else { if (ADM.chosen.length >= 2) { toast("Two options only — deselect one first."); return; } ADM.chosen.push(id); }
+    render();
+  };
+  let body = "";
+  if (a) {
+    const seen = alreadySeen(a.id);
+    const cands = pool.filter(b => b.id !== a.id && !seen.has(b.id) && wants(a, b) && wants(b, a))
+      .map(b => ({ b, c: compat(a, b) })).sort((x, y) => y.c.score - x.c.score);
+    body = cands.length ? cands.map(({ b, c }) => `
+      <div class="card" style="margin-bottom:14px;${ADM.chosen.includes(b.id) ? "border-color:var(--primary);box-shadow:0 0 0 3px var(--tint)" : ""}">
+        <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start">
+          <div style="display:flex;gap:14px;align-items:center">
+            <div class="av" style="width:52px;height:52px">${b.photos && b.photos[0] ? `<img src="${b.photos[0]}">` : initials(b)}</div>
+            <div><b style="font-family:var(--display);font-size:17px">${esc(fullName(b))}</b>
+            <div style="color:var(--muted);font-size:13.8px">${age(b.dob)} · ${esc(place(b))} · ${esc(b.profession)}</div></div>
+          </div>
+          <div style="text-align:right">
+            <div class="score" style="${c.breaks.length || c.hard ? "color:var(--red)" : ""}">${c.score}<span style="font-size:15px;color:var(--muted)">/100</span></div>
+            ${c.breaks.length ? `<div style="font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--red)">Deal breaker tripped</div>`
+        : c.hard ? `<div style="font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--red)">Hard requirement missed</div>` : ""}
+            <button class="btn ${ADM.chosen.includes(b.id) ? "btn-primary" : c.blocked ? "btn-ghost" : "btn-accent"} btn-sm" style="margin-top:8px"
+              ${c.blocked ? "disabled" : ""} onclick="__toggle('${b.id}')">${ADM.chosen.includes(b.id) ? "✓ Selected" : "Select"}</button>
+          </div>
+        </div>
+        ${c.breaks.length ? `<div style="margin-top:14px">${c.breaks.map(x => `<div class="flag no db"><i>✕</i><span><b>${esc(x.who)}'s deal breaker:</b> ${esc(x.label)}</span></div>`).join("")}</div>` : ""}
+        <div style="margin-top:${c.breaks.length ? 4 : 14}px">${c.flags.map(x => `<div class="flag ${x.k}"><i>${x.k === "ok" ? "✓" : x.k === "no" ? "✕" : "!"}</i><span>${esc(x.t)}</span></div>`).join("")}</div>
+        ${c.manual.length ? `<div class="flag hm" style="border-bottom:0"><i>⚑</i><span>Your judgement needed: ${c.manual.map(x => esc(x.who + " — " + x.label)).join("; ")}.</span></div>` : ""}
+      </div>`).join("") : `<div class="empty">No un-proposed candidates left for ${esc(a.first)}.</div>`;
+  }
+  return `<div class="eyebrow">The actual work</div><h2>Build a pair</h2>
+  <p class="hint" style="margin-bottom:18px">Pick a member, then select <b>two</b> candidates to send them. Everyone is scored against their
+  stated requirements, and anyone who trips a deal breaker is capped and flagged in red.</p>
+  <div class="toolbar"><select style="min-width:320px" onchange="__pick(this.value)">${opts}</select>
+    ${a ? `<button class="btn btn-quiet btn-sm" onclick="__pick('')">Clear</button>` : ""}</div>
+  ${a ? `<div class="card" style="margin-bottom:20px;background:var(--sand);box-shadow:none">
+      <b style="font-family:var(--display);font-size:18px">${esc(fullName(a))}</b>
+      <div style="color:var(--muted);font-size:14px">${age(a.dob)} · ${esc(place(a))} · ${esc(a.faith)} ${esc(a.denom === "N/A" ? "" : a.denom || "")} · seeking ${esc(a.seeking)}</div>
+      <div style="margin-top:8px;font-size:14px">Wants: ${esc(a.faithReq)} · ages ${a.ageMin}–${a.ageMax} · ${esc(a.timeline)}</div>
+      <div style="margin-top:10px">${dbLabels(a).map(l => `<span class="db-tag">✕ ${esc(l)}</span>`).join("")}</div>
+      <div style="margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <b style="font-size:14px">${ADM.chosen.length} of 2 selected</b>
+        <button class="btn btn-primary btn-sm" ${ADM.chosen.length !== 2 ? "disabled" : ""} onclick="openSend('${a.id}')">Send both to ${esc(a.first)}</button>
+      </div>
+    </div>` : `<div class="empty">Choose a member above to see ranked candidates.</div>`}
+  ${body}`;
+}
+function wants(a, b) {
+  if (!a.seeking) return a.gender !== b.gender;
+  return (a.seeking === "Women" && b.gender === "Woman") || (a.seeking === "Men" && b.gender === "Man");
+}
+
+function openSend(forId) {
+  const a = member(forId);
+  const [x, y] = ADM.chosen.map(member);
+  const bg = document.createElement("div"); bg.className = "modal-bg";
+  bg.innerHTML = `<div class="modal">
+    <div class="eyebrow">Two introductions</div>
+    <h2>${esc(fullName(x))} &amp; ${esc(fullName(y))} → ${esc(a.first)}</h2>
+    <p class="hint">${esc(a.first)} will see both side by side and choose one. Write a line for each — it's the reason they'll say yes.</p>
+    <div class="field"><label class="lb">Why ${esc(x.first)}</label>
+      <textarea id="n0">${esc(defaultNote(a, x))}</textarea></div>
+    <div class="field"><label class="lb">Why ${esc(y.first)}</label>
+      <textarea id="n1">${esc(defaultNote(a, y))}</textarea></div>
+    <div style="display:flex;gap:10px;margin-top:8px;justify-content:flex-end">
+      <button class="btn btn-ghost" onclick="this.closest('.modal-bg').remove()">Cancel</button>
+      <button class="btn btn-primary" onclick="doSend('${forId}')">Send both</button>
+    </div></div>`;
+  bg.addEventListener("click", e => { if (e.target === bg) bg.remove(); });
+  document.body.appendChild(bg);
+}
+function defaultNote(a, b) {
+  const bits = [];
+  if (a.faith === b.faith) bits.push(`you're both ${a.faith}`);
+  const ov = overlap(a.values, b.values);
+  if (ov.length) bits.push(`you both put ${ov.slice(0, 2).join(" and ")} first`);
+  if (sameArea(a, b)) bits.push(`you're both in ${b.city || b.state}`);
+  if (a.timeline === b.timeline) bits.push(`you're at the same point`);
+  return bits.length ? `On paper — ${bits.join(", ")}. But that's not why I'm putting them in front of you: ` : "";
+}
+function doSend(forId) {
+  const notes = [document.getElementById("n0").value.trim(), document.getElementById("n1").value.trim()];
+  DB.slates.push({
+    id: uid(), for: forId, stage: "sent", created: Date.now(),
+    opts: ADM.chosen.map((id, i) => ({ id, note: notes[i] })),
+    picked: null, theirRes: "pending", note: "",
+    log: [{ t: Date.now(), text: "Two options sent to " + member(forId).first }]
+  });
+  save(); document.querySelector(".modal-bg").remove();
+  ADM.tab = "pipe"; ADM.pick = null; ADM.chosen = []; render();
+  toast("Sent. They'll choose one.");
+}
+
+/* ---- pipeline ---- */
+function slateTitle(s) {
+  const a = member(s.for);
+  if (s.picked) return fullName(a) + " & " + fullName(member(s.picked));
+  return fullName(a) + " ← " + s.opts.map(o => (member(o.id) || {}).first).join(" / ");
+}
+function fbSummary(s) {
+  const e = Object.entries(s.fb || {});
+  if (!e.length) return "";
+  return `<h4 class="sect-h">What they told you</h4>` + e.map(([id, f]) => {
+    const bad = (f.respect || "").indexOf("No") === 0;
+    return `<div class="note ${bad ? "note-alert" : ""}">
+      <b>${esc((member(id) || {}).first || "—")}</b> — ${esc(f.met)}${f.went ? " · " + esc(f.went) : ""} ·
+      treated well: <b>${esc(f.respect)}</b>${f.again ? " · another introduction: " + esc(f.again) : ""}
+      ${f.note ? `<div style="margin-top:7px">“${esc(f.note)}”</div>` : ""}
+      <small>${new Date(f.t).toLocaleDateString()}</small></div>`;
+  }).join("");
+}
+
+function pipelineTab() {
+  const live = DB.slates.filter(s => s.stage !== "closed").sort((x, y) => y.created - x.created);
+  const closed = DB.slates.filter(s => s.stage === "closed");
+  const row = s => {
+    const a = member(s.for);
+    return `<div class="card" style="margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="av">${initials(a)}</div>
+          ${s.opts.map((o, i) => { const b = member(o.id); return `<div class="av" style="margin-left:-16px;border:2px solid var(--white);${s.picked && s.picked !== o.id ? "opacity:.35" : ""}">${initials(b)}</div>`; }).join("")}
+          <div style="margin-left:8px"><b style="font-family:var(--display);font-size:16.5px">${esc(slateTitle(s))}</b>
+          <div style="font-size:13.2px;color:var(--muted)">Sent ${new Date(s.created).toLocaleDateString()} ·
+            ${s.picked ? `${esc(a.first)} chose ${esc(member(s.picked).first)} · they: ${esc(s.theirRes)}` : "awaiting choice"}</div></div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <span class="badge b-${["married", "engaged"].includes(s.stage) ? "married" : ["talking", "dating"].includes(s.stage) ? "talking" : s.stage === "introduced" ? "accepted" : "proposed"}">${STAGE_LABEL[s.stage]}</span>
+          <select onchange="setStage('${s.id}',this.value)" style="width:auto;font-size:13.5px;padding:6px 10px">
+            ${SLATE_STAGES.map(x => `<option value="${x}" ${s.stage === x ? "selected" : ""}>${STAGE_LABEL[x]}</option>`).join("")}
+          </select>
+        </div>
+      </div>
+      ${s.opts.map(o => o.note ? `<div class="quote" style="margin-top:12px"><b>Your note about ${esc((member(o.id) || {}).first)}</b>${esc(o.note)}</div>` : "").join("")}
+      ${fbSummary(s)}
+      <details style="margin-top:10px"><summary style="cursor:pointer;font-size:13.5px;color:var(--muted)">History (${(s.log || []).length})</summary>
+        <div style="margin-top:8px">${(s.log || []).map(l => `<div class="flag ok"><i>·</i><span>${new Date(l.t).toLocaleDateString()} — ${esc(l.text)}</span></div>`).join("")}</div>
+      </details>
+    </div>`;
+  };
+  const concerns = concernSlates();
+  return `<div class="eyebrow">Tracking</div><h2>Introductions</h2>
+  <p class="hint" style="margin-bottom:18px">Everything you're currently holding in your head, written down.</p>
+  ${concerns.length ? `<div class="card" style="border-left:4px solid var(--red);margin-bottom:18px">
+    <b>${concerns.length} introduction${concerns.length > 1 ? "s" : ""} need${concerns.length > 1 ? "" : "s"} a call from you.</b>
+    <p style="margin:6px 0 0;font-size:14.4px;color:var(--ink-2)">Someone has asked to speak to you about how they were treated.
+    Handle it before you send them anything else.</p></div>` : ""}
+  ${live.length ? live.map(row).join("") : `<div class="empty">Nothing live. Go build a pair.</div>`}
+  ${closed.length ? `<h4 class="sect-h">Closed (${closed.length})</h4>${closed.map(row).join("")}` : ""}`;
+}
+function setStage(id, s) {
+  const sl = DB.slates.find(x => x.id === id); sl.stage = s;
+  sl.log = sl.log || []; sl.log.push({ t: Date.now(), text: "Stage → " + STAGE_LABEL[s] });
+  save(); render(); toast("Updated.");
+}
+
+/* ---- boot ---- */
+loadDB(); seed(); render();
+
+</script>
+</body>
+</html>
