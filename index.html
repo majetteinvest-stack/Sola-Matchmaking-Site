@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Sola Matchmaking — previews</title>
+<style>
+  :root{
+    --bg:#FBF8F1; --ink:#16302A; --ink-2:#41564E; --muted:#6B7C74;
+    --line:#E4DCCB; --white:#fff; --emerald:#0E7A55; --coral:#E2543A;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+       line-height:1.6;display:grid;place-items:center;min-height:100vh;padding:32px 20px}
+  main{max-width:640px;width:100%}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.7rem,4vw,2.3rem);margin:0 0 8px;letter-spacing:-.015em}
+  p.lede{color:var(--ink-2);margin:0 0 32px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  a.card{display:block;text-decoration:none;color:inherit;background:var(--white);
+         border:1px solid var(--line);border-radius:16px;padding:24px;transition:.15s}
+  a.card:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(16,48,42,.09)}
+  .dot{width:34px;height:34px;border-radius:50%;margin-bottom:14px}
+  .ml .dot{background:var(--emerald)} .cs .dot{background:var(--coral)}
+  a.card b{font-family:var(--serif);font-size:1.15rem;font-weight:600;display:block}
+  a.card small{color:var(--muted);font-size:13.5px}
+  .note{margin-top:32px;font-size:13.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+  <h1>Sola Matchmaking</h1>
+  <p class="lede">Two prototype sites, in preview. Pick one.</p>
+  <div class="grid">
+    <a class="card ml" href="missing-link/"><span class="dot"></span>
+      <b>The Missing Link</b><small>Matured singles, 40 and above</small></a>
+    <a class="card cs" href="curious-space/"><span class="dot"></span>
+      <b>Curious Space</b><small>Young adults, 21 to 39</small></a>
+  </div>
+  <p class="note">Working prototypes. Nothing entered here is stored anywhere but your own
+  browser, and every member profile is fictional.</p>
+</main>
+</body>
+</html>
