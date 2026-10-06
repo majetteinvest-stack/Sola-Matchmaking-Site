@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="A discreet matchmaking community for matured singles who are ready for companionship, love and a lasting partnership.">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#0E7A55">
 <title>The Missing Link — Matchmaking for matured singles</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20rx%3D%225%22%20fill%3D%22%230E7A55%22/%3E%3Csvg%20viewBox%3D%220%200%2024%2024%22%20transform%3D%22scale%28.8%29%20translate%283%203%29%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%3E%3Ccircle%20cx%3D%229.2%22%20cy%3D%2212%22%20r%3D%225.1%22/%3E%3Ccircle%20cx%3D%2214.8%22%20cy%3D%2212%22%20r%3D%225.1%22/%3E%3C/svg%3E%3C/svg%3E">
 <style>
@@ -252,13 +253,20 @@ tr:hover td{background:var(--tint)}
   .vs{display:none}
 }
 @media(max-width:520px){
-  .nav-links .btn-quiet{display:none}
+  .nav-links{gap:2px}
+  .nav-links .btn{white-space:nowrap;font-size:13.5px}
+  .nav-links .btn-quiet{padding:8px 9px}
+  .nav-links .btn-sm{padding:8px 13px}
+  .nav-links .hide-sm{display:none}
+  .nav-links .sm-only{display:inline}
 }
+.sm-only{display:none}
 
 </style>
 </head>
 <body>
 <div id="app"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script>
 window.BRAND = {"key": "missing-link", "name": "The Missing Link", "tagline": "Matchmaking for matured singles", "footer": "Discreet matchmaking for Matured Singles", "audience": "matured singles", "sister": "Curious Space", "sisterUrl": "https://curiousspacematchmaking.netlify.app/", "sisterBlurb": "Under 40? Curious Space is our community for young adults.", "contact": "themissinglinksite@outlook.com", "free": true, "ageMin": 40, "ageMax": 99, "dfMin": 42, "dfMax": 62, "adminCode": "matchmaker", "mark": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\"><circle cx=\"9.2\" cy=\"12\" r=\"5.1\"/><circle cx=\"14.8\" cy=\"12\" r=\"5.1\"/></svg>", "hero": {"eyebrow": "By introduction only", "h1": "Sometimes the only thing missing is the&nbsp;link.", "lede": "You are not looking harder — you are looking for the right connection. The Missing Link brings together matured singles who are ready for companionship, love and a partnership that lasts.", "trust": ["Every member personally vetted", "Photos stay private until you both say yes", "No public browsing. Ever."]}, "how": {"h2": "Five steps. No shopping around.", "steps": [{"t": "You apply", "p": "A real questionnaire — your values, your faith and how you actually practise it, family expectations, and the two things you will not compromise on."}, {"t": "We get to know you", "p": "We don't rely on forms alone. Every participant is personally contacted, key information is verified, and we take time to understand the individual behind the application before moving them forward."}, {"t": "We introduce", "p": "When we identify a strong match, you'll receive <em>two</em> private introductions, shown together with a straightforward explanation of why each was chosen. You can select one or pass on both."}, {"t": "You meet", "p": "Photos and contact information become visible only after you <em>both</em> agree. Once that happens, the conversation is yours to take from there."}, {"t": "You review it", "p": "Afterwards you tell us privately how it went and whether you were treated well. It shapes what we send you next, and it is how this stays a place where people are looked after."}]}, "why": {"eyebrow": "Why The Missing Link", "h2": "Built with you in mind.", "body": ["Meaningful matchmaking starts with asking the right questions. Ours are not generic, recycled, or retrofitted to fit a dating profile. They are designed to uncover the values, priorities, expectations, personality and relationship goals that actually decide whether two people are compatible.", "We go beyond &ldquo;who do you like?&rdquo; We want to understand who you are, what matters to you, and who might truly complement you. Because finding the right person is more than making a connection — it is finding the missing link that makes the connection work."], "cta": "Put your name forward", "list": ["How you practise your faith, not just what you call it", "The two things you will not compromise on", "Where you have lived, and how far you would move", "How involved you would like your family to be", "Whether you would consider someone in another country", "Who should never be shown your profile"]}, "faq": [{"q": "Who is this for?", "a": "Matured singles, 40 and above, who are open to meeting someone significant. Divorced, widowed and never-married applicants are equally welcome. If you are under 40, our sister community <a href=\"https://curiousspacematchmaking.netlify.app/\" target=\"_blank\" rel=\"noopener\">Curious Space</a> is built for young adults."}, {"q": "What does it cost?", "a": "Joining is completely FREE! ❤️ No membership fees, no hidden charges. Our goal is to make it easy for people to meet, connect, and build meaningful relationships without cost being a barrier."}, {"q": "How do you keep the site running?", "a": "Whilst membership is free, we welcome voluntary donations to help keep the platform safe, secure, and running smoothly. Donations are never required."}, {"q": "Can people browse my profile?", "a": "No. There is no directory and no search. Your profile is seen by your matchmaker, and by one person at a time who you have both agreed to meet."}, {"q": "How many introductions will I receive?", "a": "Two at a time, chosen deliberately, with the reasoning written out for each. You pick one or pass on both. Volume is not the point."}, {"q": "Can I pause?", "a": "Yes — from your portal, at any time, without explaining yourself."}], "close": {"h2": "Ready to make a meaningful connection?", "p": "✨ Join us today — your next meaningful connection could be just a click away."}, "timeline": ["Ready to marry now", "Marriage in 1–2 years", "Committed partnership, marriage optional", "Companionship first, open to more", "An open relationship"], "noMarriage": ["Committed partnership, marriage optional", "Companionship first, open to more", "An open relationship"], "prompts": [{"k": "p1", "q": "Provide a clear, honest snapshot of who you are, and include a few fun facts.", "ph": "Just straightforward details that help us understand you better — not a résumé."}, {"k": "p2", "q": "What does a good partnership look like to you at this stage of your life?", "ph": "Be specific. This is the answer we use most."}, {"k": "p3", "q": "Beyond your two deal breakers, what else is non-negotiable?", "ph": "Say the real thing, not the polite version."}, {"k": "p4", "q": "What has changed about what you want since you were younger?", "ph": "Optional — but it is the answer people respond to most."}], "seed": [{"first": "Grace", "lastName": "Mensah", "gender": "Woman", "seeking": "Men", "dob": "1979-04-12", "city": "Atlanta", "state": "Georgia", "country": "United States", "marital": "Divorced", "journey": "Moved abroad as an adult", "originCountry": "Ghana", "languages": ["English", "Twi"], "faith": "Christian", "denom": "Methodist", "observance": "Practising — weekly, matters a lot", "faithReq": "Must share my faith", "education": "Master's / MBA", "profession": "Hospital administrator", "kidsHas": "Yes, grown and independent", "kidsWants": "No", "familyInv": "Involved — introductions once it's serious", "drink": "Socially", "smoke": "Never", "timeline": "Ready to marry now", "pace": "Steady and intentional", "values": ["Faith", "Family", "Honesty", "Loyalty"], "dealBreakers": ["smoke", "nomarriage"], "ageMin": 45, "ageMax": 60, "relocate": "Yes, for a good reason", "abroad": "Only if they're ready to relocate", "status": "approved", "note": "Warm and very organised. Grown children, both away at university. Said twice that she will not live with a smoker."}, {"first": "Daniel", "lastName": "Okafor", "gender": "Man", "seeking": "Women", "dob": "1976-09-02", "city": "Atlanta", "state": "Georgia", "country": "United States", "marital": "Divorced", "journey": "Moved abroad as a child", "originCountry": "Nigeria", "languages": ["English"], "faith": "Christian", "denom": "Non-denominational", "observance": "Practising — weekly, matters a lot", "faithReq": "Same faith preferred, flexible", "education": "Bachelor's", "profession": "Civil engineer", "kidsHas": "Yes, not living with me", "kidsWants": "No", "familyInv": "Involved — introductions once it's serious", "drink": "Socially", "smoke": "Never", "timeline": "Ready to marry now", "pace": "Steady and intentional", "values": ["Faith", "Family", "Loyalty", "Growth"], "dealBreakers": ["drink", "nomarriage"], "ageMin": 44, "ageMax": 56, "relocate": "Yes, for a good reason", "abroad": "Yes, happy to consider", "status": "approved", "note": "Straightforward, easy to talk to, no games. One teenage son who lives with his mother — he is upfront about it."}, {"first": "Yvette", "lastName": "Laurent", "gender": "Woman", "seeking": "Men", "dob": "1981-02-20", "city": "Montreal", "state": "Quebec", "country": "Canada", "marital": "Never married", "journey": "Born and raised in country of origin", "originCountry": "Canada", "languages": ["English", "French"], "faith": "Spiritual, not religious", "denom": "N/A", "observance": "Cultural — I identify, less practice", "faithReq": "Faith isn't a factor", "education": "Doctorate / MD / JD", "profession": "Dentist", "kidsHas": "No children", "kidsWants": "Not sure yet", "familyInv": "I make this decision on my own", "drink": "Socially", "smoke": "Never", "timeline": "Committed partnership, marriage optional", "pace": "Take it slow", "values": ["Independence", "Honesty", "Adventure", "Health & fitness"], "dealBreakers": ["smoke", "haskids"], "ageMin": 42, "ageMax": 55, "relocate": "Yes, within my region", "abroad": "No, my country only", "status": "approved", "note": "Independent, busy practice, does not need managing. Very clear she does not want to help raise anyone's children."}, {"first": "Marcus", "lastName": "Bell", "gender": "Man", "seeking": "Women", "dob": "1978-06-30", "city": "Atlanta", "state": "Georgia", "country": "United States", "marital": "Widowed", "journey": "Born and raised in country of origin", "originCountry": "United States", "languages": ["English"], "faith": "Christian", "denom": "Baptist", "observance": "Very devout — faith leads my life", "faithReq": "Must share my faith", "education": "Bachelor's", "profession": "Financial adviser", "kidsHas": "Yes, grown and independent", "kidsWants": "No", "familyInv": "Very involved — my family should meet them early", "drink": "Never", "smoke": "Never", "timeline": "Ready to marry now", "pace": "Steady and intentional", "values": ["Faith", "Family", "Kindness", "Community"], "dealBreakers": ["drink", "faith"], "ageMin": 42, "ageMax": 55, "relocate": "Yes, for a good reason", "abroad": "No, my country only", "status": "approved", "note": "Widowed four years ago, ready in his own time. Gentle, church-centred. Faith is genuinely non-negotiable — do not test it."}, {"first": "Priya", "lastName": "Raman", "gender": "Woman", "seeking": "Men", "dob": "1980-11-08", "city": "London", "state": "England", "country": "United Kingdom", "marital": "Divorced", "journey": "Moved abroad as a child", "originCountry": "India", "languages": ["English", "Hindi"], "faith": "Hindu", "denom": "Other", "observance": "Practising — weekly, matters a lot", "faithReq": "Same faith preferred, flexible", "education": "Master's / MBA", "profession": "Programme director", "kidsHas": "Yes, living with me", "kidsWants": "No", "familyInv": "Involved — introductions once it's serious", "drink": "Socially", "smoke": "Never", "timeline": "Marriage in 1–2 years", "pace": "Steady and intentional", "values": ["Family", "Ambition", "Honesty", "Humour"], "dealBreakers": ["smoke", "norelocate"], "ageMin": 43, "ageMax": 56, "relocate": "Yes, within my region", "abroad": "Yes, happy to consider", "status": "approved", "note": "Two children at home, 12 and 9. Needs someone genuinely comfortable with a full house, not someone tolerating it."}, {"first": "Tunde", "lastName": "Balogun", "gender": "Man", "seeking": "Women", "dob": "1979-01-15", "city": "Montreal", "state": "Quebec", "country": "Canada", "marital": "Never married", "journey": "Moved abroad as an adult", "originCountry": "Nigeria", "languages": ["English", "Yoruba", "French"], "faith": "Spiritual, not religious", "denom": "N/A", "observance": "Cultural — I identify, less practice", "faithReq": "Faith isn't a factor", "education": "Master's / MBA", "profession": "Architect", "kidsHas": "No children", "kidsWants": "Not sure yet", "familyInv": "Somewhat involved", "drink": "Socially", "smoke": "Never", "timeline": "Committed partnership, marriage optional", "pace": "Take it slow", "values": ["Independence", "Adventure", "Honesty", "Growth"], "dealBreakers": ["smoke", "haskids"], "ageMin": 40, "ageMax": 52, "relocate": "Yes, within my region", "abroad": "Yes, happy to consider", "status": "approved", "note": "Thoughtful, dry sense of humour, no hurry at all. Reads well against Yvette on paper and did in person too."}, {"first": "Sandra", "lastName": "Mwangi", "gender": "Woman", "seeking": "Men", "dob": "1983-07-19", "city": "Nairobi", "state": "Nairobi County", "country": "Kenya", "marital": "Divorced", "journey": "Live in country of origin", "originCountry": "Kenya", "languages": ["English", "Swahili"], "faith": "Christian", "denom": "Anglican", "observance": "Practising — weekly, matters a lot", "faithReq": "Must share my faith", "education": "Bachelor's", "profession": "Head of school", "kidsHas": "Yes, not living with me", "kidsWants": "No", "familyInv": "Involved — introductions once it's serious", "drink": "Never", "smoke": "Never", "timeline": "Marriage in 1–2 years", "pace": "Steady and intentional", "values": ["Faith", "Family", "Education", "Kindness"], "dealBreakers": ["drink", "smoke"], "ageMin": 42, "ageMax": 58, "relocate": "Yes, anywhere in the world", "abroad": "Yes, happy to consider", "status": "pending", "note": ""}, {"first": "Robert", "lastName": "Kim", "gender": "Man", "seeking": "Women", "dob": "1975-03-25", "city": "Seattle", "state": "Washington", "country": "United States", "marital": "Divorced", "journey": "Moved abroad as a child", "originCountry": "South Korea", "languages": ["English", "Other"], "faith": "Christian", "denom": "Non-denominational", "observance": "Cultural — I identify, less practice", "faithReq": "Faith isn't a factor", "education": "Doctorate / MD / JD", "profession": "Radiologist", "kidsHas": "Yes, grown and independent", "kidsWants": "No", "familyInv": "I make this decision on my own", "drink": "Socially", "smoke": "Never", "timeline": "Companionship first, open to more", "pace": "Take it slow", "values": ["Independence", "Humour", "Health & fitness", "Growth"], "dealBreakers": ["smoke", "agegap"], "ageMin": 45, "ageMax": 58, "relocate": "Yes, for a good reason", "abroad": "No, my country only", "status": "approved", "note": "Long hours, honest about it. Wants companionship first and says so plainly rather than pretending otherwise."}, {"first": "Helen", "lastName": "Osei", "gender": "Woman", "seeking": "Men", "dob": "1977-12-03", "city": "London", "state": "England", "country": "United Kingdom", "marital": "Widowed", "journey": "Moved abroad as an adult", "originCountry": "Ghana", "languages": ["English", "Twi"], "faith": "Christian", "denom": "Pentecostal", "observance": "Very devout — faith leads my life", "faithReq": "Must share my faith and level", "education": "Bachelor's", "profession": "Nurse practitioner", "kidsHas": "Yes, grown and independent", "kidsWants": "No", "familyInv": "Very involved — my family should meet them early", "drink": "Never", "smoke": "Never", "timeline": "Ready to marry now", "pace": "Steady and intentional", "values": ["Faith", "Family", "Community", "Loyalty"], "dealBreakers": ["faith", "drink"], "ageMin": 46, "ageMax": 60, "relocate": "Yes, for a good reason", "abroad": "Yes, happy to consider", "status": "pending", "note": ""}, {"first": "Anthony", "lastName": "Rossi", "gender": "Man", "seeking": "Women", "dob": "1978-05-11", "city": "London", "state": "England", "country": "United Kingdom", "marital": "Never married", "journey": "Moved abroad as an adult", "originCountry": "Italy", "languages": ["English", "Other"], "faith": "Christian", "denom": "Catholic", "observance": "Practising — weekly, matters a lot", "faithReq": "Same faith preferred, flexible", "education": "Master's / MBA", "profession": "Restaurateur", "kidsHas": "No children", "kidsWants": "Yes, open to it", "familyInv": "Very involved — my family should meet them early", "drink": "Socially", "smoke": "Never", "timeline": "Marriage in 1–2 years", "pace": "Steady and intentional", "values": ["Family", "Humour", "Tradition", "Ambition"], "dealBreakers": ["smoke", "nomarriage"], "ageMin": 40, "ageMax": 52, "relocate": "Yes, within my region", "abroad": "Yes, happy to consider", "status": "approved", "note": "Engaged to Priya as of last month. Left in the system for the record — do not propose him to anyone."}], "seedSlates": [{"stage": "sent", "picked": null, "theirRes": "pending", "note": "", "opts": [{"id": "m2", "note": "On paper — you're both in Atlanta, both Christian, both ready now. But that's not why I'm putting him in front of you: he was honest about his son inside the first five minutes of our call, and you told me honesty is the thing you're short of."}, {"id": "m4", "note": "Marcus is the quietest man in my book and the steadiest. Widowed, grown children, faith at the centre of everything. He does not drink at all, which I know matters less to you than the smoking, but it tells you the kind of life he keeps."}], "for": "m1"}, {"stage": "talking", "picked": "m6", "theirRes": "accepted", "fb": {"m3": {"days": 4, "met": "We've met in person", "went": "Good — I'd like to keep going", "respect": "Yes, completely", "again": "Not just yet", "note": "Three dinners so far. He listens, which I had stopped expecting."}, "m6": {"days": 3, "met": "We've met in person", "went": "Good — I'd like to keep going", "respect": "Yes, completely", "again": "Not just yet", "note": "She is exactly as you described her. No notes."}}, "note": "Neither of you is in a hurry, both of you have built a life you like, and neither of you wants to inherit a family. That is a rarer overlap than it sounds.", "opts": [{"id": "m6", "note": "Neither of you is in a hurry, both of you have built a life you like, and neither of you wants to inherit a family. That is a rarer overlap than it sounds."}, {"id": "m8", "note": "Robert is further away and works brutal hours, but he is the only other person in my book who described what he wants in almost the same words you used."}], "for": "m3"}, {"stage": "engaged", "picked": "m10", "theirRes": "accepted", "fb": {"m5": {"days": 30, "met": "We've met in person", "went": "Much better than I expected", "respect": "Yes, completely", "again": "Not just yet", "note": "He met the children in the third week and asked me first. That was the moment."}, "m10": {"days": 28, "met": "We've met in person", "went": "Much better than I expected", "respect": "Yes, completely", "again": "Not just yet", "note": ""}}, "note": "He asked about your children before he asked about you. That told me everything.", "opts": [{"id": "m10", "note": "He asked about your children before he asked about you. That told me everything."}, {"id": "m2", "note": "Daniel is in Atlanta, which is the obvious problem, but he is open to moving and he has a child of his own — he would not need any of this explained to him."}], "for": "m5"}]};
 /* ============================================================
@@ -372,8 +380,228 @@ const STAGE_LABEL = {
 };
 
 /* ---------- store ---------- */
+/* ============================================================
+   LIVE BACKEND (Supabase)
+   Leave both values blank and the site runs as a browser-only demo.
+   Paste both (Supabase → Project Settings → API) to switch to real accounts.
+   The anon key is designed to be public; the database rules protect the data.
+   ============================================================ */
+const CONFIG = { SUPABASE_URL: "", SUPABASE_ANON_KEY: "" };
+const LIVE = !!(CONFIG.SUPABASE_URL && CONFIG.SUPABASE_ANON_KEY);
+const sb = (LIVE && window.supabase) ? window.supabase.createClient(CONFIG.SUPABASE_URL, CONFIG.SUPABASE_ANON_KEY) : null;
+const PENDING_KEY = "sola." + BRAND.key + ".pending";
+let SNAP = { d: {}, st: {}, n: {}, s: {} };
+
+function rowToMember(r, notes) { return Object.assign({}, r.data, { id: r.id, status: r.status, email: r.email, notes: notes || [] }); }
+function memberToRow(m) { const { notes, id, status, email, ...data } = m; return { id, status, email, data, notes: notes || [] }; }
+function rowToSlate(r) { return Object.assign({}, r.data, { id: r.id, for: r.for_id, picked: r.picked, stage: r.stage }); }
+function slateToRow(s) { const { id, for: f, picked, stage, ...data } = s; return { id, for_id: f, picked: picked || null, stage, data }; }
+function snapMember(m) { const r = memberToRow(m); SNAP.d[m.id] = JSON.stringify(r.data); SNAP.st[m.id] = r.status; SNAP.n[m.id] = JSON.stringify(r.notes); }
+
+let _sync = Promise.resolve();
+function syncLive() { _sync = _sync.then(doSync).catch(e => { console.error(e); toast("Couldn't save that — check your connection and try again."); }); }
+async function doSync() {
+  if (!sb) return;
+  const mine = SESSION.admin ? DB.members : DB.members.filter(x => x.id === SESSION.memberId);
+  for (const m of mine) {
+    if (SNAP.d[m.id] === undefined) continue;
+    const r = memberToRow(m), d = JSON.stringify(r.data), n = JSON.stringify(r.notes);
+    if (SNAP.d[m.id] !== d) { const { error } = await sb.from("members").update({ data: r.data }).eq("id", m.id); if (error) throw error; SNAP.d[m.id] = d; }
+    if (SNAP.st[m.id] !== r.status) { const { error } = await sb.from("members").update({ status: r.status }).eq("id", m.id); if (error) throw error; SNAP.st[m.id] = r.status; }
+    if (SESSION.admin && SNAP.n[m.id] !== n) { const { error } = await sb.from("member_notes").upsert({ member_id: m.id, notes: r.notes }); if (error) throw error; SNAP.n[m.id] = n; }
+  }
+  if (SESSION.admin) for (const s of DB.slates) {
+    const r = slateToRow(s), j = JSON.stringify(r);
+    if (SNAP.s[s.id] !== j) { const { error } = await sb.from("slates").upsert(r); if (error) throw error; SNAP.s[s.id] = j; }
+  }
+}
+
+async function loadLive() {
+  SNAP = { d: {}, st: {}, n: {}, s: {} };
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session) { SESSION = { memberId: null, admin: false }; DB = { members: [], slates: [] }; return; }
+  const { data: isAdm } = await sb.rpc("am_i_admin");
+  if (isAdm) { SESSION = { memberId: null, admin: true, email: session.user.email }; await loadAdminData(); }
+  else { SESSION = { memberId: session.user.id, admin: false, email: session.user.email }; await loadMemberData(session.user); }
+}
+async function loadAdminData() {
+  const [m, n, s] = await Promise.all([sb.from("members").select("*"), sb.from("member_notes").select("*"), sb.from("slates").select("*")]);
+  if (m.error || n.error || s.error) throw (m.error || n.error || s.error);
+  const nm = {}; n.data.forEach(r => nm[r.member_id] = r.notes);
+  DB = { members: m.data.map(r => rowToMember(r, nm[r.id])), slates: s.data.map(rowToSlate) };
+  DB.members.forEach(snapMember); DB.slates.forEach(x => SNAP.s[x.id] = JSON.stringify(slateToRow(x)));
+}
+async function loadMemberData(user) {
+  let own = await sb.from("members").select("*").eq("id", user.id).maybeSingle();
+  if (!own.data && await flushPending(user)) own = await sb.from("members").select("*").eq("id", user.id).maybeSingle();
+  const [sl, cp] = await Promise.all([sb.rpc("my_slates"), sb.rpc("my_counterparts")]);
+  const list = [];
+  if (own.data) list.push(rowToMember(own.data));
+  (cp.data || []).forEach(c => { if (c.id === user.id) return; const i = list.findIndex(x => x.id === c.id); const o = Object.assign({ notes: [] }, c); if (i < 0) list.push(o); else if (c.phone) list[i] = o; });
+  DB = { members: list, slates: sl.data || [] };
+  if (own.data) snapMember(list[0]);
+}
+async function flushPending(user) {
+  let p = null; try { p = JSON.parse(localStorage.getItem(PENDING_KEY) || "null"); } catch (e) { }
+  let rec = p && p.email === (user.email || "").toLowerCase() ? p.rec : null;
+  if (!rec && user.user_metadata && user.user_metadata.application) rec = user.user_metadata.application;
+  if (!rec) return false;
+  rec.photos = rec.photos || [];
+  await saveApplication(user.id, rec); return true;
+}
+async function saveApplication(userId, rec) {
+  const { email, ...data } = rec;
+  const { error } = await sb.from("members").upsert({ id: userId, email, status: "pending", data });
+  if (error) throw error;
+  try { localStorage.removeItem(PENDING_KEY); } catch (e) { }
+  sb.auth.updateUser({ data: { application: null } });
+}
+async function liveAct(fn, msg) {
+  const { error } = await fn();
+  if (error) { console.error(error); toast("That didn't go through — please try again."); return; }
+  await loadLive(); render(); toast(msg);
+}
+async function signOut() {
+  if (LIVE && sb) await sb.auth.signOut();
+  SESSION = { memberId: null, admin: false }; if (LIVE) DB = { members: [], slates: [] };
+  go("landing");
+}
+async function boot() {
+  if (!LIVE) { loadDB(); seed(); render(); return; }
+  const app = document.getElementById("app");
+  if (!sb) { app.innerHTML = `<div class="narrow" style="padding:90px 24px;text-align:center"><h2>We can't reach the sign-in service.</h2><p>Please check your connection and refresh the page.</p></div>`; return; }
+  app.innerHTML = `<div class="narrow" style="padding:90px 24px;text-align:center;color:var(--muted)">Loading…</div>`;
+  const recovery = /type=recovery/.test(location.hash);
+  sb.auth.onAuthStateChange(ev => { if (ev === "PASSWORD_RECOVERY") setTimeout(() => go("newpassword"), 0); });
+  try { await loadLive(); } catch (e) { console.error(e); toast("We couldn't load your account — please refresh."); }
+  if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+  VIEW = recovery ? { name: "newpassword", p: {} } : SESSION.admin ? { name: "admin", p: {} } : SESSION.memberId ? { name: "portal", p: {} } : VIEW;
+  render();
+}
+function pwBlock() {
+  if (!LIVE || EDIT_ID || SESSION.memberId) return "";
+  const d = DRAFT;
+  return `<div class="row2">
+      <div class="field"><label class="lb">Create a password</label><input type="password" name="password" autocomplete="new-password" value="${esc(d.password || "")}"><p class="hint">At least 8 characters. You'll use it with your email to sign in.</p></div>
+      <div class="field"><label class="lb">Confirm password</label><input type="password" name="password2" autocomplete="new-password" value="${esc(d.password2 || "")}"></div>
+    </div>
+    <div style="position:absolute;left:-9999px" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off" value=""></div>`;
+}
+async function submitLive() {
+  const d = DRAFT, errBox = document.getElementById("stepErr");
+  const btn = [...document.querySelectorAll("button.btn-primary")].pop();
+  const busy = on => { if (btn) { btn.disabled = on; btn.textContent = on ? "Submitting…" : "Submit application"; } };
+  if (d.website) { DRAFT = null; go("confirm", { email: d.email }); return; }   /* honeypot: bots only */
+  busy(true);
+  const rec = Object.assign({}, d, { created: Date.now(), lastInitial: (d.lastName || "?")[0], ageMin: +d.ageMin || BRAND.dfMin, ageMax: +d.ageMax || BRAND.dfMax });
+  const pw = rec.password; delete rec.password; delete rec.password2; delete rec.website;
+  try {
+    if (SESSION.memberId) {            /* signed in but never finished an application */
+      rec.email = SESSION.email; await saveApplication(SESSION.memberId, rec); await loadLive(); DRAFT = null; go("submitted"); return;
+    }
+    rec.email = (d.email || "").trim().toLowerCase();
+    const meta = Object.assign({}, rec); delete meta.photos;
+    const { data, error } = await sb.auth.signUp({ email: rec.email, password: pw, options: { emailRedirectTo: location.origin + location.pathname, data: { application: meta } } });
+    if (error || !data.user || (data.user.identities && !data.user.identities.length)) {
+      busy(false); errBox.innerHTML = `<div class="err">${error ? esc(error.message) : "An account with this email already exists. Please sign in, or use “Forgot your password?”."}</div>`; return;
+    }
+    if (data.session) { await saveApplication(data.user.id, rec); await loadLive(); DRAFT = null; go("submitted"); }
+    else { try { localStorage.setItem(PENDING_KEY, JSON.stringify({ email: rec.email, rec })); } catch (e) { } DRAFT = null; go("confirm", { email: rec.email }); }
+  } catch (e) { console.error(e); busy(false); errBox.innerHTML = `<div class="err">Something went wrong sending your application. Please try again in a moment.</div>`; }
+}
+
+/* ---------- sign in / matchmaker sign in / reset ---------- */
+function confirmView() {
+  return `<div class="narrow" style="padding:80px 24px;text-align:center;max-width:600px">
+    <div class="step-n" style="margin:0 auto 22px;width:56px;height:56px;font-size:24px">✉</div>
+    <h2>Check your email.</h2>
+    <p style="font-size:17px;color:var(--ink-2)">We've sent a confirmation link to <b>${esc(VIEW.p.email || "your inbox")}</b>. Click it to finish creating your account — your application is saved the moment you do.</p>
+    <p style="color:var(--muted);font-size:14.5px">Nothing arrived? Check your spam folder, or contact us at ${BRAND.contact ? `<a href="mailto:${esc(BRAND.contact)}">${esc(BRAND.contact)}</a>` : "the address in the footer"}.</p>
+  </div>${footer()}`;
+}
+function signinView() {
+  if (LIVE) {
+    const f = VIEW.p.forgot;
+    return `<div class="narrow" style="padding:70px 24px;max-width:460px">
+    <h2>${f ? "Reset your password." : "Welcome back."}</h2>
+    ${f ? `<p class="hint">Enter your email and we'll send you a link to choose a new password.</p>` : ""}
+    <div class="field"><label class="lb">Email</label><input type="email" id="siEmail" autocomplete="email" placeholder="you@example.com"></div>
+    ${f ? "" : `<div class="field"><label class="lb">Password</label><input type="password" id="siPw" autocomplete="current-password" onkeydown="if(event.key==='Enter')doSignin()"></div>`}
+    <button class="btn btn-primary btn-block" onclick="${f ? "doForgot()" : "doSignin()"}">${f ? "Send reset link" : "Sign in"}</button>
+    <div id="siErr"></div>
+    <p style="margin-top:24px;font-size:14px;color:var(--muted)">${f ? `<a onclick="go('signin')" style="cursor:pointer">Back to sign in</a>` : `<a onclick="go('signin',{forgot:1})" style="cursor:pointer">Forgot your password?</a><br><br>No account yet? <a onclick="startApply()" style="cursor:pointer">Start your application</a>.`}</p>
+  </div>`;
+  }
+  const demo = DB.members[0];
+  return `<div class="narrow" style="padding:70px 24px;max-width:460px">
+    <h2>Welcome back.</h2>
+    <p class="hint">Preview build: sign in with the email on your application. Try <code>${esc(demo ? demo.email : "")}</code>.</p>
+    <div class="field"><label class="lb">Email</label><input type="email" id="siEmail" placeholder="you@example.com"></div>
+    <button class="btn btn-primary btn-block" onclick="doSignin()">Sign in</button>
+    <div id="siErr"></div>
+    <p style="margin-top:24px;font-size:14px;color:var(--muted)">No application yet? <a onclick="startApply()" style="cursor:pointer">Start one</a>.</p>
+  </div>`;
+}
+async function doSignin() {
+  const e = (document.getElementById("siEmail").value || "").trim().toLowerCase(), box = document.getElementById("siErr");
+  if (!LIVE) {
+    const m = DB.members.find(x => (x.email || "").toLowerCase() === e);
+    if (!m) { box.innerHTML = `<div class="err">No application found for that email.</div>`; return; }
+    SESSION.memberId = m.id; go("portal"); return;
+  }
+  const pw = document.getElementById("siPw").value;
+  if (!e || !pw) { box.innerHTML = `<div class="err">Please enter your email and password.</div>`; return; }
+  const { error } = await sb.auth.signInWithPassword({ email: e, password: pw });
+  if (error) { box.innerHTML = `<div class="err">${/confirm/i.test(error.message) ? "Please confirm your email first — we sent you a link when you applied." : "That email and password don't match."}</div>`; return; }
+  try { await loadLive(); } catch (x) { console.error(x); }
+  go(SESSION.admin ? "admin" : "portal");
+}
+async function doForgot() {
+  const e = (document.getElementById("siEmail").value || "").trim().toLowerCase(), box = document.getElementById("siErr");
+  if (!e) { box.innerHTML = `<div class="err">Please enter your email.</div>`; return; }
+  await sb.auth.resetPasswordForEmail(e, { redirectTo: location.origin + location.pathname });
+  box.innerHTML = `<div class="card" style="margin-top:16px;background:var(--tint);border-color:transparent">If there's an account for that email, a reset link is on its way.</div>`;
+}
+function newPasswordView() {
+  return `<div class="narrow" style="padding:70px 24px;max-width:460px">
+    <h2>Choose a new password.</h2>
+    <div class="field"><label class="lb">New password</label><input type="password" id="npPw" autocomplete="new-password"><p class="hint">At least 8 characters.</p></div>
+    <div class="field"><label class="lb">Confirm</label><input type="password" id="npPw2" autocomplete="new-password"></div>
+    <button class="btn btn-primary btn-block" onclick="doNewPassword()">Save password</button><div id="npErr"></div></div>`;
+}
+async function doNewPassword() {
+  const a = document.getElementById("npPw").value, b = document.getElementById("npPw2").value, box = document.getElementById("npErr");
+  if (a.length < 8) { box.innerHTML = `<div class="err">Use at least 8 characters.</div>`; return; }
+  if (a !== b) { box.innerHTML = `<div class="err">The two passwords don't match.</div>`; return; }
+  const { error } = await sb.auth.updateUser({ password: a });
+  if (error) { box.innerHTML = `<div class="err">${esc(error.message)}</div>`; return; }
+  await loadLive(); go(SESSION.admin ? "admin" : "portal"); toast("Password updated.");
+}
+function adminLoginView() {
+  return `<div class="narrow" style="padding:70px 24px;max-width:460px">
+    <div class="eyebrow">Matchmaker access</div>
+    <h2>The desk.</h2>
+    ${LIVE ? `<div class="field"><label class="lb">Email</label><input type="email" id="alEmail" autocomplete="username"></div>` : ""}
+    <div class="field"><label class="lb">${LIVE ? "Password" : "Passcode"}</label><input type="password" id="alCode" autocomplete="current-password" onkeydown="if(event.key==='Enter')doAdmin()"></div>
+    <button class="btn btn-primary btn-block" onclick="doAdmin()">Enter</button><div id="alErr"></div>
+  </div>`;
+}
+async function doAdmin() {
+  const box = document.getElementById("alErr"), code = (document.getElementById("alCode").value || "");
+  if (!LIVE) {
+    if (code.trim().toLowerCase() !== ADMIN_CODE) { box.innerHTML = `<div class="err">That passcode isn't right.</div>`; return; }
+    SESSION.admin = true; ADM = { tab: "queue", id: null, f: {}, pick: null, chosen: [] }; go("admin"); return;
+  }
+  const e = (document.getElementById("alEmail").value || "").trim().toLowerCase();
+  const { error } = await sb.auth.signInWithPassword({ email: e, password: code });
+  if (error) { box.innerHTML = `<div class="err">That email and password don't match.</div>`; return; }
+  try { await loadLive(); } catch (x) { console.error(x); }
+  if (!SESSION.admin) { await signOut(); go("adminlogin"); setTimeout(() => { const b = document.getElementById("alErr"); if (b) b.innerHTML = `<div class="err">This account doesn't have matchmaker access.</div>`; }, 0); return; }
+  ADM = { tab: "queue", id: null, f: {}, pick: null, chosen: [] }; go("admin");
+}
+
 let DB = { members: [], slates: [], seeded: false };
-function save() { try { localStorage.setItem(KEY, JSON.stringify(DB)); } catch (e) { toast("Storage full — try fewer photos."); } }
+function save() { if (LIVE) { syncLive(); return; } try { localStorage.setItem(KEY, JSON.stringify(DB)); } catch (e) { toast("Storage full — try fewer photos."); } }
 function loadDB() { try { const r = localStorage.getItem(KEY); if (r) DB = JSON.parse(r); } catch (e) { } }
 function uid() { return Math.random().toString(36).slice(2, 10); }
 function member(id) { return DB.members.find(m => m.id === id); }
@@ -569,13 +797,13 @@ function navBar() {
     </a>
     <nav class="nav-links">
       ${SESSION.admin ? `<button class="btn btn-quiet" onclick="go('admin')">Matchmaker desk</button>
-        <button class="btn btn-ghost btn-sm" onclick="SESSION.admin=false;go('landing')">Sign out</button>`
+        <button class="btn btn-ghost btn-sm" onclick="signOut()">Sign out</button>`
       : m ? `<button class="btn btn-quiet" onclick="go('portal')">My portal</button>
-        <button class="btn btn-ghost btn-sm" onclick="startEdit('${m.id}')">Edit my details</button>
-        <button class="btn btn-quiet btn-sm" onclick="SESSION.memberId=null;go('landing')">Sign out</button>`
+        <button class="btn btn-ghost btn-sm hide-sm" onclick="startEdit('${m.id}')">Edit my details</button>
+        <button class="btn btn-quiet btn-sm" onclick="signOut()">Sign out</button>`
         : `<button class="btn btn-quiet" onclick="go('signin')">Sign in</button>
-         <button class="btn btn-quiet" onclick="go('adminlogin')">Matchmaker</button>
-         <button class="btn btn-primary btn-sm" onclick="startApply()">Start your application</button>`}
+         ${LIVE ? "" : `<button class="btn btn-quiet hide-sm" onclick="go('adminlogin')">Matchmaker</button>`}
+         <button class="btn btn-primary btn-sm" onclick="startApply()"><span class="hide-sm">Start your application</span><span class="sm-only">Apply</span></button>`}
     </nav>
   </div><div class="rule"></div></header>`;
 }
@@ -590,6 +818,8 @@ function render() {
   else if (v === "adminlogin") app.innerHTML = navBar() + adminLoginView();
   else if (v === "portal") app.innerHTML = navBar() + portalView();
   else if (v === "submitted") app.innerHTML = navBar() + submittedView();
+  else if (v === "confirm") app.innerHTML = navBar() + confirmView();
+  else if (v === "newpassword") app.innerHTML = navBar() + newPasswordView();
   bindChips(app);
   if (v === "apply") afterApplyRender();
 }
@@ -604,9 +834,9 @@ function footer() {
     <div><b>${BRAND.name}</b><div class="tag">${esc(BRAND.footer)}</div>
       ${BRAND.contact ? `<div class="contact">Contact us: <a href="mailto:${esc(BRAND.contact)}">${esc(BRAND.contact)}</a></div>` : ""}
       ${BRAND.sisterBlurb ? `<div class="contact">${esc(BRAND.sisterBlurb)} ${sisterLink("Visit " + BRAND.sister + " →")}</div>` : ""}</div>
-    <div style="align-self:flex-end">Prototype build ·
-      <a onclick="go('adminlogin')" style="cursor:pointer">Matchmaker sign-in</a> ·
-      <a onclick="resetDemo()" style="cursor:pointer">Reset demo data</a></div>
+    <div style="align-self:flex-end">${LIVE ? `© ${new Date().getFullYear()} ${esc(BRAND.name)} ·` : "Preview build ·"}
+      <a onclick="go('adminlogin')" style="cursor:pointer">Matchmaker sign-in</a>${LIVE ? "" : ` ·
+      <a onclick="resetDemo()" style="cursor:pointer">Reset demo data</a>`}</div>
   </div></div>`;
 }
 
@@ -631,12 +861,16 @@ function landing() {
       </div>
     </div>
     <div class="hero-card">
+      ${LIVE ? `<h4>Two introductions. One choice.</h4>
+      <div class="mini"><div class="av">A</div><div><b>Option one</b><small>First name, age, profession and where they live — and why we chose them for you</small></div></div>
+      <div class="mini"><div class="av">B</div><div><b>Option two</b><small>Shown side by side. Pick one, or pass on both — nobody is told</small></div></div>
+      <div style="margin-top:14px;font-size:12.8px;color:var(--muted);border-top:1px solid var(--sand);padding-top:12px">Photos, full name and contact details unlock only when you both say yes.</div>` : `
       <h4>On the matchmaker's desk today</h4>
       ${approved.slice(0, 4).map(m => `<div class="mini"><div class="av">${initials(m)}</div>
         <div><b>${esc(publicName(m))}, ${age(m.dob)}</b><small>${esc(m.profession)} · ${esc(place(m))}</small></div></div>`).join("")}
       <div style="margin-top:14px;font-size:12.8px;color:var(--muted);border-top:1px solid var(--sand);padding-top:12px">
         ${approved.length} vetted members · ${happy} introductions now engaged or married
-      </div>
+      </div>`}
     </div>
   </div></div>
 
@@ -706,6 +940,7 @@ const STEPS = ["About you", "Your journey", "Faith & values", "Life & family", "
 let EDIT_ID = null;
 
 function startApply() {
+  if (LIVE && SESSION.memberId && member(SESSION.memberId)) { go("portal"); return; }
   EDIT_ID = null;
   DRAFT = DRAFT || { photos: [], languages: [], values: [], dealBreakers: [], ageMin: BRAND.dfMin, ageMax: BRAND.dfMax };
   STEP = 0; go("apply");
@@ -751,9 +986,10 @@ function stepBody(i) {
       <div class="field"><label class="lb">Last name</label><input type="text" name="lastName" value="${esc(d.lastName || "")}"></div>
     </div>
     <div class="row2">
-      <div class="field"><label class="lb">Email</label><input type="email" name="email" value="${esc(d.email || "")}"></div>
+      <div class="field"><label class="lb">Email</label><input type="email" name="email" autocomplete="email" ${LIVE && (EDIT_ID || SESSION.memberId) ? "readonly" : ""} value="${esc(d.email || (LIVE && SESSION.memberId ? SESSION.email : "") || "")}"></div>
       <div class="field"><label class="lb">Phone / WhatsApp</label><input type="tel" name="phone" value="${esc(d.phone || "")}"></div>
     </div>
+    ${pwBlock()}
     <div class="row2">
       <div class="field"><label class="lb">I am a…</label>${chipset("gender", OPT.gender, d.gender, false)}</div>
       <div class="field"><label class="lb">I'd like to meet…</label>${chipset("seeking", OPT.seeking, d.seeking, false)}</div>
@@ -945,6 +1181,13 @@ function stepNext() {
   if (STEP === 4 && arr(DRAFT.dealBreakers).length !== 2) {
     errBox.innerHTML = `<div class="err">Please choose exactly two deal breakers — no more, no fewer.</div>`; return;
   }
+  if (STEP === 0 && LIVE) {
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test((DRAFT.email || "").trim())) { errBox.innerHTML = `<div class="err">Please enter a valid email address.</div>`; return; }
+    if (!EDIT_ID && !SESSION.memberId) {
+      if ((DRAFT.password || "").length < 8) { errBox.innerHTML = `<div class="err">Please choose a password of at least 8 characters.</div>`; return; }
+      if (DRAFT.password !== DRAFT.password2) { errBox.innerHTML = `<div class="err">The two passwords don't match.</div>`; return; }
+    }
+  }
   if (STEP === 0) {
     const a = age(DRAFT.dob);
     if (!a || a < BRAND.ageMin || a > BRAND.ageMax) {
@@ -977,6 +1220,7 @@ function submitApp() {
     toast("Your details are updated.");
     return;
   }
+  if (LIVE) { submitLive(); return; }
   const m = Object.assign({}, d, {
     id: uid(), created: Date.now(), status: "pending",
     lastInitial: (d.lastName || "?")[0], notes: [],
@@ -1002,39 +1246,6 @@ function submittedView() {
 /* ============================================================
    SIGN IN
    ============================================================ */
-function signinView() {
-  const demo = DB.members[0];
-  return `<div class="narrow" style="padding:70px 24px;max-width:460px">
-    <h2>Welcome back.</h2>
-    <p class="hint">Prototype: sign in with the email on your application. Try <code>${esc(demo ? demo.email : "")}</code>.</p>
-    <div class="field"><label class="lb">Email</label><input type="email" id="siEmail" placeholder="you@example.com"></div>
-    <button class="btn btn-primary btn-block" onclick="doSignin()">Sign in</button>
-    <div id="siErr"></div>
-    <p style="margin-top:24px;font-size:14px;color:var(--muted)">No application yet? <a onclick="startApply()" style="cursor:pointer">Start one</a>.</p>
-  </div>`;
-}
-function doSignin() {
-  const e = (document.getElementById("siEmail").value || "").trim().toLowerCase();
-  const m = DB.members.find(x => (x.email || "").toLowerCase() === e);
-  if (!m) { document.getElementById("siErr").innerHTML = `<div class="err">No application found for that email.</div>`; return; }
-  SESSION.memberId = m.id; go("portal");
-}
-function adminLoginView() {
-  return `<div class="narrow" style="padding:70px 24px;max-width:460px">
-    <div class="eyebrow">Matchmaker access</div>
-    <h2>The desk.</h2>
-    <p class="hint">Prototype passcode: <code>${esc(ADMIN_CODE)}</code></p>
-    <div class="field"><label class="lb">Passcode</label><input type="text" id="alCode"></div>
-    <button class="btn btn-primary btn-block" onclick="doAdmin()">Enter</button><div id="alErr"></div>
-  </div>`;
-}
-function doAdmin() {
-  if ((document.getElementById("alCode").value || "").trim().toLowerCase() !== ADMIN_CODE) {
-    document.getElementById("alErr").innerHTML = `<div class="err">Wrong passcode.</div>`; return;
-  }
-  SESSION.admin = true; ADM = { tab: "queue", id: null, f: {}, pick: null, chosen: [] }; go("admin");
-}
-
 /* ============================================================
    SLATE HELPERS  (a slate = two options sent to one member)
    ============================================================ */
@@ -1055,7 +1266,7 @@ function unlocked(s) { return ["introduced", "talking", "dating", "engaged", "ma
    ============================================================ */
 function portalView() {
   const m = member(SESSION.memberId);
-  if (!m) return `<div class="narrow" style="padding:70px 24px"><h2>Please sign in.</h2><button class="btn btn-primary" onclick="go('signin')">Sign in</button></div>`;
+  if (!m) return `<div class="narrow" style="padding:70px 24px">${LIVE && SESSION.memberId ? `<h2>Your application isn't finished yet.</h2><p style="color:var(--ink-2)">You're signed in, but we haven't received your application. It only takes a few minutes.</p><button class="btn btn-primary" onclick="startApply()">Start your application</button>` : `<h2>Please sign in.</h2><button class="btn btn-primary" onclick="go('signin')">Sign in</button>`}</div>`;
   const mine = slatesFor(m.id), about = slatesAbout(m.id);
   const banner = m.status === "pending"
     ? `<div class="card" style="border-left:4px solid var(--accent)"><h3>Your application is under review</h3><p>Every application is read personally, and you'll get a call before you enter the pool. Nothing is visible to other members yet.</p></div>`
@@ -1199,6 +1410,12 @@ function saveFeedback(sid, meId) {
   const p = "fb_" + sid + "_";
   const v = k => { const el = document.querySelector(`[name="${p}${k}"]`); return el ? el.value : ""; };
   if (!v("met") || !v("respect")) { toast("Tell us where you've got to and whether you were treated well."); return; }
+  if (LIVE) {
+    const fbv = { met: v("met"), went: v("went"), respect: v("respect"), again: v("again"), note: v("note") };
+    FB_EDIT = null;
+    liveAct(() => sb.rpc("slate_feedback", { p_slate: sid, p_fb: fbv }), v("respect").indexOf("No") === 0 ? "Thank you for telling us. Your matchmaker will call you." : "Thank you — that goes straight to your matchmaker.");
+    return;
+  }
   s.fb = s.fb || {};
   s.fb[meId] = { met: v("met"), went: v("went"), respect: v("respect"), again: v("again"), note: v("note"), t: Date.now() };
   s.log = s.log || [];
@@ -1241,6 +1458,7 @@ function requestCard(s, me) {
 }
 
 function pickOne(sid, oid) {
+  if (LIVE) { liveAct(() => sb.rpc("slate_pick", { p_slate: sid, p_opt: oid }), "Chosen. They'll be asked now — we'll let you know."); return; }
   const s = DB.slates.find(x => x.id === sid);
   const other = s.opts.find(o => o.id !== oid);
   s.picked = oid; s.stage = "chosen"; s.theirRes = "pending";
@@ -1249,12 +1467,14 @@ function pickOne(sid, oid) {
   save(); render(); toast("Chosen. They'll be asked now — we'll let you know.");
 }
 function passSlate(sid) {
+  if (LIVE) { liveAct(() => sb.rpc("slate_pass", { p_slate: sid }), "Noted — neither will be proposed to you again."); return; }
   const s = DB.slates.find(x => x.id === sid);
   s.stage = "closed"; s.closedNote = "Passed on both";
   s.log.push({ t: Date.now(), text: member(s.for).first + " passed on both options" });
   save(); render(); toast("Noted — neither will be proposed to you again.");
 }
 function answer(sid, val) {
+  if (LIVE) { liveAct(() => sb.rpc("slate_answer", { p_slate: sid, p_accept: val === "accepted" }), val === "accepted" ? "The matchmaker will take it from here." : "Noted — you won't be proposed to them again."); return; }
   const s = DB.slates.find(x => x.id === sid);
   s.theirRes = val;
   s.log.push({ t: Date.now(), text: member(s.picked).first + " " + (val === "accepted" ? "accepted" : "passed") });
@@ -1619,7 +1839,7 @@ function setStage(id, s) {
 }
 
 /* ---- boot ---- */
-loadDB(); seed(); render();
+boot();
 
 </script>
 </body>
