@@ -425,10 +425,10 @@ async function loadLive() {
   else { SESSION = { memberId: session.user.id, admin: false, email: session.user.email }; await loadMemberData(session.user); }
 }
 async function loadAdminData() {
-  const [m, n, s] = await Promise.all([sb.from("members").select("*"), sb.from("member_notes").select("*"), sb.from("slates").select("*")]);
-  if (m.error || n.error || s.error) throw (m.error || n.error || s.error);
+  const [m, n, s, f] = await Promise.all([sb.from("members").select("*"), sb.from("member_notes").select("*"), sb.from("slates").select("*"), sb.from("site_feedback").select("*")]);
+  if (m.error || n.error || s.error || f.error) throw (m.error || n.error || s.error || f.error);
   const nm = {}; n.data.forEach(r => nm[r.member_id] = r.notes);
-  DB = { members: m.data.map(r => rowToMember(r, nm[r.id])), slates: s.data.map(rowToSlate) };
+  DB = { members: m.data.map(r => rowToMember(r, nm[r.id])), slates: s.data.map(rowToSlate), feedback: f.data.map(rowToFeedback) };
   DB.members.forEach(snapMember); DB.slates.forEach(x => SNAP.s[x.id] = JSON.stringify(slateToRow(x)));
 }
 async function loadMemberData(user) {
@@ -598,6 +598,96 @@ async function doAdmin() {
   try { await loadLive(); } catch (x) { console.error(x); }
   if (!SESSION.admin) { await signOut(); go("adminlogin"); setTimeout(() => { const b = document.getElementById("alErr"); if (b) b.innerHTML = `<div class="err">This account doesn't have matchmaker access.</div>`; }, 0); return; }
   ADM = { tab: "queue", id: null, f: {}, pick: null, chosen: [] }; go("admin");
+}
+
+/* ============================================================
+   PILOT FEEDBACK — open to anyone, anonymous by default
+   ============================================================ */
+function rowToFeedback(r) { return Object.assign({}, r.data, { id: r.id, reviewed: !!r.reviewed, t: (r.data && r.data.t) || Date.parse(r.created_at) }); }
+const FB_RATING = ["1", "2", "3", "4", "5"];
+
+function feedbackView() {
+  if (VIEW.p.done) return `<div class="narrow" style="padding:80px 24px;text-align:center;max-width:620px">
+    <div class="step-n" style="margin:0 auto 22px;width:56px;height:56px;font-size:26px">✓</div>
+    <h2>Thank you.</h2>
+    <p style="font-size:17px;color:var(--ink-2)">Your feedback has been received. It will be read, and it will shape what we improve next.</p>
+    <button class="btn btn-primary" onclick="go('landing')">Back to ${esc(BRAND.name)}</button>
+  </div>${footer()}`;
+  return `<div class="narrow" style="padding-top:44px;padding-bottom:80px;max-width:720px">
+    <div class="eyebrow">Pilot feedback</div>
+    <h2>Tell us how it went.</h2>
+    <p style="font-size:16.5px;color:var(--ink-2)">Thank you for participating in this pilot run. Your feedback on the experience will be really appreciated.</p>
+    <div id="fbForm" style="margin-top:26px">
+      <div class="field"><label class="lb">How did you find this form or this website?</label>
+        <input type="text" name="found" maxlength="400"></div>
+      <div class="field"><label class="lb">Were there any difficulties, errors, or questions that were unclear as you were filling out your application?</label>
+        <textarea name="difficulty" rows="4" maxlength="4000"></textarea></div>
+      <div class="field"><label class="lb">What did you particularly like?</label>
+        <textarea name="liked" rows="3" maxlength="4000"></textarea></div>
+      <div class="field"><label class="lb">How comfortable would you feel participating in this matchmaking initiative?</label>
+        <p class="hint">1 = not at all comfortable · 5 = completely comfortable</p>
+        ${chipset("comfort", FB_RATING, "", false)}
+        <textarea name="comfortWhy" rows="2" maxlength="4000" placeholder="Anything behind that number? (optional)" style="margin-top:10px"></textarea></div>
+      <div class="field"><label class="lb">Finally, what suggestions do you have for improvement?</label>
+        <textarea name="suggest" rows="4" maxlength="4000"></textarea></div>
+      <h4 class="sect-h">If you'd like us to know who you are</h4>
+      <p class="hint">Optional. Leave both blank to stay anonymous. Add your email only if you'd like a reply.</p>
+      <div class="row2">
+        <div class="field"><label class="lb">Name</label><input type="text" name="name" maxlength="120" autocomplete="name"></div>
+        <div class="field"><label class="lb">Email</label><input type="email" name="email" maxlength="200" autocomplete="email"></div>
+      </div>
+      <div style="position:absolute;left:-9999px" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+    </div>
+    <p style="color:var(--ink-2);font-size:15px">Your feedback is invaluable in helping us refine the process and create a more thoughtful, effective, and meaningful matchmaking experience for everyone.</p>
+    <button class="btn btn-primary" id="fbBtn" onclick="submitFeedback()">Send feedback</button>
+    <div id="fbErr"></div>
+  </div>${footer()}`;
+}
+
+async function submitFeedback() {
+  const root = document.getElementById("fbForm"), err = document.getElementById("fbErr"), btn = document.getElementById("fbBtn");
+  const v = n => { const e = root.querySelector(`[name="${n}"]`); return e ? e.value.trim().slice(0, 4000) : ""; };
+  if (v("website")) { go("feedback", { done: 1 }); return; }            /* honeypot: bots only */
+  const rec = { found: v("found"), difficulty: v("difficulty"), liked: v("liked"), comfort: +chipVal(root, "comfort", false) || 0,
+    comfortWhy: v("comfortWhy"), suggest: v("suggest"), name: v("name"), email: v("email"), t: Date.now() };
+  if (!rec.found && !rec.difficulty && !rec.liked && !rec.comfort && !rec.comfortWhy && !rec.suggest) { err.innerHTML = `<div class="err">Please answer at least one question.</div>`; return; }
+  if (rec.email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(rec.email)) { err.innerHTML = `<div class="err">That email address doesn't look right — or leave it blank to stay anonymous.</div>`; return; }
+  btn.disabled = true; btn.textContent = "Sending…";
+  if (LIVE) {
+    const { error } = await sb.from("site_feedback").insert({ data: rec });
+    if (error) { console.error(error); btn.disabled = false; btn.textContent = "Send feedback"; err.innerHTML = `<div class="err">We couldn't send that just now. Please try again in a moment.</div>`; return; }
+  } else {
+    DB.feedback = DB.feedback || []; DB.feedback.push(Object.assign({ id: uid(), reviewed: false }, rec)); save();
+  }
+  go("feedback", { done: 1 });
+}
+
+function feedbackTab() {
+  const list = (DB.feedback || []).slice().sort((a, b) => b.t - a.t);
+  const rated = list.filter(f => f.comfort);
+  const avg = rated.length ? (rated.reduce((s, f) => s + f.comfort, 0) / rated.length).toFixed(1) : "—";
+  const ans = (label, txt) => txt ? `<div class="quote"><b>${label}</b>${esc(txt).replace(/\n/g, "<br>")}</div>` : "";
+  const card = f => `<div class="card" style="margin-bottom:16px;${f.reviewed ? "opacity:.72" : "border-left:4px solid var(--accent)"}">
+    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start;margin-bottom:12px">
+      <div><b>${f.name || f.email ? esc(f.name || "") + (f.name && f.email ? " · " : "") + esc(f.email || "") : "Anonymous"}</b>
+        <div style="color:var(--muted);font-size:13px">${new Date(f.t).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" })}</div></div>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+        ${f.comfort ? `<span class="badge ${f.comfort >= 4 ? "b-accepted" : f.comfort <= 2 ? "b-declined" : "b-proposed"}">Comfort ${f.comfort}/5</span>` : ""}
+        <button class="btn btn-ghost btn-sm" onclick="toggleFb('${f.id}')">${f.reviewed ? "Reviewed ✓" : "Mark reviewed"}</button></div>
+    </div>
+    ${ans("How they found the site", f.found)}${ans("Difficulties, errors or unclear questions", f.difficulty)}${ans("What they liked", f.liked)}
+    ${ans("Why that comfort rating", f.comfortWhy)}${ans("Suggestions", f.suggest)}</div>`;
+  return `<h2>Site feedback</h2>
+    <p class="hint" style="margin-bottom:20px">What visitors told us about the site and the application. ${list.length} response${list.length === 1 ? "" : "s"} · average comfort ${avg}${rated.length ? " / 5" : ""} · ${list.filter(f => !f.reviewed).length} not yet reviewed.
+    The public page is at <b>Share feedback</b> in the site footer.</p>
+    ${list.length ? list.map(card).join("") : `<div class="empty">No feedback yet.</div>`}`;
+}
+function toggleFb(id) {
+  const f = (DB.feedback || []).find(x => x.id === id); if (!f) return;
+  f.reviewed = !f.reviewed;
+  if (LIVE) sb.from("site_feedback").update({ reviewed: f.reviewed }).eq("id", id).then(({ error }) => { if (error) { f.reviewed = !f.reviewed; toast("Couldn't update that."); render(); } });
+  else save();
+  render();
 }
 
 let DB = { members: [], slates: [], seeded: false };
@@ -819,6 +909,7 @@ function render() {
   else if (v === "portal") app.innerHTML = navBar() + portalView();
   else if (v === "submitted") app.innerHTML = navBar() + submittedView();
   else if (v === "confirm") app.innerHTML = navBar() + confirmView();
+  else if (v === "feedback") app.innerHTML = navBar() + feedbackView();
   else if (v === "newpassword") app.innerHTML = navBar() + newPasswordView();
   bindChips(app);
   if (v === "apply") afterApplyRender();
@@ -834,7 +925,7 @@ function footer() {
     <div><b>${BRAND.name}</b><div class="tag">${esc(BRAND.footer)}</div>
       ${BRAND.contact ? `<div class="contact">Contact us: <a href="mailto:${esc(BRAND.contact)}">${esc(BRAND.contact)}</a></div>` : ""}
       ${BRAND.sisterBlurb ? `<div class="contact">${esc(BRAND.sisterBlurb)} ${sisterLink("Visit " + BRAND.sister + " →")}</div>` : ""}</div>
-    <div style="align-self:flex-end">${LIVE ? `© ${new Date().getFullYear()} ${esc(BRAND.name)} ·` : "Preview build ·"}
+    <div style="align-self:flex-end"><a onclick="go('feedback')" style="cursor:pointer">Share feedback</a> · ${LIVE ? `© ${new Date().getFullYear()} ${esc(BRAND.name)} ·` : "Preview build ·"}
       <a onclick="go('adminlogin')" style="cursor:pointer">Matchmaker sign-in</a>${LIVE ? "" : ` ·
       <a onclick="resetDemo()" style="cursor:pointer">Reset demo data</a>`}</div>
   </div></div>`;
@@ -1240,6 +1331,7 @@ function submittedView() {
     Nothing about you is visible to any other member until you're approved, and your photos stay locked until you and a match
     have both said yes.</p>
     <button class="btn btn-primary" onclick="go('portal')">Go to my portal</button>
+    <p style="margin-top:26px;font-size:14.5px;color:var(--muted)">Part of our pilot? <a onclick="go('feedback')" style="cursor:pointer">Tell us how the application felt</a>.</p>
   </div>${footer()}`;
 }
 
@@ -1553,6 +1645,7 @@ function adminView() {
   else if (ADM.tab === "queue") body = queueTab();
   else if (ADM.tab === "pool") body = poolTab();
   else if (ADM.tab === "make") body = makeTab();
+  else if (ADM.tab === "fb") body = feedbackTab();
   else body = pipelineTab();
   return `<div class="admin-shell">
     <div class="side">
@@ -1562,6 +1655,8 @@ function adminView() {
       <h5>Matching</h5>
       ${tab("make", "Build a pair")}
       ${tab("pipe", "Introductions", live)}
+      <h5>Site</h5>
+      ${tab("fb", "Site feedback", (DB.feedback || []).filter(f => !f.reviewed).length)}
     </div>
     <div class="main">${body}</div>
   </div>`;
@@ -1839,6 +1934,14 @@ function setStage(id, s) {
 }
 
 /* ---- boot ---- */
+if (!LIVE) {
+  /* demo only: two sample responses so the Feedback tab isn't empty */
+  const _b = boot; boot = async function () {
+    await _b(); if (!DB.feedback) { DB.feedback = [
+      { id: "f1", reviewed: false, t: Date.now() - 2 * 86400000, found: "A friend sent me the link", difficulty: "I wasn't sure what 'level of practice' meant at first.", liked: "The two-introductions idea. It feels calmer than an app.", comfort: 4, comfortWhy: "Mostly because photos stay hidden until we both agree.", suggest: "A progress save so I can finish on my phone later.", name: "", email: "" },
+      { id: "f2", reviewed: true, t: Date.now() - 6 * 86400000, found: "Facebook", difficulty: "", liked: "Questions about faith were handled respectfully.", comfort: 5, comfortWhy: "", suggest: "", name: "Sample Visitor", email: "" }]; save(); render(); }
+  };
+}
 boot();
 
 </script>
