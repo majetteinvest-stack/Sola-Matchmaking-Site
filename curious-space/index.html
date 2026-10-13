@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="A modern matchmaking community for young adults who are curious about love, connection and finding a significant partner.">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#0E7A55">
+<meta name="theme-color" content="#E2543A">
 <title>Curious Space — Matchmaking for young adults</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20rx%3D%225%22%20fill%3D%22%23E2543A%22/%3E%3Csvg%20viewBox%3D%220%200%2024%2024%22%20transform%3D%22scale%28.8%29%20translate%283%203%29%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222.3%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M8.6%208.8a3.5%203.5%200%201%201%204.7%203.3c-.9.35-1.3%201.05-1.3%201.95v.55%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2218.3%22%20r%3D%221.15%22%20fill%3D%22%23fff%22%20stroke%3D%22none%22/%3E%3C/svg%3E%3C/svg%3E">
 <style>
@@ -234,6 +234,55 @@ tr:hover td{background:var(--tint)}
 .faq[open] summary::after{content:"\2013"}
 .faq p{margin:10px 0 0;color:var(--ink-2);font-size:14.8px}
 
+
+/* home screen: photo hero + tour */
+.hero-in.has-photo{grid-template-columns:1fr 1.05fr;gap:48px}
+.hero-art{position:relative}
+.hero-photo{position:relative;aspect-ratio:5/4;border-radius:var(--card-r);overflow:hidden;box-shadow:var(--sh-lg);background:linear-gradient(180deg,#5d7a8a 0%,#7f8fa0 40%,#e98a4b 62%,#17323c 100%)}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:18% 50%;display:block}
+.hero-float{position:relative;z-index:2;margin:-58px 18px 0;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:calc(var(--card-r) - 2px);box-shadow:var(--sh-lg);padding:18px 20px}
+.hero-float h4,.hero-card h4{font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:800}
+.lockline{margin-top:10px;font-size:12.8px;color:var(--muted);border-top:1px solid var(--sand);padding-top:10px}
+.tour{background:var(--bg)}
+.tour-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:26px 0 34px}
+.tour-tab{border:1px solid var(--line-s);background:var(--white);color:var(--ink-2);padding:10px 18px;border-radius:999px;font-weight:700;font-size:14.5px;cursor:pointer;font-family:inherit}
+.tour-tab.on{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
+.tour-panel{display:none;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+.tour-panel.on{display:grid}
+.tour-panel h3{font-size:27px;margin-bottom:12px}
+.tour-panel p{color:var(--ink-2);font-size:16.5px}
+.mock{background:var(--white);border:1px solid var(--line);border-radius:var(--card-r);box-shadow:var(--sh-lg);padding:22px;min-width:0}
+.mock-h{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:800}
+.mock-bar{height:6px;background:var(--sand);border-radius:99px;overflow:hidden;margin:10px 0 20px}
+.mock-bar i{display:block;height:100%;width:50%;background:var(--primary)}
+.mk-chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
+.mk-chip{border:1px solid var(--line-s);border-radius:999px;padding:7px 13px;font-size:13.5px;color:var(--ink-2);background:var(--white)}
+.mk-chip.on{background:var(--tint);border-color:var(--primary);color:var(--primary-d);font-weight:700}
+.mk-chip.red.on{background:var(--ink);border-color:var(--ink);color:#fff;font-weight:700}
+.mk-two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mk-opt{border:1px solid var(--line);border-radius:12px;padding:16px 12px;text-align:center}
+.mk-ph{width:66px;height:66px;border-radius:50%;background:var(--tint);margin:0 auto 10px;display:grid;place-items:center;color:var(--primary-d);position:relative}
+.mk-lock{position:absolute;right:-2px;bottom:-2px;width:24px;height:24px;border-radius:50%;background:var(--white);border:1px solid var(--line);display:grid;place-items:center;color:var(--ink-2)}
+.mk-opt b{display:block;font-size:14.5px;margin-bottom:2px}
+.mk-opt small{color:var(--muted);font-size:12.5px;display:block}
+.mk-note{background:var(--sand);border-radius:8px;padding:9px 10px;font-size:12.5px;color:var(--ink-2);margin:12px 0;text-align:left}
+.mk-btn{display:block;background:var(--primary);color:var(--on-primary);border-radius:999px;padding:8px;font-size:13px;font-weight:700}
+.mk-radio{display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:10px;margin-top:8px;font-size:14px;color:var(--ink-2)}
+.mk-radio i{width:15px;height:15px;border-radius:50%;border:2px solid var(--line-s);flex:none}
+.mk-radio.on{border-color:var(--primary);background:var(--tint)}
+.mk-radio.on i{border-color:var(--primary);background:radial-gradient(var(--primary) 42%,transparent 48%)}
+@media(max-width:900px){
+  .hero-in.has-photo{grid-template-columns:1fr;gap:30px}
+  .hero .hero-in{padding-left:24px;padding-right:24px}
+  .tour-panel.on{grid-template-columns:1fr;gap:24px}
+  .tour-panel h3{font-size:23px}
+}
+@media(max-width:520px){
+  .hero-photo{aspect-ratio:4/3.4}
+  .hero-float{margin:-44px 12px 0;padding:14px 15px}
+  .hero-float .mini small{font-size:12px}
+  .mk-two{gap:8px}.mk-opt{padding:12px 8px}.mock{padding:16px}
+}
 @media(max-width:900px){
   .hero-in{grid-template-columns:1fr;gap:34px;padding:48px 0 52px}
   .grid3,.grid4,.grid5,.split,.grid2,.slate{grid-template-columns:1fr;gap:20px}
@@ -517,6 +566,7 @@ function confirmView() {
     <h2>Check your email.</h2>
     <p style="font-size:17px;color:var(--ink-2)">We've sent a confirmation link to <b>${esc(VIEW.p.email || "your inbox")}</b>. Click it to finish creating your account — your application is saved the moment you do.</p>
     <p style="color:var(--muted);font-size:14.5px">Nothing arrived? Check your spam folder, or contact us at ${BRAND.contact ? `<a href="mailto:${esc(BRAND.contact)}">${esc(BRAND.contact)}</a>` : "the address in the footer"}.</p>
+  ${feedbackEmbed()}
   </div>${footer()}`;
 }
 function signinView() {
@@ -617,7 +667,12 @@ function feedbackView() {
     <div class="eyebrow">Pilot feedback</div>
     <h2>Tell us how it went.</h2>
     <p style="font-size:16.5px;color:var(--ink-2)">Thank you for participating in this pilot run. Your feedback on the experience will be really appreciated.</p>
-    <div id="fbForm" style="margin-top:26px">
+    ${feedbackBody(false)}
+  </div>${footer()}`;
+}
+
+function feedbackBody(embedded) {
+  return `    <div id="fbForm" style="margin-top:${embedded ? 18 : 26}px">
       <div class="field"><label class="lb">How did you find this form or this website?</label>
         <input type="text" name="found" maxlength="400"></div>
       <div class="field"><label class="lb">Were there any difficulties, errors, or questions that were unclear as you were filling out your application?</label>
@@ -639,15 +694,23 @@ function feedbackView() {
       <div style="position:absolute;left:-9999px" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
     </div>
     <p style="color:var(--ink-2);font-size:15px">Your feedback is invaluable in helping us refine the process and create a more thoughtful, effective, and meaningful matchmaking experience for everyone.</p>
-    <button class="btn btn-primary" id="fbBtn" onclick="submitFeedback()">Send feedback</button>
-    <div id="fbErr"></div>
-  </div>${footer()}`;
+    <button class="btn btn-primary" id="fbBtn" onclick="submitFeedback(${embedded ? 1 : 0})">Send feedback</button>
+    <div id="fbErr"></div>`;
+}
+/* The same form, shown at the end of the application (after submitting, and on the "check your email" screen). */
+function feedbackEmbed() {
+  return `<div class="card" id="fbEmbed" style="text-align:left;margin-top:44px;padding:28px 26px;border-top:4px solid var(--accent)">
+    <div class="eyebrow">One last thing · optional</div>
+    <h3 style="margin:0 0 8px">How was the application?</h3>
+    <p style="margin:0;font-size:15.5px;color:var(--ink-2)">Thank you for participating in this pilot run. Your feedback on the experience will be really appreciated.</p>
+    ${feedbackBody(true)}
+  </div>`;
 }
 
-async function submitFeedback() {
+async function submitFeedback(embedded) {
   const root = document.getElementById("fbForm"), err = document.getElementById("fbErr"), btn = document.getElementById("fbBtn");
   const v = n => { const e = root.querySelector(`[name="${n}"]`); return e ? e.value.trim().slice(0, 4000) : ""; };
-  if (v("website")) { go("feedback", { done: 1 }); return; }            /* honeypot: bots only */
+  if (v("website")) { feedbackDone(embedded); return; }            /* honeypot: bots only */
   const rec = { found: v("found"), difficulty: v("difficulty"), liked: v("liked"), comfort: +chipVal(root, "comfort", false) || 0,
     comfortWhy: v("comfortWhy"), suggest: v("suggest"), name: v("name"), email: v("email"), t: Date.now() };
   if (!rec.found && !rec.difficulty && !rec.liked && !rec.comfort && !rec.comfortWhy && !rec.suggest) { err.innerHTML = `<div class="err">Please answer at least one question.</div>`; return; }
@@ -659,7 +722,12 @@ async function submitFeedback() {
   } else {
     DB.feedback = DB.feedback || []; DB.feedback.push(Object.assign({ id: uid(), reviewed: false }, rec)); save();
   }
-  go("feedback", { done: 1 });
+  feedbackDone(embedded);
+}
+function feedbackDone(embedded) {
+  if (!embedded) { go("feedback", { done: 1 }); return; }
+  const box = document.getElementById("fbEmbed");
+  if (box) box.innerHTML = `<div style="text-align:center;padding:14px 6px"><div class="step-n" style="margin:0 auto 14px;width:44px;height:44px;font-size:20px">✓</div><h3 style="margin:0 0 6px">Thank you for your feedback.</h3><p style="margin:0;color:var(--ink-2)">It will be read, and it will shape what we improve next.</p></div>`;
 }
 
 function feedbackTab() {
@@ -688,6 +756,76 @@ function toggleFb(id) {
   if (LIVE) sb.from("site_feedback").update({ reviewed: f.reviewed }).eq("id", id).then(({ error }) => { if (error) { f.reviewed = !f.reviewed; toast("Couldn't update that."); render(); } });
   else save();
   render();
+}
+
+/* ============================================================
+   HOME SCREEN — photo hero preview + "A look inside" tour (no member data anywhere)
+   ============================================================ */
+function heroPreview(cls) {
+  return `<div class="${cls}">
+    <h4>Two introductions. One choice.</h4>
+    <div class="mini"><div class="av">A</div><div><b>Option one</b><small>First name, age, profession and where they live — and why we chose them for you</small></div></div>
+    <div class="mini"><div class="av">B</div><div><b>Option two</b><small>Shown side by side. Pick one, or pass on both — nobody is told</small></div></div>
+    <div class="lockline">Photos, full name and contact details unlock only when you both say yes.</div>
+  </div>`;
+}
+const SVG_PERSON = `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>`;
+const SVG_LOCK = `<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17 9V7a5 5 0 0 0-10 0v2H5v12h14V9h-2zM9 7a3 3 0 0 1 6 0v2H9V7z"/></svg>`;
+function showTour(i) {
+  document.querySelectorAll(".tour-tab").forEach((b, j) => { b.classList.toggle("on", j === i); b.setAttribute("aria-selected", j === i ? "true" : "false"); });
+  document.querySelectorAll(".tour-panel").forEach((p, j) => p.classList.toggle("on", j === i));
+}
+function tourSection() {
+  const opt = (n, why) => `<div class="mk-opt"><div class="mk-ph">${SVG_PERSON}<span class="mk-lock">${SVG_LOCK}</span></div>
+      <b>${n}</b><small>First name · age</small><small>Profession · city</small>
+      <div class="mk-note">${why}</div><span class="mk-btn">Choose</span></div>`;
+  return `<section class="tour"><div class="wrap">
+    <div class="center">
+      <div class="eyebrow">A look inside</div>
+      <h2>See what it's like.</h2>
+      <p style="max-width:56ch;margin:0 auto;color:var(--ink-2);font-size:17px">Three moments, from your first answer to your first conversation.</p>
+    </div>
+    <div class="tour-tabs" role="tablist">
+      <button class="tour-tab on" role="tab" aria-selected="true" onclick="showTour(0)">1 · Your application</button>
+      <button class="tour-tab" role="tab" aria-selected="false" onclick="showTour(1)">2 · Your two introductions</button>
+      <button class="tour-tab" role="tab" aria-selected="false" onclick="showTour(2)">3 · After you meet</button>
+    </div>
+
+    <div class="tour-panel on">
+      <div><h3>In your own words, at your own pace.</h3>
+        <p>Six short steps. Not a résumé and not a quiz — questions about how you actually live your faith, how far you would move, what your family expects, and the two things you will not compromise on.</p>
+        <p>Nobody sees your answers except the matchmaker who reads them.</p></div>
+      <div class="mock"><div class="mock-h">Step 3 of 6 · Faith &amp; values</div><div class="mock-bar"><i></i></div>
+        <div class="mock-h">How do you practise?</div>
+        <div class="mk-chips"><span class="mk-chip">Very devout</span><span class="mk-chip on">Practising — weekly</span><span class="mk-chip">Cultural</span><span class="mk-chip">Not observant</span></div>
+        <div class="mock-h">Up to five core values</div>
+        <div class="mk-chips"><span class="mk-chip on">Family</span><span class="mk-chip on">Honesty</span><span class="mk-chip">Adventure</span><span class="mk-chip on">Kindness</span><span class="mk-chip">Ambition</span><span class="mk-chip">Humour</span></div>
+        <div class="mock-h">Your two deal breakers</div>
+        <div class="mk-chips" style="margin-bottom:0"><span class="mk-chip red on">Smoking</span><span class="mk-chip red on">Long distance</span><span class="mk-chip">Previously married</span></div></div>
+    </div>
+
+    <div class="tour-panel">
+      <div><h3>Two considered introductions. Not two hundred.</h3>
+        <p>When a real person at the matchmaker's desk finds a strong match, you receive two private introductions side by side — each with a plain explanation of why we chose them.</p>
+        <p>Choose one, or pass on both. If you pass, nobody is told.</p></div>
+      <div class="mock"><div class="mock-h" style="margin-bottom:12px">Your introductions</div>
+        <div class="mk-two">${opt("Option one", "Why we chose them for you, in a sentence or two.")}${opt("Option two", "Why we chose them for you, in a sentence or two.")}</div></div>
+    </div>
+
+    <div class="tour-panel">
+      <div><h3>Photos unlock only when you both say yes.</h3>
+        <p>Full names, photographs and contact details stay hidden until you both agree. Then the conversation is yours.</p>
+        <p>Afterwards you tell us privately how it went and whether you were treated well. It shapes what we send you next — and it is how this stays a place where people are looked after.</p></div>
+      <div class="mock"><div class="mock-h" style="margin-bottom:6px">Your private check-in</div>
+        <div style="font-weight:700;font-size:14.5px;margin-top:12px">Were you treated well?</div>
+        <div class="mk-radio on"><i></i>Yes, completely</div><div class="mk-radio"><i></i>Mostly</div><div class="mk-radio"><i></i>No — I'd like to talk to you about it</div>
+        <div style="font-weight:700;font-size:14.5px;margin-top:16px">Would you like another introduction?</div>
+        <div class="mk-radio on"><i></i>Yes, when you're ready</div><div class="mk-radio"><i></i>Not just yet</div>
+        <p style="font-size:12.5px;color:var(--muted);margin:14px 0 0">Only your matchmaker reads this. The other person never sees it.</p></div>
+    </div>
+  </div></section>
+
+  `;
 }
 
 let DB = { members: [], slates: [], seeded: false };
@@ -935,10 +1073,9 @@ function footer() {
    LANDING
    ============================================================ */
 function landing() {
-  const approved = DB.members.filter(m => m.status === "approved");
-  const happy = DB.slates.filter(s => s.stage === "engaged" || s.stage === "married").length;
+  const img = BRAND.hero.image;
   return `
-  <div class="hero"><div class="tex"></div><div class="wrap hero-in">
+  <div class="hero"><div class="tex"></div><div class="wrap hero-in${img ? " has-photo" : ""}">
     <div>
       <div class="eyebrow">${esc(BRAND.hero.eyebrow)}</div>
       <h1>${BRAND.hero.h1}</h1>
@@ -951,18 +1088,7 @@ function landing() {
         ${BRAND.hero.trust.map(t => `<span><i class="dot"></i> ${esc(t)}</span>`).join("")}
       </div>
     </div>
-    <div class="hero-card">
-      ${LIVE ? `<h4>Two introductions. One choice.</h4>
-      <div class="mini"><div class="av">A</div><div><b>Option one</b><small>First name, age, profession and where they live — and why we chose them for you</small></div></div>
-      <div class="mini"><div class="av">B</div><div><b>Option two</b><small>Shown side by side. Pick one, or pass on both — nobody is told</small></div></div>
-      <div style="margin-top:14px;font-size:12.8px;color:var(--muted);border-top:1px solid var(--sand);padding-top:12px">Photos, full name and contact details unlock only when you both say yes.</div>` : `
-      <h4>On the matchmaker's desk today</h4>
-      ${approved.slice(0, 4).map(m => `<div class="mini"><div class="av">${initials(m)}</div>
-        <div><b>${esc(publicName(m))}, ${age(m.dob)}</b><small>${esc(m.profession)} · ${esc(place(m))}</small></div></div>`).join("")}
-      <div style="margin-top:14px;font-size:12.8px;color:var(--muted);border-top:1px solid var(--sand);padding-top:12px">
-        ${approved.length} vetted members · ${happy} introductions now engaged or married
-      </div>`}
-    </div>
+    ${img ? `<div class="hero-art"><div class="hero-photo"><img src="${esc(img)}" alt="${esc(BRAND.hero.imageAlt || "")}" fetchpriority="high" onerror="this.remove()"></div>${heroPreview("hero-float")}</div>` : heroPreview("hero-card")}
   </div></div>
 
   <section id="how"><div class="wrap">
@@ -975,6 +1101,7 @@ function landing() {
     </div>
   </div></section>
 
+  ${tourSection()}
   <section class="section-alt"><div class="wrap split">
     <div>
       <div class="eyebrow">${esc(BRAND.why.eyebrow)}</div>
@@ -1331,7 +1458,7 @@ function submittedView() {
     Nothing about you is visible to any other member until you're approved, and your photos stay locked until you and a match
     have both said yes.</p>
     <button class="btn btn-primary" onclick="go('portal')">Go to my portal</button>
-    <p style="margin-top:26px;font-size:14.5px;color:var(--muted)">Part of our pilot? <a onclick="go('feedback')" style="cursor:pointer">Tell us how the application felt</a>.</p>
+    ${feedbackEmbed()}
   </div>${footer()}`;
 }
 
