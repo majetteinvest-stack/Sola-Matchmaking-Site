@@ -386,7 +386,7 @@ const STAGE_LABEL = {
    Paste both (Supabase → Project Settings → API) to switch to real accounts.
    The anon key is designed to be public; the database rules protect the data.
    ============================================================ */
-const CONFIG = { SUPABASE_URL: "", SUPABASE_ANON_KEY: "" };
+const CONFIG = { SUPABASE_URL: "twvtqpsdrqmseekfdpzg", SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3dnRxcHNkcnFtc2Vla2ZkcHpnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE2NTc3MzQsImV4cCI6MjEwNzIzMzczNH0.J7zSXYWOp-mOsPy0b1CWT15aQG0_f4ovL0M5JXu7bUE" };
 const LIVE = !!(CONFIG.SUPABASE_URL && CONFIG.SUPABASE_ANON_KEY);
 const sb = (LIVE && window.supabase) ? window.supabase.createClient(CONFIG.SUPABASE_URL, CONFIG.SUPABASE_ANON_KEY) : null;
 const PENDING_KEY = "sola." + BRAND.key + ".pending";
