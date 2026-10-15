@@ -435,9 +435,17 @@ const STAGE_LABEL = {
    Paste both (Supabase → Project Settings → API) to switch to real accounts.
    The anon key is designed to be public; the database rules protect the data.
    ============================================================ */
-const CONFIG = { SUPABASE_URL: "gfiopxtjputrqgtkooox", SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdmaW9weHRqcHV0cnFndGtvb294Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE4ODk4OTcsImV4cCI6MjEwNzQ2NTg5N30.lhV7zqELAd7XIxDpawl8BXHF9AnrVw7yHkrsBYgNxno" };
-const LIVE = !!(CONFIG.SUPABASE_URL && CONFIG.SUPABASE_ANON_KEY);
-const sb = (LIVE && window.supabase) ? window.supabase.createClient(CONFIG.SUPABASE_URL, CONFIG.SUPABASE_ANON_KEY) : null;
+const CONFIG = { SUPABASE_URL: "https://gfiopxtjputrqgtkooox.supabase.co", SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdmaW9weHRqcHV0cnFndGtvb294Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE4ODk4OTcsImV4cCI6MjEwNzQ2NTg5N30.lhV7zqELAd7XIxDpawl8BXHF9AnrVw7yHkrsBYgNxno" };
+/* Forgiving: accepts the full address, an address without https://, or just the project ID. */
+function cleanSupabaseUrl(u) {
+  u = (u || "").trim(); if (!u) return "";
+  if (!/^https?:\/\//i.test(u)) u = /^[a-z0-9]{15,30}$/i.test(u) ? "https://" + u + ".supabase.co" : "https://" + u;
+  try { return new URL(u).origin; } catch (e) { return u; }
+}
+const SB_URL = cleanSupabaseUrl(CONFIG.SUPABASE_URL), SB_KEY = (CONFIG.SUPABASE_ANON_KEY || "").trim();
+const LIVE = !!(SB_URL && SB_KEY);
+let sb = null;
+try { if (LIVE && window.supabase) sb = window.supabase.createClient(SB_URL, SB_KEY); } catch (e) { console.error("Supabase setup problem:", e); }
 const PENDING_KEY = "sola." + BRAND.key + ".pending";
 let SNAP = { d: {}, st: {}, n: {}, s: {} };
 
