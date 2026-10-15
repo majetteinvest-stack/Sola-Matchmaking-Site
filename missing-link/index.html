@@ -258,7 +258,7 @@ tr:hover td{background:var(--tint)}
 .mk-chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
 .mk-chip{border:1px solid var(--line-s);border-radius:999px;padding:7px 13px;font-size:13.5px;color:var(--ink-2);background:var(--white)}
 .mk-chip.on{background:var(--tint);border-color:var(--primary);color:var(--primary-d);font-weight:700}
-.mk-chip.red.on{background:var(--red-bg);border-color:var(--red-line);color:var(--red)}
+.mk-chip.red.on{background:var(--ink);border-color:var(--ink);color:#fff;font-weight:700}
 .mk-two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .mk-opt{border:1px solid var(--line);border-radius:12px;padding:16px 12px;text-align:center}
 .mk-ph{width:66px;height:66px;border-radius:50%;background:var(--tint);margin:0 auto 10px;display:grid;place-items:center;color:var(--primary-d);position:relative}
@@ -436,8 +436,16 @@ const STAGE_LABEL = {
    The anon key is designed to be public; the database rules protect the data.
    ============================================================ */
 const CONFIG = { SUPABASE_URL: "https://twvtqpsdrqmseekfdpzg.supabase.co", SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR3dnRxcHNkcnFtc2Vla2ZkcHpnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE2NTc3MzQsImV4cCI6MjEwNzIzMzczNH0.J7zSXYWOp-mOsPy0b1CWT15aQG0_f4ovL0M5JXu7bUE" };
-const LIVE = !!(CONFIG.SUPABASE_URL && CONFIG.SUPABASE_ANON_KEY);
-const sb = (LIVE && window.supabase) ? window.supabase.createClient(CONFIG.SUPABASE_URL, CONFIG.SUPABASE_ANON_KEY) : null;
+/* Forgiving: accepts the full address, an address without https://, or just the project ID. */
+function cleanSupabaseUrl(u) {
+  u = (u || "").trim(); if (!u) return "";
+  if (!/^https?:\/\//i.test(u)) u = /^[a-z0-9]{15,30}$/i.test(u) ? "https://" + u + ".supabase.co" : "https://" + u;
+  try { return new URL(u).origin; } catch (e) { return u; }
+}
+const SB_URL = cleanSupabaseUrl(CONFIG.SUPABASE_URL), SB_KEY = (CONFIG.SUPABASE_ANON_KEY || "").trim();
+const LIVE = !!(SB_URL && SB_KEY);
+let sb = null;
+try { if (LIVE && window.supabase) sb = window.supabase.createClient(SB_URL, SB_KEY); } catch (e) { console.error("Supabase setup problem:", e); }
 const PENDING_KEY = "sola." + BRAND.key + ".pending";
 let SNAP = { d: {}, st: {}, n: {}, s: {} };
 
